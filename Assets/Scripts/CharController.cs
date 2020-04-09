@@ -44,23 +44,28 @@ public class CharController : MonoBehaviour
         Vector3 perpendicularToPlayerBottomLine = new Vector2(playerBottomLine.y, -playerBottomLine.x).normalized * skinOffset;
         
         //CREATE RAYS ALONG BOTTOM EDGE
-        List<Ray2D> ray2Ds = new List<Ray2D>();
-        float rayCastSpacing = 0.25f;
+        List<Ray2D> bottomPlayerRay2Ds = new List<Ray2D>();
+        float rayCastSpacing = playerBottomLine.sqrMagnitude / 3;
+        var startOfRay = Vector3.zero;
+        for (float raySpacer = 0; ;raySpacer += rayCastSpacing)
+        {
+                //eq of start line is :: minXPos + scale * vector bottom line
+                startOfRay = new Vector3(minXPos.x + (raySpacer * playerBottomLine.x), minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
+                if (startOfRay.x > maxXPos.x) break;
+                Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
+                bottomPlayerRay2Ds.Add(r2d);
+        }
+
         float rayCastLength = 0.1f;
-        for (float raySpacer = rayCastSpacing; raySpacer < minXPos.x + maxXPos.x; raySpacer += rayCastSpacing)
+        foreach (var rayCast in bottomPlayerRay2Ds)
         {
-            //eq of start line is :: minXPos + scale * vector bottom line
-            Vector3 startOfRay = new Vector3(minXPos.x  + (raySpacer * playerBottomLine.x) , minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
-            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
-            ray2Ds.Add(r2d);
+            Debug.DrawRay(rayCast.origin, rayCast.direction * rayCastLength, Color.cyan);
         }
+        
+        //
 
-        foreach (var rayCast in ray2Ds)
-        {
-            Debug.DrawRay(rayCast.origin, rayCast.direction * rayCastLength, Color.magenta);
-        }
-
-        Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(perpendicularToPlayerBottomLine.x*2, perpendicularToPlayerBottomLine.y*2, 0), Color.magenta);
+        //CHANGE THIS SO IT CHECKS ALL RAYS, WHICH SHOULD BE FIRST TO HIT? 
+        // Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(perpendicularToPlayerBottomLine.x*2, perpendicularToPlayerBottomLine.y*2, 0), Color.magenta);
         
         var ignoreLayer = GetIgnoreLayer();
 
