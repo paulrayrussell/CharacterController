@@ -33,8 +33,8 @@ public class CharController : MonoBehaviour
 
 
         
-        // DebugUtil.DrawMarker(minXPos, Color.cyan);
-        // DebugUtil.DrawMarker(maxXPos, Color.cyan);
+        DebugUtil.DrawMarker(minXPos, Color.cyan);
+        DebugUtil.DrawMarker(maxXPos, Color.cyan);
         Vector3 playerBottomLineMidPt = (minXPos + maxXPos) / 2;
         //
         // DebugUtil.DrawMarker(playerBottomLineMidPt, Color.cyan);
@@ -44,12 +44,20 @@ public class CharController : MonoBehaviour
         Vector3 perpendicularToPlayerBottomLine = new Vector2(playerBottomLine.y, -playerBottomLine.x).normalized * skinOffset;
         
         //CREATE RAYS ALONG BOTTOM EDGE
-        float rayCastSpacing = 0.1f;
-        for (float raySpacer = 0; raySpacer < maxXPos.x; raySpacer += rayCastSpacing)
+        List<Ray2D> ray2Ds = new List<Ray2D>();
+        float rayCastSpacing = 0.25f;
+        float rayCastLength = 0.1f;
+        for (float raySpacer = rayCastSpacing; raySpacer < minXPos.x + maxXPos.x; raySpacer += rayCastSpacing)
         {
             //eq of start line is :: minXPos + scale * vector bottom line
-            Vector3 startOfRay = new Vector3(minXPos.x  + (raySpacer * playerBottomLine.x) , minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);  
-            Debug.DrawRay(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x*2, perpendicularToPlayerBottomLine.y*2, 0), Color.magenta);
+            Vector3 startOfRay = new Vector3(minXPos.x  + (raySpacer * playerBottomLine.x) , minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
+            ray2Ds.Add(r2d);
+        }
+
+        foreach (var rayCast in ray2Ds)
+        {
+            Debug.DrawRay(rayCast.origin, rayCast.direction * rayCastLength, Color.magenta);
         }
 
         Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(perpendicularToPlayerBottomLine.x*2, perpendicularToPlayerBottomLine.y*2, 0), Color.magenta);
