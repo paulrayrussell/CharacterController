@@ -5,7 +5,7 @@ namespace SpriteFlick.Util
     public class DebugUtil
     {
         public static void DrawMarker(Vector2 position, Color color, float pointSize = 0.02f) {
-            float zIndex = -2;
+            float zIndex = 0;
             Debug.DrawLine(position, new Vector3(position.x, position.y + pointSize, zIndex), color);
             Debug.DrawLine(position, new Vector3(position.x, position.y - pointSize, zIndex), color);
             Debug.DrawLine(position, new Vector3(position.x + pointSize, position.y + pointSize, zIndex), color);

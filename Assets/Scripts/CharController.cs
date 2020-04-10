@@ -33,25 +33,25 @@ public class CharController : MonoBehaviour
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
-        playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
+        // playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
 
     private void FixedUpdate()
     {
         List<Vector3> vertices = GetBoxCorners(playerBox);
+
+        List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], 6);
+        // List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], 12);
+        // List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], 12);
+        // List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], 6);
         
-        List<Ray2D> bottomPlayerRay2Ds= CreateEdgeRays(vertices[0], vertices[2], 5);
-        List<Ray2D> eastPlayerRay2Ds= CreateEdgeRays(vertices[2], vertices[3], 12);
-        List<Ray2D> westPlayerRay2Ds= CreateEdgeRays(vertices[0], vertices[1], 12);
-        List<Ray2D> northPlayerRay2Ds= CreateEdgeRays(vertices[1], vertices[3], 6);
+        DebugDrawAllRayCasts(southPlayerRay2Ds, rayCastLength);
+        // DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
+        // DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
+        // DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
         
-        DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
-        
-        RaycastHit2D rch = CheckAllRayCastsForaHit(bottomPlayerRay2Ds, rayCastLength, ignoreLayer);
+        RaycastHit2D rch = CheckAllRayCastsForaHit(southPlayerRay2Ds, rayCastLength, ignoreLayer);
         
         if (rch && state != CharacterState.JUMPING)
         {
@@ -61,7 +61,7 @@ public class CharController : MonoBehaviour
                 velY = 0;
                 platformTop = SetGroundSlopeRotation(rch, vertices);
             }
-
+        
             state = CharacterState.GROUNDED;
             velX = Mathf.SmoothDamp(velX, 0, ref vel, frictionX * Time.deltaTime);
         }
@@ -74,7 +74,7 @@ public class CharController : MonoBehaviour
         
         transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 0.5f);
         velY = Mathf.Clamp(velY, minFallClamp, max: maxFallClamp);
-
+        
         if (state == CharacterState.GROUNDED) //constrain... player along equation of line for platform top
         {
             transform.position = new Vector3(transform.position.x + (platformTop.x * velX)  , transform.position.y + (platformTop.y * velX), 0);
@@ -85,23 +85,14 @@ public class CharController : MonoBehaviour
         }
     }
 
-    private RaycastHit2D CheckAllRayCastsForaHit(List<Ray2D> bottomPlayerRay2Ds, float rayCastLength, int ignoreLayer)
+    private RaycastHit2D CheckAllRayCastsForaHit(List<Ray2D> rays, float rayCastLength, int ignoreLayer)
     {
         RaycastHit2D rch = new RaycastHit2D();
-        for (int i = 1; i < bottomPlayerRay2Ds.Count; i++)
+        for (int i = 0; i < rays.Count; i++)
         {
             //length from ray2d will be normalized to 1
-            rch = Physics2D.Raycast(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction, rayCastLength, ignoreLayer);
-            if (rch)
-            {
-                Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
-                // Debug.Log("Hit");
-                return rch;
-            }
-            else
-            {
-                Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.green);
-            }
+            rch = Physics2D.Raycast(rays[i].origin, rays[i].direction, rayCastLength, ignoreLayer);
+            if (rch) return rch;
         }
 
         return rch;
@@ -117,10 +108,10 @@ public class CharController : MonoBehaviour
         Vector3 perpendicular = new Vector2(dir.y, -dir.x).normalized;
         
         List<Ray2D> rays = new List<Ray2D>();
-        
-        for (float raySpacer = 0.001f; rays.Count<=rayDivisions; raySpacer += (dir.sqrMagnitude) / rayDivisions)
+        float divSize = dir.magnitude / rayDivisions;
+        Debug.Log(dir.magnitude);
+        for (float raySpacer = 0.001f; rays.Count<=rayDivisions; raySpacer += divSize*1.5f)
         {
-            //eq of start line is :: a + (scale * dir)
             var startOfRay = new Vector3(a.x + (raySpacer * dir.x), a.y + (raySpacer * dir.y), 0);
             Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
             rays.Add(r2d);
@@ -144,9 +135,7 @@ public class CharController : MonoBehaviour
 
         float angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
         // Debug.Log("Before player adjust " + angleBetweenPlayerAndPlatform);
-        angleBetweenPlayerAndPlatform =
-            angleBetweenPlayerAndPlatform +
-            transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation
+        angleBetweenPlayerAndPlatform = angleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation
         // Debug.Log("After player adjust " + angleBetweenPlayerAndPlatform);
         currentGroundSlope = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
         
@@ -177,8 +166,7 @@ public class CharController : MonoBehaviour
         Vector3 worldPosition = bcTransform.TransformPoint(0, 0, 0);
 
         // The collider's local width and height, accounting for scale, divided by 2
-        Vector2 size = new Vector2(boxColl.size.x * bcTransform.localScale.x * 0.5f,
-            boxColl.size.y * bcTransform.localScale.y * 0.5f);
+        Vector2 size = new Vector2(boxColl.size.x * bcTransform.localScale.x * 0.5f, boxColl.size.y * bcTransform.localScale.y * 0.5f);
 
         // STEP 1: FIND LOCAL, UN-ROTATED CORNERS
         // Find the 4 corners of the BoxCollider2D in LOCAL space, if the BoxCollider2D had never been rotated
@@ -217,11 +205,11 @@ public class CharController : MonoBehaviour
         return point; // return it
     }
 
-    private static void DebugDrawAllRayCasts(List<Ray2D> bottomPlayerRay2Ds, float rayCastLength)
+    private static void DebugDrawAllRayCasts(List<Ray2D> rays, float rayCastLength)
     {
-        for (int i = 0; i < bottomPlayerRay2Ds.Count; i++)
+        for (int i = 0; i < rays.Count; i++)
         {
-            Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
+            Debug.DrawRay(rays[i].origin, rays[i].direction * rayCastLength, Color.red);
         }
     }
 }
