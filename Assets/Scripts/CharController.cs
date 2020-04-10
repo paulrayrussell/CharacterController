@@ -8,7 +8,8 @@ using Unity.Mathematics;
 public class CharController : MonoBehaviour
 {
     private BoxCollider2D playerBox;
-    private float gravity_modifier = 0.05f;
+    private BoxCollider2D playerBoxStrunk;
+    private float gravity_modifier = 0.01f;
     internal float velX = 0;
     internal float velY = 0;
     private float skinOffset = 0.5f, minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
@@ -21,10 +22,15 @@ public class CharController : MonoBehaviour
     }
 
     public CharacterState state;
+    Vector2 platformTop;
 
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
+        Quaternion rot = playerBox.transform.rotation;
+        playerBox.transform.rotation = Quaternion.Euler(0,0,0);
+        playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
+        playerBox.transform.rotation = rot;
     }
 
     private void FixedUpdate()
@@ -32,52 +38,62 @@ public class CharController : MonoBehaviour
         List<Vector3> boxCorners = GetBoxCorners(playerBox);
         Vector3 minXPos = boxCorners[0];
         Vector3 maxXPos = boxCorners[2];
+        
 
         DebugUtil.DrawMarker(minXPos, Color.cyan);
         DebugUtil.DrawMarker(maxXPos, Color.cyan);
         Vector3 playerBottomLineMidPt = (minXPos + maxXPos) / 2;
         //
-        // DebugUtil.DrawMarker(playerBottomLineMidPt, Color.cyan);
+        DebugUtil.DrawMarker(playerBottomLineMidPt, Color.cyan);
         Vector3 playerBottomLine = maxXPos - minXPos;
         // Debug.DrawRay(new Vector3(minXPos.x, minXPos.y, 0), new Vector3(baseLine.x*2, baseLine.y*2, 0), Color.green);
 
         Vector3 perpendicularToPlayerBottomLine =
             new Vector2(playerBottomLine.y, -playerBottomLine.x).normalized * skinOffset;
+        
+        //you need to move the origin back on itself a bit...
 
         //CREATE RAYS ALONG BOTTOM EDGE
-        var bottomPlayerRay2Ds =
-            CreatePlayerBottomEdgeRays(playerBottomLine, minXPos, maxXPos, perpendicularToPlayerBottomLine);
+        var bottomPlayerRay2Ds= CreatePlayerBottomEdgeRays(playerBottomLine, minXPos, maxXPos, perpendicularToPlayerBottomLine);
 
         var ignoreLayer = GetIgnoreLayer();
         float rayCastLength = 0.1f;
 
         RaycastHit2D rch = CheckAllRayCastsForaHit(bottomPlayerRay2Ds, rayCastLength, ignoreLayer);
-
-        if (rch)
+        
+        if (rch && state != CharacterState.JUMPING)
         {
             if (state != CharacterState.GROUNDED)
             {
                 state = CharacterState.GROUNDED;
                 velY = 0;
-                Debug.Log("Hit collider " + rch.collider.name);
-                SetGroundSlopeRotation(rch, playerBottomLine);
+                // Debug.Log("Hit collider " + rch.collider.name);
+                platformTop = SetGroundSlopeRotation(rch, playerBottomLine);
             }
 
             state = CharacterState.GROUNDED;
-            DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
+            // DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
 
             velX = Mathf.SmoothDamp(velX, 0, ref vel, frictionX * Time.deltaTime);
         }
-        else
+        else 
         {
-            state = CharacterState.FALLING; //no collision set state to falling
-            currentGroundSlope =
-                Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            if (velY < 0f) state = CharacterState.FALLING; //no collision set state to falling
+            currentGroundSlope = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
             velY -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
         }
-        transform.rotation = Quaternion.Lerp(transform.rotation, currentGroundSlope, 0.1f);
+        
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 0.5f);
         velY = Mathf.Clamp(velY, minFallClamp, max: maxFallClamp);
-        transform.position = new Vector3(transform.position.x + velX, transform.position.y + velY, 0);
+
+        if (state == CharacterState.GROUNDED) //constrain... player along equation of line for platform top
+        {
+            transform.position = new Vector3(transform.position.x + (platformTop.x * velX)  , transform.position.y + (platformTop.y * velX), 0);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x + velX, transform.position.y + velY, 0);
+        }
     }
 
     private static void DebugDrawAllRayCasts(List<Ray2D> bottomPlayerRay2Ds, float rayCastLength)
@@ -93,13 +109,17 @@ public class CharController : MonoBehaviour
         RaycastHit2D rch = new RaycastHit2D();
         for (int i = 1; i < bottomPlayerRay2Ds.Count; i++)
         {
-            rch = Physics2D.Raycast(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength,
-                skinOffset, ignoreLayer);
-            Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
+            //length from ray2d will be normalized to 1
+            rch = Physics2D.Raycast(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction, rayCastLength, ignoreLayer);
             if (rch)
             {
+                Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
                 // Debug.Log("Hit");
                 return rch;
+            }
+            else
+            {
+                Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.green);
             }
         }
 
@@ -115,23 +135,21 @@ public class CharController : MonoBehaviour
         for (float raySpacer = 0;; raySpacer += playerBottomLine.sqrMagnitude / rayCastSpacingWidth)
         {
             //eq of start line is :: minXPos + scale * vector bottom line
-            startOfRay = new Vector3(minXPos.x + (raySpacer * playerBottomLine.x),
-                minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
+            startOfRay = new Vector3(minXPos.x + (raySpacer * playerBottomLine.x), minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
             if (startOfRay.x > maxXPos.x) break;
-            Ray2D r2d = new Ray2D(startOfRay,
-                new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
             bottomPlayerRay2Ds.Add(r2d);
         }
 
         return bottomPlayerRay2Ds;
     }
-
-    private void SetGroundSlopeRotation(RaycastHit2D rch, Vector3 playerBottomLine)
+    
+    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, Vector3 playerBottomLine)
     {
         // List<Vector3> platCorns = GetBoxCorners((BoxCollider2D) rch.collider);
         // Vector3 platformTopCorn = platCorns[1];
         // DebugUtil.DrawMarker(platformTopCorn, Color.cyan);
-        Vector3 platformTop = new Vector3(rch.normal.y, -rch.normal.x); //needs to be perp in 3D
+        platformTop = new Vector3(rch.normal.y, -rch.normal.x);
         // Debug.DrawRay(platformTopCorn, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta);
         // Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(playerBottomLine.x, playerBottomLine.y, 0), Color.blue);
 
@@ -142,6 +160,8 @@ public class CharController : MonoBehaviour
             transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation
         // Debug.Log("After player adjust " + angleBetweenPlayerAndPlatform);
         currentGroundSlope = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
+        
+        return platformTop;
     }
 
 
@@ -194,6 +214,7 @@ public class CharController : MonoBehaviour
         corner2 = worldPosition + corner2;
         corner3 = worldPosition + corner3;
         corner4 = worldPosition + corner4;
+        
         List<Vector3> vertList = new List<Vector3>();
         vertList.Add(corner1);
         vertList.Add(corner2);
