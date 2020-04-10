@@ -87,20 +87,17 @@ public class CharController : MonoBehaviour
 
     private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine)
     {
-        Vector3 displacement = b-a;
+        Vector3 displacement = b-a; //distance between two corners
         
-        DebugUtil.DrawMarker(a, Color.blue);
-        DebugUtil.DrawMarker(b, Color.yellow);
+        Vector3 perpendicular = reverseLine ? new Vector2(-displacement.y, displacement.x).normalized : new Vector2(displacement.y, -displacement.x).normalized; // in some cases we want to shoo ary in revser
         
-        Vector3 perpendicular = reverseLine ? new Vector2(-displacement.y, displacement.x).normalized : new Vector2(displacement.y, -displacement.x).normalized;
-
         List<Ray2D> rays = new List<Ray2D>();
-        
-        float raySpacing = 0.1f;
-        
-        for (float raySpacer = 0.001f; ;raySpacer += raySpacing) 
+        rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
+        rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
+
+        for (float scalar = 0.25f; ;scalar += 0.25f) //we we travel along equation of line inserting ray ever 1/4 of line
         {
-            Vector3 startOfRay = new Vector3(a.x + (raySpacer * displacement.x), a.y + (raySpacer * displacement.y), 0);
+            Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
             Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
             rays.Add(r2d);
