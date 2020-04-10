@@ -41,15 +41,15 @@ public class CharController : MonoBehaviour
     {
         List<Vector3> vertices = GetBoxCorners(playerBox);
 
-        List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], 6);
-        // List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], 12);
-        // List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], 12);
-        // List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], 6);
+        List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false);
+        List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
+        List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
+        List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
         
         DebugDrawAllRayCasts(southPlayerRay2Ds, rayCastLength);
-        // DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
-        // DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
-        // DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
+        DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
+        DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
+        DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
         
         RaycastHit2D rch = CheckAllRayCastsForaHit(southPlayerRay2Ds, rayCastLength, ignoreLayer);
         
@@ -85,6 +85,30 @@ public class CharController : MonoBehaviour
         }
     }
 
+    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine)
+    {
+        Vector3 displacement = b-a;
+        
+        DebugUtil.DrawMarker(a, Color.blue);
+        DebugUtil.DrawMarker(b, Color.yellow);
+        
+        Vector3 perpendicular = reverseLine ? new Vector2(-displacement.y, displacement.x).normalized : new Vector2(displacement.y, -displacement.x).normalized;
+
+        List<Ray2D> rays = new List<Ray2D>();
+        
+        float raySpacing = 0.1f;
+        
+        for (float raySpacer = 0.001f; ;raySpacer += raySpacing) 
+        {
+            Vector3 startOfRay = new Vector3(a.x + (raySpacer * displacement.x), a.y + (raySpacer * displacement.y), 0);
+            if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
+            rays.Add(r2d);
+        }
+
+        return rays; 
+    }
+
     private RaycastHit2D CheckAllRayCastsForaHit(List<Ray2D> rays, float rayCastLength, int ignoreLayer)
     {
         RaycastHit2D rch = new RaycastHit2D();
@@ -96,28 +120,6 @@ public class CharController : MonoBehaviour
         }
 
         return rch;
-    }
-
-    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, int rayDivisions)
-    {
-        Vector3 dir = b-a;
-        
-        DebugUtil.DrawMarker(a, Color.blue);
-        DebugUtil.DrawMarker(b, Color.yellow);
-        
-        Vector3 perpendicular = new Vector2(dir.y, -dir.x).normalized;
-        
-        List<Ray2D> rays = new List<Ray2D>();
-        float divSize = dir.magnitude / rayDivisions;
-        Debug.Log(dir.magnitude);
-        for (float raySpacer = 0.001f; rays.Count<=rayDivisions; raySpacer += divSize*1.5f)
-        {
-            var startOfRay = new Vector3(a.x + (raySpacer * dir.x), a.y + (raySpacer * dir.y), 0);
-            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
-            rays.Add(r2d);
-        }
-
-        return rays; 
     }
 
     private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, List<Vector3> vertices)
