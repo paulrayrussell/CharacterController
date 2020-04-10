@@ -13,11 +13,13 @@ public class CharController : MonoBehaviour
     internal float velX = 0;
     internal float velY = 0;
     private float minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
+    float rayCastLength = 0.1f;
+
     private Quaternion currentGroundSlope;
     private float vel;
     Vector2 platformTop;
+    int ignoreLayer;
 
-    
     public enum CharacterState
     {
         GROUNDED,
@@ -32,22 +34,23 @@ public class CharController : MonoBehaviour
     {
         playerBox = GetComponent<BoxCollider2D>();
         playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
+        ignoreLayer = GetIgnoreLayer();
     }
 
     private void FixedUpdate()
     {
-
         List<Vector3> vertices = GetBoxCorners(playerBox);
-        List<Ray2D> bottomPlayerRay2Ds= CreatePlayerBottomEdgeRays(vertices);
-        List<Ray2D> eastPlayerRay2Ds= CreatePlayerEastEdgeRays(vertices);
-
-        float rayCastLength = 0.1f;
+        
+        List<Ray2D> bottomPlayerRay2Ds= CreateEdgeRays(vertices[0], vertices[2], 5);
+        List<Ray2D> eastPlayerRay2Ds= CreateEdgeRays(vertices[2], vertices[3], 12);
+        List<Ray2D> westPlayerRay2Ds= CreateEdgeRays(vertices[0], vertices[1], 12);
+        List<Ray2D> northPlayerRay2Ds= CreateEdgeRays(vertices[1], vertices[3], 6);
         
         DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
         DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
-
-        var ignoreLayer = GetIgnoreLayer();
-
+        DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
+        DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
+        
         RaycastHit2D rch = CheckAllRayCastsForaHit(bottomPlayerRay2Ds, rayCastLength, ignoreLayer);
         
         if (rch && state != CharacterState.JUMPING)
@@ -104,58 +107,26 @@ public class CharController : MonoBehaviour
         return rch;
     }
 
-    private List<Ray2D> CreatePlayerEastEdgeRays(List<Vector3> vertices)
+    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, int rayDivisions)
     {
-        Vector3 a = vertices[2];
-        Vector3 b = vertices[3];
-       
         Vector3 dir = b-a;
         
         DebugUtil.DrawMarker(a, Color.blue);
         DebugUtil.DrawMarker(b, Color.yellow);
         
-        Vector3 perpendicularToPlayerEastSide = new Vector2(dir.y, -dir.x).normalized;
+        Vector3 perpendicular = new Vector2(dir.y, -dir.x).normalized;
         
         List<Ray2D> rays = new List<Ray2D>();
-        int rayCastSpacingWidth = 8;
-        var startOfRay = Vector3.zero;
-        for (float raySpacer = 0;; raySpacer += dir.sqrMagnitude / rayCastSpacingWidth)
+        
+        for (float raySpacer = 0.001f; rays.Count<=rayDivisions; raySpacer += (dir.sqrMagnitude) / rayDivisions)
         {
             //eq of start line is :: a + (scale * dir)
-            startOfRay = new Vector3(a.x + (raySpacer * dir.x), a.y + (raySpacer * dir.y), dir.z);
-            if (startOfRay.y > b.y) break; // need better way to break off in direction of travel
-            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerEastSide.x, perpendicularToPlayerEastSide.y, 0));
+            var startOfRay = new Vector3(a.x + (raySpacer * dir.x), a.y + (raySpacer * dir.y), 0);
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
             rays.Add(r2d);
         }
 
         return rays; 
-    }
-
-    private List<Ray2D> CreatePlayerBottomEdgeRays(List<Vector3> vertices)
-    {
-        Vector3 playerSWCorner = vertices[0];
-        Vector3 playerSECorner = vertices[2];
-        Vector3 lineEqDirection = playerSECorner - playerSWCorner;
-        
-        // DebugUtil.DrawMarker(playerSWCorner, Color.cyan);
-        // DebugUtil.DrawMarker(playerSECorner, Color.cyan);
-        
-        Vector3 perpendicularToPlayerSouthLine = new Vector2(lineEqDirection.y, -lineEqDirection.x).normalized;
-        
-        List<Ray2D> rays = new List<Ray2D>();
-        int rayCastSpacingWidth = 3;
-        var startOfRay = Vector3.zero;
-        
-        for (float raySpacer = 0;; raySpacer += lineEqDirection.sqrMagnitude / rayCastSpacingWidth)
-        {
-            //eq of start line is :: minXPos + scale * vector bottom line
-            startOfRay = new Vector3(playerSWCorner.x + (raySpacer * lineEqDirection.x), playerSWCorner.y + (raySpacer * lineEqDirection.y), lineEqDirection.z);
-            if (startOfRay.x > playerSECorner.x) break;
-            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerSouthLine.x, perpendicularToPlayerSouthLine.y, 0));
-            rays.Add(r2d);
-        }
-        
-        return rays;
     }
 
     private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, List<Vector3> vertices)
