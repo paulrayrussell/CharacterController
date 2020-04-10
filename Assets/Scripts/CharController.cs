@@ -9,11 +9,15 @@ public class CharController : MonoBehaviour
 {
     private BoxCollider2D playerBox;
     private BoxCollider2D playerBoxStrunk;
-    private float gravity_modifier = 0.01f;
+    private float gravity_modifier = 0.005f;
     internal float velX = 0;
     internal float velY = 0;
-    private float skinOffset = 0.5f, minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
+    private float minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
+    private Quaternion currentGroundSlope;
+    private float vel;
+    Vector2 platformTop;
 
+    
     public enum CharacterState
     {
         GROUNDED,
@@ -22,42 +26,27 @@ public class CharController : MonoBehaviour
     }
 
     public CharacterState state;
-    Vector2 platformTop;
+
 
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
-        Quaternion rot = playerBox.transform.rotation;
-        playerBox.transform.rotation = Quaternion.Euler(0,0,0);
         playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
-        playerBox.transform.rotation = rot;
     }
 
     private void FixedUpdate()
     {
-        List<Vector3> boxCorners = GetBoxCorners(playerBox);
-        Vector3 minXPos = boxCorners[0];
-        Vector3 maxXPos = boxCorners[2];
+
+        List<Vector3> vertices = GetBoxCorners(playerBox);
+        List<Ray2D> bottomPlayerRay2Ds= CreatePlayerBottomEdgeRays(vertices);
+        List<Ray2D> eastPlayerRay2Ds= CreatePlayerEastEdgeRays(vertices);
+
+        float rayCastLength = 0.1f;
         
-
-        DebugUtil.DrawMarker(minXPos, Color.cyan);
-        DebugUtil.DrawMarker(maxXPos, Color.cyan);
-        Vector3 playerBottomLineMidPt = (minXPos + maxXPos) / 2;
-        //
-        DebugUtil.DrawMarker(playerBottomLineMidPt, Color.cyan);
-        Vector3 playerBottomLine = maxXPos - minXPos;
-        // Debug.DrawRay(new Vector3(minXPos.x, minXPos.y, 0), new Vector3(baseLine.x*2, baseLine.y*2, 0), Color.green);
-
-        Vector3 perpendicularToPlayerBottomLine =
-            new Vector2(playerBottomLine.y, -playerBottomLine.x).normalized * skinOffset;
-        
-        //you need to move the origin back on itself a bit...
-
-        //CREATE RAYS ALONG BOTTOM EDGE
-        var bottomPlayerRay2Ds= CreatePlayerBottomEdgeRays(playerBottomLine, minXPos, maxXPos, perpendicularToPlayerBottomLine);
+        DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
+        DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
 
         var ignoreLayer = GetIgnoreLayer();
-        float rayCastLength = 0.1f;
 
         RaycastHit2D rch = CheckAllRayCastsForaHit(bottomPlayerRay2Ds, rayCastLength, ignoreLayer);
         
@@ -67,13 +56,10 @@ public class CharController : MonoBehaviour
             {
                 state = CharacterState.GROUNDED;
                 velY = 0;
-                // Debug.Log("Hit collider " + rch.collider.name);
-                platformTop = SetGroundSlopeRotation(rch, playerBottomLine);
+                platformTop = SetGroundSlopeRotation(rch, vertices);
             }
 
             state = CharacterState.GROUNDED;
-            // DebugDrawAllRayCasts(bottomPlayerRay2Ds, rayCastLength);
-
             velX = Mathf.SmoothDamp(velX, 0, ref vel, frictionX * Time.deltaTime);
         }
         else 
@@ -93,14 +79,6 @@ public class CharController : MonoBehaviour
         else
         {
             transform.position = new Vector3(transform.position.x + velX, transform.position.y + velY, 0);
-        }
-    }
-
-    private static void DebugDrawAllRayCasts(List<Ray2D> bottomPlayerRay2Ds, float rayCastLength)
-    {
-        for (int i = 0; i < bottomPlayerRay2Ds.Count; i++)
-        {
-            Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
         }
     }
 
@@ -126,26 +104,66 @@ public class CharController : MonoBehaviour
         return rch;
     }
 
-    private static List<Ray2D> CreatePlayerBottomEdgeRays(Vector3 playerBottomLine, Vector3 minXPos, Vector3 maxXPos,
-        Vector3 perpendicularToPlayerBottomLine)
+    private List<Ray2D> CreatePlayerEastEdgeRays(List<Vector3> vertices)
     {
-        List<Ray2D> bottomPlayerRay2Ds = new List<Ray2D>();
-        int rayCastSpacingWidth = 3;
+        Vector3 a = vertices[2];
+        Vector3 b = vertices[3];
+       
+        Vector3 dir = b-a;
+        
+        DebugUtil.DrawMarker(a, Color.blue);
+        DebugUtil.DrawMarker(b, Color.yellow);
+        
+        Vector3 perpendicularToPlayerEastSide = new Vector2(dir.y, -dir.x).normalized;
+        
+        List<Ray2D> rays = new List<Ray2D>();
+        int rayCastSpacingWidth = 8;
         var startOfRay = Vector3.zero;
-        for (float raySpacer = 0;; raySpacer += playerBottomLine.sqrMagnitude / rayCastSpacingWidth)
+        for (float raySpacer = 0;; raySpacer += dir.sqrMagnitude / rayCastSpacingWidth)
         {
-            //eq of start line is :: minXPos + scale * vector bottom line
-            startOfRay = new Vector3(minXPos.x + (raySpacer * playerBottomLine.x), minXPos.y + (raySpacer * playerBottomLine.y), playerBottomLine.z);
-            if (startOfRay.x > maxXPos.x) break;
-            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerBottomLine.x, perpendicularToPlayerBottomLine.y, 0));
-            bottomPlayerRay2Ds.Add(r2d);
+            //eq of start line is :: a + (scale * dir)
+            startOfRay = new Vector3(a.x + (raySpacer * dir.x), a.y + (raySpacer * dir.y), dir.z);
+            if (startOfRay.y > b.y) break; // need better way to break off in direction of travel
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerEastSide.x, perpendicularToPlayerEastSide.y, 0));
+            rays.Add(r2d);
         }
 
-        return bottomPlayerRay2Ds;
+        return rays; 
     }
-    
-    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, Vector3 playerBottomLine)
+
+    private List<Ray2D> CreatePlayerBottomEdgeRays(List<Vector3> vertices)
     {
+        Vector3 playerSWCorner = vertices[0];
+        Vector3 playerSECorner = vertices[2];
+        Vector3 lineEqDirection = playerSECorner - playerSWCorner;
+        
+        // DebugUtil.DrawMarker(playerSWCorner, Color.cyan);
+        // DebugUtil.DrawMarker(playerSECorner, Color.cyan);
+        
+        Vector3 perpendicularToPlayerSouthLine = new Vector2(lineEqDirection.y, -lineEqDirection.x).normalized;
+        
+        List<Ray2D> rays = new List<Ray2D>();
+        int rayCastSpacingWidth = 3;
+        var startOfRay = Vector3.zero;
+        
+        for (float raySpacer = 0;; raySpacer += lineEqDirection.sqrMagnitude / rayCastSpacingWidth)
+        {
+            //eq of start line is :: minXPos + scale * vector bottom line
+            startOfRay = new Vector3(playerSWCorner.x + (raySpacer * lineEqDirection.x), playerSWCorner.y + (raySpacer * lineEqDirection.y), lineEqDirection.z);
+            if (startOfRay.x > playerSECorner.x) break;
+            Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicularToPlayerSouthLine.x, perpendicularToPlayerSouthLine.y, 0));
+            rays.Add(r2d);
+        }
+        
+        return rays;
+    }
+
+    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, List<Vector3> vertices)
+    {
+        Vector3 playerSWCorner = vertices[0];
+        Vector3 playerSECorner = vertices[2];
+        Vector3 playerSouthLine = playerSECorner - playerSWCorner;
+        
         // List<Vector3> platCorns = GetBoxCorners((BoxCollider2D) rch.collider);
         // Vector3 platformTopCorn = platCorns[1];
         // DebugUtil.DrawMarker(platformTopCorn, Color.cyan);
@@ -153,7 +171,7 @@ public class CharController : MonoBehaviour
         // Debug.DrawRay(platformTopCorn, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta);
         // Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(playerBottomLine.x, playerBottomLine.y, 0), Color.blue);
 
-        float angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerBottomLine, platformTop, Vector3.forward);
+        float angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
         // Debug.Log("Before player adjust " + angleBetweenPlayerAndPlatform);
         angleBetweenPlayerAndPlatform =
             angleBetweenPlayerAndPlatform +
@@ -164,9 +182,6 @@ public class CharController : MonoBehaviour
         return platformTop;
     }
 
-
-    private Quaternion currentGroundSlope;
-    private float vel;
 
     private int GetIgnoreLayer()
     {
@@ -229,5 +244,13 @@ public class CharController : MonoBehaviour
         dir = Quaternion.Euler(angles) * dir; // rotate it
         point = dir + pivot; // calculate rotated point
         return point; // return it
+    }
+
+    private static void DebugDrawAllRayCasts(List<Ray2D> bottomPlayerRay2Ds, float rayCastLength)
+    {
+        for (int i = 0; i < bottomPlayerRay2Ds.Count; i++)
+        {
+            Debug.DrawRay(bottomPlayerRay2Ds[i].origin, bottomPlayerRay2Ds[i].direction * rayCastLength, Color.red);
+        }
     }
 }
