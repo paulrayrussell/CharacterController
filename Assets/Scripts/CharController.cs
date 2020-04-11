@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
@@ -10,14 +10,14 @@ public class CharController : MonoBehaviour
     private BoxCollider2D playerBox;
     private BoxCollider2D playerBoxStrunk;
     private float gravity_modifier = 0.005f;
-    internal float velX = 0;
-    internal float velY = 0;
-    private float minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
-    float rayCastLength = 0.1f;
+    internal Vector2 vel;
+    internal float minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
+    float rayCastLength = 0.2f;
+    internal float angleBetweenPlayerAndPlatform;
 
-    private Quaternion currentGroundSlope;
-    private float vel;
-    Vector2 platformTop;
+    internal Quaternion currentGroundSlope;
+    internal Vector2 platformTop;
+    private float ref_damp_vel;
     int ignoreLayer;
 
     public enum CharacterState
@@ -28,12 +28,13 @@ public class CharController : MonoBehaviour
     }
 
     public CharacterState state;
+    internal int rayCnt;
 
 
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
-        // playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
+        playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
 
@@ -45,43 +46,25 @@ public class CharController : MonoBehaviour
         List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
         List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
         List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
+
+        RaycastHit2D rch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLength, ignoreLayer);
         
-        DebugDrawAllRayCasts(southPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(eastPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(westPlayerRay2Ds, rayCastLength);
-        DebugDrawAllRayCasts(northPlayerRay2Ds, rayCastLength);
-        
-        RaycastHit2D rch = CheckAllRayCastsForaHit(southPlayerRay2Ds, rayCastLength, ignoreLayer);
-        
-        if (rch && state != CharacterState.JUMPING)
+        if (rch && state!=CharacterState.JUMPING)
         {
-            if (state != CharacterState.GROUNDED)
-            {
-                state = CharacterState.GROUNDED;
-                velY = 0;
-                platformTop = SetGroundSlopeRotation(rch, vertices);
-            }
-        
-            state = CharacterState.GROUNDED;
-            velX = Mathf.SmoothDamp(velX, 0, ref vel, frictionX * Time.deltaTime);
-        }
-        else 
-        {
-            if (velY < 0f) state = CharacterState.FALLING; //no collision set state to falling
-            currentGroundSlope = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-            velY -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
-        }
-        
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 0.5f);
-        velY = Mathf.Clamp(velY, minFallClamp, max: maxFallClamp);
-        
-        if (state == CharacterState.GROUNDED) //constrain... player along equation of line for platform top
-        {
-            transform.position = new Vector3(transform.position.x + (platformTop.x * velX)  , transform.position.y + (platformTop.y * velX), 0);
+           state = CharacterState.GROUNDED;
+           vel.y = 0;
+           vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel, frictionX * Time.deltaTime);
+           platformTop = SetGroundSlopeRotation(rch, vertices);
+           transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 2.5f); //to stop small change thrashing
+           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x)  , transform.position.y + (platformTop.y * vel.x), 0);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x + velX, transform.position.y + velY, 0);
+            state = CharacterState.FALLING;
+            vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
+            if (vel.y<-0.015f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
+            vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
+            transform.position = new Vector3(transform.position.x + vel.x, transform.position.y + vel.y, 0);
         }
     }
 
@@ -95,7 +78,7 @@ public class CharController : MonoBehaviour
         rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
         rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
 
-        for (float scalar = 0.25f; ;scalar += 0.25f) //we we travel along equation of line inserting ray ever 1/4 of line
+        for (float scalar = 0.5f; ;scalar += 1f) //we we travel along equation of line inserting ray ever 1/4 of line
         {
             Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
@@ -103,18 +86,33 @@ public class CharController : MonoBehaviour
             rays.Add(r2d);
         }
 
+        rayCnt = rays.Count;
         return rays; 
     }
 
-    private RaycastHit2D CheckAllRayCastsForaHit(List<Ray2D> rays, float rayCastLength, int ignoreLayer)
+    //problem should take closest hit, not just first?
+    private RaycastHit2D CheckAllRayCastsForaHit(ref List<Ray2D> rays, float rayCastLength, int ignoreLayer)
     {
         RaycastHit2D rch = new RaycastHit2D();
+        List<Tuple<RaycastHit2D, int>> hits = new List<Tuple<RaycastHit2D, int>>();
         for (int i = 0; i < rays.Count; i++)
         {
             //length from ray2d will be normalized to 1
             rch = Physics2D.Raycast(rays[i].origin, rays[i].direction, rayCastLength, ignoreLayer);
-            if (rch) return rch;
+            Debug.DrawRay(rays[i].origin, rays[i].direction * rayCastLength, Color.green);
+            if (rch)
+                hits.Add(new Tuple<RaycastHit2D, int>(rch, i));
+            else
+                rays.Remove(rays[i]);
         }
+        
+        if (hits.Count > 0)
+        {
+            hits.Sort((hit1, hit2)=> hit1.Item1.distance.CompareTo(hit2.Item1.distance));
+            Debug.DrawRay(rays[hits[0].Item2].origin, rays[hits[0].Item2].direction * rayCastLength, Color.red);
+            return hits[0].Item1;
+        }
+
 
         return rch;
     }
@@ -125,17 +123,15 @@ public class CharController : MonoBehaviour
         Vector3 playerSECorner = vertices[2];
         Vector3 playerSouthLine = playerSECorner - playerSWCorner;
         
-        // List<Vector3> platCorns = GetBoxCorners((BoxCollider2D) rch.collider);
-        // Vector3 platformTopCorn = platCorns[1];
-        // DebugUtil.DrawMarker(platformTopCorn, Color.cyan);
+        List<Vector3> platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
+        Vector3 platformTopCorner = platformCorners[1];
+        DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
         platformTop = new Vector3(rch.normal.y, -rch.normal.x);
-        // Debug.DrawRay(platformTopCorn, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta);
-        // Debug.DrawRay(new Vector3(playerBottomLineMidPt.x, playerBottomLineMidPt.y, 0), new Vector3(playerBottomLine.x, playerBottomLine.y, 0), Color.blue);
+        Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //issue this is changing
+        Debug.DrawRay(new Vector3(playerSWCorner.x, playerSWCorner.y, 0), new Vector3(playerSouthLine.x, playerSouthLine.y, 0), Color.blue);
 
-        float angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
-        // Debug.Log("Before player adjust " + angleBetweenPlayerAndPlatform);
+        angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
         angleBetweenPlayerAndPlatform = angleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation
-        // Debug.Log("After player adjust " + angleBetweenPlayerAndPlatform);
         currentGroundSlope = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
         
         return platformTop;
