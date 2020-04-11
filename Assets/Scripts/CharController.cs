@@ -11,7 +11,7 @@ public class CharController : MonoBehaviour
     private float gravity_modifier = 0.05f;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    private const float rayCastLength = 0.3f;
+    private const float rayCastLength = 0.2f;
     private float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
 
@@ -99,7 +99,7 @@ public class CharController : MonoBehaviour
         rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
         rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
 
-        for (float scalar = 0.5f; ;scalar += 1f) //we we travel along equation of line inserting ray ever 1/4 of line
+        for (float scalar = 0.25f; ;scalar += 0.25f) //we we travel along equation of line inserting ray ever 1/4 of line
         {
             Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
@@ -110,8 +110,7 @@ public class CharController : MonoBehaviour
         rayCnt = rays.Count;
         return rays; 
     }
-
-    //problem should take closest hit, not just first?
+    
     private RaycastHit2D CheckAllRayCastsForaHit(ref List<Ray2D> rays, float rayCastLength, int ignoreLayer)
     {
         RaycastHit2D rch = new RaycastHit2D();
@@ -121,10 +120,7 @@ public class CharController : MonoBehaviour
             //length from ray2d will be normalized to 1
             rch = Physics2D.Raycast(rays[i].origin, rays[i].direction, rayCastLength, ignoreLayer);
             Debug.DrawRay(rays[i].origin, rays[i].direction * rayCastLength, Color.green);
-            if (rch)
-                hits.Add(new Tuple<RaycastHit2D, int>(rch, i));
-            else
-                rays.Remove(rays[i]);
+            if (rch) hits.Add(new Tuple<RaycastHit2D, int>(rch, i)); //else rays.RemoveRange(i,1);
         }
         
         if (hits.Count > 0)
