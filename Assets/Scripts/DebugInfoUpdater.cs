@@ -11,6 +11,7 @@ public class DebugInfoUpdater : MonoBehaviour
     [SerializeField] private Text angle = null;
     [SerializeField] private Text platform = null;
     [SerializeField] private Text ray_cnt = null;
+    [SerializeField] private Text friction = null;
     [SerializeField] private CharController pc = null;
    
     // Start is called before the first frame update
@@ -26,7 +27,8 @@ public class DebugInfoUpdater : MonoBehaviour
         state.text = "State: " + pc.state;
         platform.text = "Platform: " + pc.platformTop;
         ray_cnt.text = "Raycnt: " + pc.rayCnt;
-        angle.text = "Angle: " + pc.angleBetweenPlayerAndPlatform;
+        angle.text = "Angle: " + pc.correctedAngle;
+        friction.text = "Friction: " + pc.actingFriction;
         
         
     }

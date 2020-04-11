@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private CharController cControl;
 
-    private float xMovVel = 1f;
-    private float yMovVel = 12f;
-    private float moveMult = 0.35f;
+    private float xMovVel = 0.1f;
+    private float yMovVel = 0.75f;
+    private float moveMult = 10f;
     // Start is called before the first frame update
     void Start()
     {

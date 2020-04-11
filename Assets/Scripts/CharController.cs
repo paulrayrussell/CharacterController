@@ -9,11 +9,12 @@ public class CharController : MonoBehaviour
 {
     private BoxCollider2D playerBox;
     private BoxCollider2D playerBoxStrunk;
-    private float gravity_modifier = 0.005f;
+    private float gravity_modifier = 0.05f;
     internal Vector2 vel;
-    internal float minFallClamp = -0.1f, maxFallClamp = 0.1f, frictionX = 5f, frictionY = 0;
+    internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
     float rayCastLength = 0.2f;
-    internal float angleBetweenPlayerAndPlatform;
+    private float angleBetweenPlayerAndPlatform;
+    internal float correctedAngle;
 
     internal Quaternion currentGroundSlope;
     internal Vector2 platformTop;
@@ -38,6 +39,9 @@ public class CharController : MonoBehaviour
         ignoreLayer = GetIgnoreLayer();
     }
 
+    public float frictionMult;
+    internal float actingFriction;
+
     private void FixedUpdate()
     {
         List<Vector3> vertices = GetBoxCorners(playerBox);
@@ -53,21 +57,41 @@ public class CharController : MonoBehaviour
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
-           vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel, frictionX * Time.deltaTime);
+
+           actingFriction = GetFriction(rch);
+           vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
+           
            platformTop = SetGroundSlopeRotation(rch, vertices);
-           transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 2.5f); //to stop small change thrashing
-           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x)  , transform.position.y + (platformTop.y * vel.x), 0);
+           transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
+           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x), transform.position.y + (platformTop.y * vel.x), 0);
         }
         else
         {
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
-            if (vel.y<-0.015f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
+            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
             transform.position = new Vector3(transform.position.x + vel.x, transform.position.y + vel.y, 0);
         }
     }
 
+    float GetFriction(RaycastHit2D rch)
+    {
+        if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < 0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
+        {
+            correctedAngle = angleBetweenPlayerAndPlatform;
+            if (correctedAngle < 2f) correctedAngle = 0f;
+            if (correctedAngle > 90) correctedAngle = (360 - correctedAngle);
+            if (correctedAngle < 17f) return 1;
+
+            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMult);
+            Mathf.Clamp(frictionCoefficient, 0.001f, 10f);
+            return frictionCoefficient;
+        }
+        
+        return 1;
+    }
+    
     private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine)
     {
         Vector3 displacement = b-a; //distance between two corners
