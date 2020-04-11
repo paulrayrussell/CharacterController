@@ -11,7 +11,7 @@ public class CharController : MonoBehaviour
     private float gravity_modifier = 0.05f;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    private const float rayCastLength = 0.2f;
+    private const float rayCastLength = 0.3f;
     private float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
 
