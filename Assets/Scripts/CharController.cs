@@ -8,15 +8,14 @@ using Unity.Mathematics;
 public class CharController : MonoBehaviour
 {
     private BoxCollider2D playerBox;
-    private BoxCollider2D playerBoxStrunk;
     private float gravity_modifier = 0.05f;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    float rayCastLength = 0.2f;
+    private const float rayCastLength = 0.2f;
     private float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
 
-    internal Quaternion currentGroundSlope;
+    private Quaternion currentGroundSlope;
     internal Vector2 platformTop;
     private float ref_damp_vel;
     int ignoreLayer;
@@ -39,7 +38,7 @@ public class CharController : MonoBehaviour
         ignoreLayer = GetIgnoreLayer();
     }
 
-    public float frictionMult;
+    public float frictionMultiplier;
     internal float actingFriction;
 
     private void FixedUpdate()
@@ -57,10 +56,8 @@ public class CharController : MonoBehaviour
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
-
            actingFriction = GetFriction(rch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
-           
            platformTop = SetGroundSlopeRotation(rch, vertices);
            transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
            transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x), transform.position.y + (platformTop.y * vel.x), 0);
@@ -84,8 +81,8 @@ public class CharController : MonoBehaviour
             if (correctedAngle > 90) correctedAngle = (360 - correctedAngle);
             if (correctedAngle < 17f) return 1;
 
-            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMult);
-            Mathf.Clamp(frictionCoefficient, 0.001f, 10f);
+            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
+            Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
             return frictionCoefficient;
         }
         
