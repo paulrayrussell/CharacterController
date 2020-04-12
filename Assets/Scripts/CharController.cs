@@ -71,6 +71,10 @@ public class CharController : MonoBehaviour
         if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
+           // if (southRch.distance<0.125)  { //doesn't work --- better to spot real angle of steep and not let this affect rotation at all
+               // vel.y += 0.05f;
+               // Debug.Log("lift" + southRch.distance);
+           // }
            vel.y = 0;
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
@@ -80,11 +84,10 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            if (state == CharacterState.JUMPING)
+            if (state == CharacterState.JUMPING && collidingEast || collidingWest)
             {
                 vel.y = 0;
-                if (collidingEast) vel.x = -0.075f; //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
-                if (collidingWest) vel.x = 0.075f; 
+                if (collidingEast) vel.x = -0.075f; else vel.x = 0.075f; //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
             }
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
