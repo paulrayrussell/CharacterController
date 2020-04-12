@@ -80,7 +80,12 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            // if (state == CharacterState.JUMPING && correctedAngle > 60f) vel.y = 0f; ****
+            if (state == CharacterState.JUMPING)
+            {
+                vel.y = 0;
+                if (collidingEast) vel.x = -0.075f; //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
+                if (collidingWest) vel.x = 0.075f; 
+            }
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
             if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
