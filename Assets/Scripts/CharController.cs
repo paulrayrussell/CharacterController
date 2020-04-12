@@ -58,14 +58,13 @@ public class CharController : MonoBehaviour
         RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
         RaycastHit2D westRch = CheckAllRayCastsForaHit(ref westPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
 
-        
-        collidingNorth = (northRch && vel.y > 0.01f);
+        collidingNorth = (northRch && vel.y > 0.01f); // if moving up and north collision
         collidingEast = (eastRch && vel.x > 0.01f);
         collidingWest = (westRch && vel.x < 0.01f);
         collidingSouth = southRch;
         
-        //knockback
-        if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime;
+        //knock-back
+        if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime; //check for south to avoid bouncing into walls
         if (collidingEast && !collidingWest) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
         if (collidingWest && !collidingEast) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
 
@@ -81,6 +80,7 @@ public class CharController : MonoBehaviour
         }
         else
         {
+            // if (state == CharacterState.JUMPING && correctedAngle > 60f) vel.y = 0f; ****
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
             if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
