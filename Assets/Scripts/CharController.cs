@@ -13,7 +13,7 @@ public class CharController : MonoBehaviour
     private const float gravity_modifier = 0.05f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
-    private const float knockBackConst = 50;
+    private const float deltaConst = 50;
 
     private float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
@@ -58,26 +58,16 @@ public class CharController : MonoBehaviour
         RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
         RaycastHit2D westRch = CheckAllRayCastsForaHit(ref westPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
 
-        if (northRch && vel.y > 0.01f)
-        {
-            collidingNorth = true;
-            vel.y = -vel.y / 6 * knockBackConst * Time.deltaTime;
-        }
-        else collidingNorth = false;
-
-        if (eastRch && vel.x > 0.01f)
-        {
-            collidingEast = true;
-            vel.x = -vel.x /  6 * knockBackConst * Time.deltaTime;
-        }
-        else collidingEast = false;
         
-        if (westRch && vel.x < 0.01f)
-        {
-            collidingWest = true;
-            vel.x = -vel.x /  6 * knockBackConst * Time.deltaTime;
-        }
-        else collidingWest = false;
+        collidingNorth = (northRch && vel.y > 0.01f);
+        collidingEast = (eastRch && vel.x > 0.01f);
+        collidingWest = (westRch && vel.x < 0.01f);
+        collidingSouth = southRch;
+        
+        //knockback
+        if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime;
+        if (collidingEast && !collidingWest) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
+        if (collidingWest && !collidingEast) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
 
         if (southRch && state!=CharacterState.JUMPING)
         {
@@ -87,7 +77,7 @@ public class CharController : MonoBehaviour
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
            platformTop = SetGroundSlopeRotation(southRch, vertices); 
            if (correctedAngle<40f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
-           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * knockBackConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* knockBackConst * Time.deltaTime), 0);
+           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
         {
@@ -95,7 +85,7 @@ public class CharController : MonoBehaviour
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
             if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
-            transform.position = new Vector3(transform.position.x + vel.x* knockBackConst * Time.deltaTime, transform.position.y + vel.y* knockBackConst * Time.deltaTime, 0);
+            transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0);
         }
     }
 
