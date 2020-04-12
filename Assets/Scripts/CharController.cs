@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
@@ -8,10 +8,13 @@ using Unity.Mathematics;
 public class CharController : MonoBehaviour
 {
     private BoxCollider2D playerBox;
-    private float gravity_modifier = 0.05f;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    private const float rayCastLength = 0.2f;
+    private const float gravity_modifier = 0.05f;
+    private const float rayCastLengthHorizontal = 0.075f;
+    private const float rayCastLengthVertical = 0.15f;
+    private const float knockBackConst = 50;
+
     private float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
 
@@ -34,7 +37,7 @@ public class CharController : MonoBehaviour
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
-        playerBox.size = new Vector2(playerBox.size.x*0.8f, playerBox.size.y*0.8f);
+        playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
 
@@ -48,35 +51,43 @@ public class CharController : MonoBehaviour
         List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
         List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
         List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false, false);
-        List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
+        List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true, false);
 
-        RaycastHit2D southRch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLength, ignoreLayer);
-        RaycastHit2D northRch = CheckAllRayCastsForaHit(ref northPlayerRay2Ds, rayCastLength, ignoreLayer);
-        RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLength, ignoreLayer);
+        RaycastHit2D southRch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLengthVertical, ignoreLayer);
+        RaycastHit2D northRch = CheckAllRayCastsForaHit(ref northPlayerRay2Ds, rayCastLengthVertical, ignoreLayer);
+        RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
+        RaycastHit2D westRch = CheckAllRayCastsForaHit(ref westPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
 
         if (northRch && vel.y > 0.01f)
         {
             collidingNorth = true;
-            vel.y = -vel.y / 4;
+            vel.y = -vel.y / 6 * knockBackConst * Time.deltaTime;
         }
         else collidingNorth = false;
 
         if (eastRch && vel.x > 0.01f)
         {
             collidingEast = true;
-            vel.x = -vel.x / 4;
+            vel.x = -vel.x /  6 * knockBackConst * Time.deltaTime;
         }
-        else collidingEast = true;
+        else collidingEast = false;
         
+        if (westRch && vel.x < 0.01f)
+        {
+            collidingWest = true;
+            vel.x = -vel.x /  6 * knockBackConst * Time.deltaTime;
+        }
+        else collidingWest = false;
+
         if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
-           platformTop = SetGroundSlopeRotation(southRch, vertices);
-           transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
-           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x), transform.position.y + (platformTop.y * vel.x), 0);
+           platformTop = SetGroundSlopeRotation(southRch, vertices); 
+           if (correctedAngle<40f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
+           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * knockBackConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* knockBackConst * Time.deltaTime), 0);
         }
         else
         {
@@ -84,7 +95,7 @@ public class CharController : MonoBehaviour
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
             if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
-            transform.position = new Vector3(transform.position.x + vel.x, transform.position.y + vel.y, 0);
+            transform.position = new Vector3(transform.position.x + vel.x* knockBackConst * Time.deltaTime, transform.position.y + vel.y* knockBackConst * Time.deltaTime, 0);
         }
     }
 
