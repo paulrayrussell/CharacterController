@@ -43,7 +43,7 @@ public class CharController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        List<Vector3> vertices = GetBoxCorners(playerBox);
+        Vector3[] vertices = GetBoxCorners(playerBox);
 
         List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false);
         List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
@@ -134,13 +134,13 @@ public class CharController : MonoBehaviour
         return rch;
     }
 
-    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, List<Vector3> vertices)
+    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, Vector3[] vertices)
     {
         Vector3 playerSWCorner = vertices[0];
         Vector3 playerSECorner = vertices[2];
         Vector3 playerSouthLine = playerSECorner - playerSWCorner;
         
-        List<Vector3> platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
+        Vector3[] platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
         Vector3 platformTopCorner = platformCorners[1];
         DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
         platformTop = new Vector3(rch.normal.y, -rch.normal.x);
@@ -170,7 +170,7 @@ public class CharController : MonoBehaviour
         return ignoreLayer;
     }
 
-    private List<Vector3> GetBoxCorners(BoxCollider2D boxColl)
+    private Vector3[] GetBoxCorners(BoxCollider2D boxColl)
     {
         Transform bcTransform = boxColl.transform;
 
@@ -201,11 +201,11 @@ public class CharController : MonoBehaviour
         corner3 = worldPosition + corner3;
         corner4 = worldPosition + corner4;
         
-        List<Vector3> vertList = new List<Vector3>();
-        vertList.Add(corner1);
-        vertList.Add(corner2);
-        vertList.Add(corner3);
-        vertList.Add(corner4);
+        Vector3[] vertList = new Vector3[4];
+        vertList[0] = corner1;
+        vertList[1] = corner2;
+        vertList[2] = corner3;
+        vertList[3] = corner4;
         return vertList;
     }
 
