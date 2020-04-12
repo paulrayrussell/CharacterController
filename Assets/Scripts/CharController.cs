@@ -50,15 +50,16 @@ public class CharController : MonoBehaviour
         List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
         List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
 
-        RaycastHit2D rch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLength, ignoreLayer);
+        RaycastHit2D southRch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLength, ignoreLayer);
+        RaycastHit2D northRch = CheckAllRayCastsForaHit(ref northPlayerRay2Ds, rayCastLength, ignoreLayer);
         
-        if (rch && state!=CharacterState.JUMPING)
+        if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
-           actingFriction = GetFriction(rch);
+           actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
-           platformTop = SetGroundSlopeRotation(rch, vertices);
+           platformTop = SetGroundSlopeRotation(southRch, vertices);
            transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
            transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x), transform.position.y + (platformTop.y * vel.x), 0);
         }
