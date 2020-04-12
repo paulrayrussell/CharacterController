@@ -19,7 +19,7 @@ public class CharController : MonoBehaviour
     internal Vector2 platformTop;
     private float ref_damp_vel;
     int ignoreLayer;
-
+    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest; 
     public enum CharacterState
     {
         GROUNDED,
@@ -45,13 +45,28 @@ public class CharController : MonoBehaviour
     {
         Vector3[] vertices = GetBoxCorners(playerBox);
 
-        List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false);
-        List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
-        List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
         List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
+        List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
+        List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false, false);
+        List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true);
 
         RaycastHit2D southRch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLength, ignoreLayer);
         RaycastHit2D northRch = CheckAllRayCastsForaHit(ref northPlayerRay2Ds, rayCastLength, ignoreLayer);
+        RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLength, ignoreLayer);
+
+        if (northRch && vel.y > 0.01f)
+        {
+            collidingNorth = true;
+            vel.y = -vel.y / 4;
+        }
+        else collidingNorth = false;
+
+        if (eastRch && vel.x > 0.01f)
+        {
+            collidingEast = true;
+            vel.x = -vel.x / 4;
+        }
+        else collidingEast = true;
         
         if (southRch && state!=CharacterState.JUMPING)
         {
@@ -90,17 +105,18 @@ public class CharController : MonoBehaviour
         return 1;
     }
     
-    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine)
+    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true)
     {
         Vector3 displacement = b-a; //distance between two corners
         
         Vector3 perpendicular = reverseLine ? new Vector2(-displacement.y, displacement.x).normalized : new Vector2(displacement.y, -displacement.x).normalized; // in some cases we want to shoo ary in revser
         
         List<Ray2D> rays = new List<Ray2D>();
-        rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
+        if (useTopEdgeRay) rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
         rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
 
-        for (float scalar = 0.25f; ;scalar += 0.25f) //we we travel along equation of line inserting ray ever 1/4 of line
+        float rayDivisions = 0.1f;
+        for (float scalar = rayDivisions; ;scalar += rayDivisions) //we we travel along equation of line inserting ray ever 1/4 of line
         {
             Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
