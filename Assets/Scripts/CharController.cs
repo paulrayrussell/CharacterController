@@ -15,7 +15,7 @@ public class CharController : MonoBehaviour
     private const float rayCastLengthVertical = 0.15f;
     private const float deltaConst = 50;
 
-    private float angleBetweenPlayerAndPlatform;
+    internal float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
 
     private Quaternion currentGroundSlope;
@@ -43,7 +43,8 @@ public class CharController : MonoBehaviour
 
     public float frictionMultiplier;
     internal float actingFriction;
-
+    internal float lift;
+    
     private void FixedUpdate()
     {
         Vector3[] vertices = GetBoxCorners(playerBox);
@@ -68,18 +69,25 @@ public class CharController : MonoBehaviour
         if (collidingEast && !collidingWest) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
         if (collidingWest && !collidingEast) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
 
+        
+        SetCorrectedAngle();
+        
         if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
-           // if (southRch.distance<0.125)  { //doesn't work --- better to spot real angle of steep and not let this affect rotation at all
-               // vel.y += 0.05f;
-               // Debug.Log("lift" + southRch.distance);
-           // }
            vel.y = 0;
+           lift = 0;
+
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
-           platformTop = SetGroundSlopeRotation(southRch, vertices); 
-           if (correctedAngle<40f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f); //to stop small change thrashing
+           platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
+           
+           bool angleTooSteep = (correctedAngle > 70f && ((!negativesSlope && vel.x > 0.01f) || (negativesSlope && vel.x < 0.01f)));
+           if (angleTooSteep) return;
+           if (correctedAngle<40f && !collidingEast && !collidingWest) 
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
+           //4f damp, to stop small change thrashing on v shaped plat edges
+           //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
            transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
@@ -87,7 +95,9 @@ public class CharController : MonoBehaviour
             if (state == CharacterState.JUMPING && collidingEast || collidingWest)
             {
                 vel.y = 0;
-                if (collidingEast) vel.x = -0.075f; else vel.x = 0.075f; //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
+                if (collidingEast) vel.x = -0.075f; else vel.x = 0.075f; 
+                //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
+                //this causes a bounce back, pushing player away from wall
             }
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
@@ -97,22 +107,40 @@ public class CharController : MonoBehaviour
         }
     }
 
+    private void SetCorrectedAngle()
+    {
+        correctedAngle = angleBetweenPlayerAndPlatform;
+        if (correctedAngle < 2f)
+        {
+            correctedAngle = 0f;
+            negativesSlope = false;
+        }
+        
+        if (correctedAngle > 90)
+        {
+            correctedAngle = (360 - correctedAngle);
+            negativesSlope = true;
+        }
+        else
+        {
+            negativesSlope = false;
+        }
+    }
+
     float GetFriction(RaycastHit2D rch)
     {
         if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < 0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
         {
-            correctedAngle = angleBetweenPlayerAndPlatform;
-            if (correctedAngle < 2f) correctedAngle = 0f;
-            if (correctedAngle > 90) correctedAngle = (360 - correctedAngle);
-            if (correctedAngle < 17f) return 1;
-
             float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
             Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
             return frictionCoefficient;
         }
+        if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
         
         return 1;
     }
+
+    public bool negativesSlope; 
     
     private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true)
     {
@@ -160,7 +188,7 @@ public class CharController : MonoBehaviour
         return rch;
     }
 
-    private Vector2 SetGroundSlopeRotation(RaycastHit2D rch, Vector3[] vertices)
+    private Vector2 SetGroundSlopeRotationAndAngle(RaycastHit2D rch, Vector3[] vertices)
     {
         Vector3 playerSWCorner = vertices[0];
         Vector3 playerSECorner = vertices[2];
