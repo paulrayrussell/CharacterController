@@ -10,7 +10,7 @@ public class CharController : MonoBehaviour
     private BoxCollider2D playerBox;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    private const float gravity_modifier = 0.05f;
+    private const float gravity_modifier = 0.03f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
     private const float deltaConst = 50;
@@ -45,7 +45,7 @@ public class CharController : MonoBehaviour
     internal float actingFriction;
     internal float lift;
     
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3[] vertices = GetBoxCorners(playerBox);
 
@@ -77,31 +77,37 @@ public class CharController : MonoBehaviour
            state = CharacterState.GROUNDED;
            vel.y = 0;
            lift = 0;
+           if (southRch.distance < 0.09)
+           {
+               transform.position = new Vector3(transform.position.x + southRch.normal.x*0.01f, transform.position.y + southRch.normal.y*0.01f, transform.position.z);;
+           }
 
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
            
-           bool angleTooSteep = (correctedAngle > 70f && ((!negativesSlope && vel.x > 0.01f) || (negativesSlope && vel.x < 0.01f)));
+           bool angleTooSteep = (correctedAngle > 65f && ((!negativesSlope && vel.x > 0.01f) || (negativesSlope && vel.x < 0.01f)));
            if (angleTooSteep) return;
-           if (correctedAngle<40f && !collidingEast && !collidingWest) 
-           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
-           //4f damp, to stop small change thrashing on v shaped plat edges
-           //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
-           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
+           
+           if (correctedAngle < 65f && !(collidingEast) && !(collidingWest))
+           {
+               transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
+               //4f damp, to stop small change thrashing on v shaped plat edges
+               //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
+               transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
+           }
         }
         else
         {
-            if (state == CharacterState.JUMPING && collidingEast || collidingWest)
-            {
-                vel.y = 0;
-                if (collidingEast) vel.x = -0.075f; else vel.x = 0.075f; 
-                //prevents infinite wall jumping: if player is jumping up a v. steep wall, then side colliders can activate
-                //this causes a bounce back, pushing player away from wall
-            }
+            vel.x = (state == CharacterState.JUMPING && collidingEast) ? -0.075f : vel.x; // vel.x altered to give bounce back where jump and colliding on 90 deg
+            vel.x = (state == CharacterState.JUMPING && collidingWest) ? 0.075f : vel.x; // both colliders enter wall: south and e or w
+          
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
-            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position.x, transform.position.y, 0), 7.5f); //to stop small change thrashing
+     
+            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 4.5f);  //0,0,0 as that's our 90 deg
+            //if in free fall, then rotate char to vertical, to stop small change thrashing
+            
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
             transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0);
         }
@@ -129,14 +135,14 @@ public class CharController : MonoBehaviour
 
     float GetFriction(RaycastHit2D rch)
     {
-        if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < 0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
-        {
-            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
-            Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
-            return frictionCoefficient;
-        }
-        if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
-        
+        // if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < 0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
+        // {
+        //     float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
+        //     Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
+        //     return frictionCoefficient;
+        // }
+        // if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
+        //
         return 1;
     }
 
@@ -198,11 +204,11 @@ public class CharController : MonoBehaviour
         Vector3 platformTopCorner = platformCorners[1];
         DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
         platformTop = new Vector3(rch.normal.y, -rch.normal.x);
-        Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //issue this is changing
+        Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //this is the platform top location
         Debug.DrawRay(new Vector3(playerSWCorner.x, playerSWCorner.y, 0), new Vector3(playerSouthLine.x, playerSouthLine.y, 0), Color.blue);
 
         angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
-        angleBetweenPlayerAndPlatform = angleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation
+        angleBetweenPlayerAndPlatform = angleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation -- this is changing constantly
         currentGroundSlope = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
         
         return platformTop;

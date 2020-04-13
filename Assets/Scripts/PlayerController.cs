@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private CharController cControl;
 
-    private float xMovVel = 0.1f;
-    private float yMovVel = 1.5f;
-    private float moveMult = 8f;
+    private float xMovVel = 0.5f;
+    private float yMovVel = 3f;
+    private float moveMult = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow) & cControl.state == CharController.CharacterState.GROUNDED)
         {
