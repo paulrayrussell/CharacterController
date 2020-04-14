@@ -12,7 +12,7 @@ public class CharController : MonoBehaviour
 
     public bool negativesSlope;
     internal Vector2 vel;
-    internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
+    internal float minFallClamp = -0.5f, maxFallClamp = 0.5f;
     private const float gravity_modifier = 0.025f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
@@ -48,9 +48,6 @@ public class CharController : MonoBehaviour
         playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
-
-    internal float actingFriction;
-
 
     private void Update()
     {
@@ -91,19 +88,17 @@ public class CharController : MonoBehaviour
            
            if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z); //lift player if needed
 
-           actingFriction = GetFriction(southRch);
-           actingFriction = 1;
-           vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
+           vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  0.075f); //this is your walk stop - do not remove
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // stopping hi angle walk on won't work when you fall onto a sloped surface from a jump - needs gravity to act
 
-           if (Mathf.Abs(transform.rotation.eulerAngles.z)<35f) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
+            if (Mathf.Abs(transform.rotation.eulerAngles.z)<35f) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
             //15f damp, to stop small change thrashing on v shaped plat edges
             //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
             
             if (correctedAngle> 64f)
             {
-                if (negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * 0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y *0.02f * deltaConst * Time.deltaTime), 0);
+                if (negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * 0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y *0.02f * deltaConst * Time.deltaTime), 0); //cause slope falling on steep slopes
                 if (!negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * -0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * -0.02f * deltaConst * Time.deltaTime), 0);
             }
             else 
@@ -150,23 +145,6 @@ public class CharController : MonoBehaviour
             negativesSlope = false;
         }
     }
-
-    float GetFriction(RaycastHit2D rch)
-    {
-        float frictionMultiplier = 0.001f;
-
-        if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < -0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
-        {
-            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
-            Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
-            return frictionCoefficient;
-        }
-        if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
-        
-        return 1;
-    }
-
-    public float frictionmod = 0.1f;
 
     private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true, bool useBottomEdgeRay = true, float rayDivsionLength = 0.1f)
     {

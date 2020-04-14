@@ -30,7 +30,7 @@ public class DebugInfoUpdater : MonoBehaviour
         platform.text = "Platform: " + pc.platformTop;
         ray_cnt.text = "Raycnt: " + pc.rayCnt;
         angle.text = "Angle: " + pc.correctedAngle;
-        friction.text = "Friction: " + pc.actingFriction;
+        // friction.text = "Friction: " + pc.actingFriction;
         corrAngle.text = "Angle player & platform : " + pc.angleBetweenPlayerAndPlatform;
         negPlafotfm.text = "Neg slope: " + pc.negativesSlope;
         
