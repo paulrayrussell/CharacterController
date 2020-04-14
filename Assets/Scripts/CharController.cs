@@ -12,11 +12,15 @@ public class CharController : MonoBehaviour
 
     public bool negativesSlope;
     internal Vector2 vel;
-    internal float minFallClamp = -0.5f, maxFallClamp = 0.5f;
+
+    private const float minFallClamp = -0.5f;
+    private const float maxFallClamp = 0.5f;
     private const float gravity_modifier = 0.025f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
     private const float deltaConst = 50;
+    private const float maxRotation = 35f;
+    private const float slopeSlipOffAngle = 65f;
 
     internal float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
@@ -90,23 +94,28 @@ public class CharController : MonoBehaviour
 
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  0.075f); //this is your walk stop - do not remove
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
-           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // stopping hi angle walk on won't work when you fall onto a sloped surface from a jump - needs gravity to act
+           
+           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch))
+           {
+               Debug.Log("BANG");
+               vel.x = vel.x * -1f * deltaConst * Time.deltaTime;
+               //return
+           }
 
-            if (Mathf.Abs(transform.rotation.eulerAngles.z)<35f) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
+           if (Mathf.Abs(transform.rotation.eulerAngles.z) < maxRotation) //this prevents absurd rotations that push player into wall, through floors etc
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f * deltaConst * Time.deltaTime);
             //15f damp, to stop small change thrashing on v shaped plat edges
             //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
-            
-            if (correctedAngle> 64f)
-            {
-                if (negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * 0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y *0.02f * deltaConst * Time.deltaTime), 0); //cause slope falling on steep slopes
-                if (!negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * -0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * -0.02f * deltaConst * Time.deltaTime), 0);
+
+            if (correctedAngle > slopeSlipOffAngle) {
+                vel.x = negativesSlope ? 0.2f : -0.2f; //if too steep, the only way is down
             }
-            else 
-                transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
+            
+            transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
         {
-            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch) && state == CharacterState.JUMPING) vel.x = vel.x * -2f * deltaConst * Time.deltaTime;
+            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch) && state == CharacterState.JUMPING) vel.x = vel.x * 2f * deltaConst * Time.deltaTime;
 
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.deltaTime;
