@@ -7,7 +7,7 @@ using Unity.Mathematics;
 
 public class CharController : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D preResize = new BoxCollider2D();
+    private BoxCollider2D preResize;
     private BoxCollider2D playerBox;
 
     public bool negativesSlope;
@@ -24,12 +24,12 @@ public class CharController : MonoBehaviour
 
     internal float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
+    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
+    internal Vector2 platformTop;
+    private int ignoreLayer;
 
     private Quaternion currentGroundSlope;
-    internal Vector2 platformTop;
     private float ref_damp_vel;
-    int ignoreLayer;
-    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
 
 
     public enum CharacterState
@@ -46,10 +46,12 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
-        playerBox = GetComponent<BoxCollider2D>();
-        preResize.transform.position = playerBox.transform.position;
+        playerBox = GetComponentInChildren<BoxCollider2D>();
+        preResize = Instantiate(playerBox, playerBox.transform.position, playerBox.transform.rotation);
         preResize.size = playerBox.size;
         preResize.offset = playerBox.offset;
+        preResize.name = "Pre-resize";
+        preResize.transform.SetParent(gameObject.transform);
         playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
@@ -206,11 +208,11 @@ public class CharController : MonoBehaviour
         Vector3 playerSECorner = vertices[2];
         Vector3 playerSouthLine = playerSECorner - playerSWCorner;
         
-        Vector3[] platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
-        Vector3 platformTopCorner = platformCorners[1];
-        DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
+        // Vector3[] platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
+        // Vector3 platformTopCorner = platformCorners[1];
+        // DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
         platformTop = new Vector3(rch.normal.y, -rch.normal.x);
-        Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //this is the platform top location
+        // Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //this is the platform top location
         Debug.DrawRay(new Vector3(playerSWCorner.x, playerSWCorner.y, 0), new Vector3(playerSouthLine.x, playerSouthLine.y, 0), Color.blue);
 
         angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
