@@ -10,6 +10,7 @@ public class CharController : MonoBehaviour
     [SerializeField] private BoxCollider2D preResize = new BoxCollider2D();
     private BoxCollider2D playerBox;
 
+    public bool negativesSlope;
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
     private const float gravity_modifier = 0.025f;
@@ -26,6 +27,7 @@ public class CharController : MonoBehaviour
     int ignoreLayer;
     internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
 
+
     public enum CharacterState
     {
         GROUNDED,
@@ -35,6 +37,7 @@ public class CharController : MonoBehaviour
 
     public CharacterState state;
     internal int rayCnt;
+
 
     void Start()
     {
@@ -47,7 +50,8 @@ public class CharController : MonoBehaviour
     }
 
     internal float actingFriction;
-    
+
+
     private void Update()
     {
         Vector3[] vertices = GetBoxCorners(playerBox);
@@ -88,15 +92,16 @@ public class CharController : MonoBehaviour
            if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z); //lift player if needed
 
            actingFriction = GetFriction(southRch);
+           actingFriction = 1;
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // stopping hi angle walk on won't work when you fall onto a sloped surface from a jump - needs gravity to act
 
-           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
-            //4f damp, to stop small change thrashing on v shaped plat edges
+           if (Mathf.Abs(transform.rotation.eulerAngles.z)<35f) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
+            //15f damp, to stop small change thrashing on v shaped plat edges
             //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
             
-            if (angleBetweenPlayerAndPlatform> 64f)
+            if (correctedAngle> 64f)
             {
                 if (negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * 0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y *0.02f * deltaConst * Time.deltaTime), 0);
                 if (!negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * -0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * -0.02f * deltaConst * Time.deltaTime), 0);
@@ -161,8 +166,8 @@ public class CharController : MonoBehaviour
         return 1;
     }
 
-    public bool negativesSlope; 
-    
+    public float frictionmod = 0.1f;
+
     private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true, bool useBottomEdgeRay = true, float rayDivsionLength = 0.1f)
     {
         Vector3 displacement = b-a; //distance between two corners

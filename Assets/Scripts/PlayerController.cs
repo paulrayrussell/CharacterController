@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     private float xMovVel = 0.2f;
     private float yMovVel = 2.5f;
-    private float moveMult = 0.05f;
+    private float moveMult = 0.07f;
     // Start is called before the first frame update
     void Start()
     {

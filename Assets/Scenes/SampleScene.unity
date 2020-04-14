@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 110737467}
   - component: {fileID: 110737466}
   m_Layer: 5
-  m_Name: Angle
+  m_Name: Player Angle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 277, y: -42}
+  m_AnchoredPosition: {x: 271.6, y: -43.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110737466
@@ -2199,9 +2199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preResize: {fileID: 111434845}
-  state: 0
-  frictionMultiplier: 0.001
   negativesSlope: 0
+  state: 0
+  frictionmod: 0.1
 --- !u!212 &718896600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2259,14 +2259,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718896597}
-  m_LocalRotation: {x: 0, y: 0, z: -0.1665967, w: 0.98602515}
+  m_LocalRotation: {x: 0, y: 0, z: -0.30286893, w: 0.95303226}
   m_LocalPosition: {x: 2.4, y: 12.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 111434846}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.18}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -35.26}
 --- !u!114 &718896602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2973,6 +2973,83 @@ Transform:
   m_Father: {fileID: 1970050890}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1018202769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018202770}
+  - component: {fileID: 1018202772}
+  - component: {fileID: 1018202771}
+  m_Layer: 5
+  m_Name: Neg platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1018202770
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018202769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1228898362}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 272.4, y: -127.399994}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1018202771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018202769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Neg platform
+--- !u!222 &1018202772
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018202769}
+  m_CullTransparentMesh: 0
 --- !u!1 &1028543145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,6 +3580,7 @@ RectTransform:
   - {fileID: 318833914}
   - {fileID: 1908643827}
   - {fileID: 110737465}
+  - {fileID: 1018202770}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.47800002}
@@ -3529,7 +3607,8 @@ MonoBehaviour:
   platform: {fileID: 766910602}
   ray_cnt: {fileID: 318833915}
   friction: {fileID: 1908643828}
-  lift: {fileID: 110737466}
+  corrAngle: {fileID: 110737466}
+  negPlafotfm: {fileID: 1018202771}
   pc: {fileID: 718896599}
 --- !u!1 &1277059420
 GameObject:
