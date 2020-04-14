@@ -15,7 +15,7 @@ public class CharController : MonoBehaviour
 
     private const float minFallClamp = -0.5f;
     private const float maxFallClamp = 0.5f;
-    private const float gravity_modifier = 0.025f;
+    private const float gravity_modifier = 0.0275f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
     private const float deltaConst = 50;
@@ -41,6 +41,7 @@ public class CharController : MonoBehaviour
 
     public CharacterState state;
     internal int rayCnt;
+    internal bool liftingCharacter;
 
 
     void Start()
@@ -78,10 +79,10 @@ public class CharController : MonoBehaviour
         collidingWest = (westRch && vel.x < 0.01f);
         collidingSouth = southRch;
         
-        //knock-back
+        //standard wall knock-back
         if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime; //check for south to avoid bouncing into walls
-        if (collidingEast && !collidingWest) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
-        if (collidingWest && !collidingEast) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
+        if (collidingEast && !collidingWest) vel.x = -0.05f * deltaConst * Time.deltaTime;
+        if (collidingWest && !collidingEast) vel.x = 0.05f * deltaConst * Time.deltaTime;
 
         SetCorrectedAngle();
         
@@ -89,28 +90,25 @@ public class CharController : MonoBehaviour
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
-           
-           if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z); //lift player if needed
+
+           if (southRch.distance < rayCastLengthVertical - 0.01f)
+           {
+               liftingCharacter = true;
+               transform.position = new Vector3(transform.position.x + southRch.normal.x * Time.deltaTime, transform.position.y + southRch.normal.y * Time.deltaTime, transform.position.z); //lift player if needed
+           }
+           else liftingCharacter = false;
 
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  0.075f); //this is your walk stop - do not remove
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
            
-           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch))
-           {
-               Debug.Log("BANG");
-               vel.x = vel.x * -1f * deltaConst * Time.deltaTime;
-               //return
-           }
+           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return;
 
-           if (Mathf.Abs(transform.rotation.eulerAngles.z) < maxRotation) //this prevents absurd rotations that push player into wall, through floors etc
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f * deltaConst * Time.deltaTime);
-            //15f damp, to stop small change thrashing on v shaped plat edges
-            //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
+           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f * deltaConst * Time.deltaTime);
+            //this prevents absurd rotations that push player into wall, through floors etc. 15f damp, to stop small change thrashing on v shaped plat edges
+            //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horizontal, and player falls on side
 
-            if (correctedAngle > slopeSlipOffAngle) {
-                vel.x = negativesSlope ? 0.2f : -0.2f; //if too steep, the only way is down
-            }
-            
+            if (correctedAngle > slopeSlipOffAngle) vel.x = negativesSlope ? 0.05f : -0.05f; //if too steep, the only way is down
+
             transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else

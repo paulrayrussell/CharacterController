@@ -11,9 +11,11 @@ public class DebugInfoUpdater : MonoBehaviour
     [SerializeField] private Text angle = null;
     [SerializeField] private Text platform = null;
     [SerializeField] private Text ray_cnt = null;
-    [SerializeField] private Text friction = null;
+    [SerializeField] private Text collideE = null;
+    [SerializeField] private Text collideW = null;
     [SerializeField] private Text corrAngle = null;
     [SerializeField] private Text negPlafotfm = null;
+    [SerializeField] private Text lift = null;
     [SerializeField] private CharController pc = null;
    
     // Start is called before the first frame update
@@ -30,9 +32,11 @@ public class DebugInfoUpdater : MonoBehaviour
         platform.text = "Platform: " + pc.platformTop;
         ray_cnt.text = "Raycnt: " + pc.rayCnt;
         angle.text = "Angle: " + pc.correctedAngle;
-        // friction.text = "Friction: " + pc.actingFriction;
+        collideE.text = "Coll E: " + pc.collidingEast;
+        collideW.text = "Coll W: " + pc.collidingWest;
         corrAngle.text = "Angle player & platform : " + pc.angleBetweenPlayerAndPlatform;
         negPlafotfm.text = "Neg slope: " + pc.negativesSlope;
+        lift.text = "Lifting : " + pc.liftingCharacter;
         
         
     }
