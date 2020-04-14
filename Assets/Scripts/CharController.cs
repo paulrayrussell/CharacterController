@@ -46,7 +46,6 @@ public class CharController : MonoBehaviour
         ignoreLayer = GetIgnoreLayer();
     }
 
-    public float frictionMultiplier;
     internal float actingFriction;
     
     private void Update()
@@ -86,50 +85,45 @@ public class CharController : MonoBehaviour
            state = CharacterState.GROUNDED;
            vel.y = 0;
            
-           if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z);;
+           if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z); //lift player if needed
 
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
-           if (IsHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // won't work when you fall onto a sloped surface from a jump
+           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // stopping hi angle walk on won't work when you fall onto a sloped surface from a jump - needs gravity to act
 
-           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f* deltaConst * Time.deltaTime);
             //4f damp, to stop small change thrashing on v shaped plat edges
             //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
-           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
+            
+            if (angleBetweenPlayerAndPlatform> 64f)
+            {
+                if (negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * 0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y *0.02f * deltaConst * Time.deltaTime), 0);
+                if (!negativesSlope) transform.position = new Vector3(transform.position.x + (platformTop.x * -0.02f * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * -0.02f * deltaConst * Time.deltaTime), 0);
+            }
+            else 
+                transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
         {
-            if (IsHighAngleNoGoPlatform(westAntRch, eastAntRch) && state == CharacterState.JUMPING) vel.x = vel.x * -2f * deltaConst * Time.deltaTime;
+            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch) && state == CharacterState.JUMPING) vel.x = vel.x * -2f * deltaConst * Time.deltaTime;
 
             state = CharacterState.FALLING;
-            vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
+            vel.y -= gravity_modifier * 9.81f * Time.deltaTime;
      
-            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 4.5f);  //0,0,0 as that's our 90 deg
+            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 4.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
             //if in free fall, then rotate char to vertical, to stop small change thrashing
             
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
-            transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0);
+            transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
         }
     }
 
-    private bool IsHighAngleNoGoPlatform(RaycastHit2D westAntRch, RaycastHit2D eastAntRch)
+    private bool IsMovementIntoHighAngleNoGoPlatform(RaycastHit2D westAntRch, RaycastHit2D eastAntRch)
     {
-        bool westVerticalWallExists = Vector3.Angle(westAntRch.normal, Vector3.up) > 65f && vel.x < -0.01f;
-        bool eastVerticalWallExists = Vector3.Angle(eastAntRch.normal, Vector3.up) > 65f && vel.x > 0.01f;
-        if (westVerticalWallExists)
-        {
-            // Debug.Log("Too steep West");
-            return true;
-        }
-
-        if (eastVerticalWallExists)
-        {
-            // Debug.Log("Too steep East");
-            return true;
-        }
-
-        return false;
+        bool isWestVerticalWallAttemptedMove = Vector3.Angle(westAntRch.normal, Vector3.up) > 65f && vel.x < -0.01f;
+        bool isEastVerticalWallAttempted = Vector3.Angle(eastAntRch.normal, Vector3.up) > 65f && vel.x > 0.01f;
+        return (isWestVerticalWallAttemptedMove || isEastVerticalWallAttempted);
     }
 
     private void SetCorrectedAngle()
@@ -154,14 +148,16 @@ public class CharController : MonoBehaviour
 
     float GetFriction(RaycastHit2D rch)
     {
-        // if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < 0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
-        // {
-        //     float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
-        //     Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
-        //     return frictionCoefficient;
-        // }
-        // if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
-        //
+        float frictionMultiplier = 0.001f;
+
+        if ((vel.x > 0.01f && rch.collider.transform.rotation.eulerAngles.z < 0) || (vel.x < -0.01f && rch.collider.transform.rotation.eulerAngles.z > 0))
+        {
+            float frictionCoefficient = 1/(correctedAngle * correctedAngle * frictionMultiplier);
+            Mathf.Clamp(frictionCoefficient, 0.001f, 10f); //avoid overflow on where gradient approaches 0 or 90
+            return frictionCoefficient;
+        }
+        if (correctedAngle > 0 && correctedAngle < 17f) return 1; //comment this you cod....
+        
         return 1;
     }
 

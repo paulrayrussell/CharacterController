@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private CharController cControl;
 
-    private float xMovVel = 0.3f;
-    private float yMovVel = 2f;
-    private float moveMult = 3f;
+    private float xMovVel = 0.2f;
+    private float yMovVel = 2.5f;
+    private float moveMult = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +20,18 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow) & cControl.state == CharController.CharacterState.GROUNDED)
         {
-            cControl.vel.x += xMovVel * moveMult * Time.deltaTime;
+            cControl.vel.x += xMovVel * moveMult;
         }
         if (Input.GetKey(KeyCode.LeftArrow) & cControl.state == CharController.CharacterState.GROUNDED)
         {
-            cControl.vel.x -= xMovVel * moveMult * Time.deltaTime;
+            cControl.vel.x -= xMovVel * moveMult;
         }
         if (Input.GetKey(KeyCode.Space) & cControl.state == CharController.CharacterState.GROUNDED)
         {
             if (cControl.state == CharController.CharacterState.GROUNDED)
             {
                 cControl.state = CharController.CharacterState.JUMPING;
-                cControl.vel.y += yMovVel * moveMult * Time.deltaTime;
+                cControl.vel.y += yMovVel * moveMult;
             }
         }
     }
