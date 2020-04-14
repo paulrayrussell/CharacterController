@@ -7,10 +7,12 @@ using Unity.Mathematics;
 
 public class CharController : MonoBehaviour
 {
+    [SerializeField] private BoxCollider2D preResize = new BoxCollider2D();
     private BoxCollider2D playerBox;
+
     internal Vector2 vel;
     internal float minFallClamp = -0.5f, maxFallClamp = 0.5f, frictionX = 5f, frictionY = 0;
-    private const float gravity_modifier = 0.03f;
+    private const float gravity_modifier = 0.025f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
     private const float deltaConst = 50;
@@ -22,7 +24,8 @@ public class CharController : MonoBehaviour
     internal Vector2 platformTop;
     private float ref_damp_vel;
     int ignoreLayer;
-    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest; 
+    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
+
     public enum CharacterState
     {
         GROUNDED,
@@ -33,31 +36,38 @@ public class CharController : MonoBehaviour
     public CharacterState state;
     internal int rayCnt;
 
-
     void Start()
     {
         playerBox = GetComponent<BoxCollider2D>();
+        preResize.transform.position = playerBox.transform.position;
+        preResize.size = playerBox.size;
+        preResize.offset = playerBox.offset;
         playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.8f);
         ignoreLayer = GetIgnoreLayer();
     }
 
     public float frictionMultiplier;
     internal float actingFriction;
-    internal float lift;
     
     private void Update()
     {
         Vector3[] vertices = GetBoxCorners(playerBox);
+        Vector3[] preResizeVertices = GetBoxCorners(preResize);
+        
 
         List<Ray2D> northPlayerRay2Ds = CreateEdgeRays(vertices[1], vertices[3], true);
         List<Ray2D> southPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[2], false);
         List<Ray2D> eastPlayerRay2Ds = CreateEdgeRays(vertices[2], vertices[3], false, false);
         List<Ray2D> westPlayerRay2Ds = CreateEdgeRays(vertices[0], vertices[1], true, false);
-
+        List<Ray2D> eastAntennae = CreateEdgeRays(preResizeVertices[2], preResizeVertices[3], false, false, false, 0.01f);
+        List<Ray2D> westAntennae = CreateEdgeRays(preResizeVertices[0], preResizeVertices[1], true, false, false, 0.01f);
+        
         RaycastHit2D southRch = CheckAllRayCastsForaHit(ref southPlayerRay2Ds, rayCastLengthVertical, ignoreLayer);
         RaycastHit2D northRch = CheckAllRayCastsForaHit(ref northPlayerRay2Ds, rayCastLengthVertical, ignoreLayer);
         RaycastHit2D eastRch = CheckAllRayCastsForaHit(ref eastPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
         RaycastHit2D westRch = CheckAllRayCastsForaHit(ref westPlayerRay2Ds, rayCastLengthHorizontal, ignoreLayer);
+        RaycastHit2D eastAntRch = CheckAllRayCastsForaHit(ref eastAntennae, rayCastLengthHorizontal/2, ignoreLayer);
+        RaycastHit2D westAntRch = CheckAllRayCastsForaHit(ref westAntennae, rayCastLengthHorizontal/2, ignoreLayer);
 
         collidingNorth = (northRch && vel.y > 0.01f); // if moving up and north collision
         collidingEast = (eastRch && vel.x > 0.01f);
@@ -69,39 +79,29 @@ public class CharController : MonoBehaviour
         if (collidingEast && !collidingWest) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
         if (collidingWest && !collidingEast) vel.x = -vel.x /  6 * deltaConst * Time.deltaTime;
 
-        
         SetCorrectedAngle();
         
         if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
            vel.y = 0;
-           lift = 0;
-           if (southRch.distance < 0.09)
-           {
-               transform.position = new Vector3(transform.position.x + southRch.normal.x*0.01f, transform.position.y + southRch.normal.y*0.01f, transform.position.z);;
-           }
+           
+           if (southRch.distance < rayCastLengthVertical-0.01f) transform.position = new Vector3(transform.position.x + southRch.normal.x*Time.deltaTime, transform.position.y + southRch.normal.y*Time.deltaTime, transform.position.z);;
 
            actingFriction = GetFriction(southRch);
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  (frictionX * Time.deltaTime) * actingFriction);
            platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
-           
-           bool angleTooSteep = (correctedAngle > 65f && ((!negativesSlope && vel.x > 0.01f) || (negativesSlope && vel.x < 0.01f)));
-           if (angleTooSteep) return;
-           
-           if (correctedAngle < 65f && !(collidingEast) && !(collidingWest))
-           {
-               transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
-               //4f damp, to stop small change thrashing on v shaped plat edges
-               //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
-               transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
-           }
+           if (IsHighAngleNoGoPlatform(westAntRch, eastAntRch)) return; // won't work when you fall onto a sloped surface from a jump
+
+           transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 4f);
+            //4f damp, to stop small change thrashing on v shaped plat edges
+            //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horiz, player falls on side...
+           transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
         {
-            vel.x = (state == CharacterState.JUMPING && collidingEast) ? -0.075f : vel.x; // vel.x altered to give bounce back where jump and colliding on 90 deg
-            vel.x = (state == CharacterState.JUMPING && collidingWest) ? 0.075f : vel.x; // both colliders enter wall: south and e or w
-          
+            if (IsHighAngleNoGoPlatform(westAntRch, eastAntRch) && state == CharacterState.JUMPING) vel.x = vel.x * -2f * deltaConst * Time.deltaTime;
+
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.smoothDeltaTime;
      
@@ -111,6 +111,25 @@ public class CharController : MonoBehaviour
             vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
             transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0);
         }
+    }
+
+    private bool IsHighAngleNoGoPlatform(RaycastHit2D westAntRch, RaycastHit2D eastAntRch)
+    {
+        bool westVerticalWallExists = Vector3.Angle(westAntRch.normal, Vector3.up) > 65f && vel.x < -0.01f;
+        bool eastVerticalWallExists = Vector3.Angle(eastAntRch.normal, Vector3.up) > 65f && vel.x > 0.01f;
+        if (westVerticalWallExists)
+        {
+            // Debug.Log("Too steep West");
+            return true;
+        }
+
+        if (eastVerticalWallExists)
+        {
+            // Debug.Log("Too steep East");
+            return true;
+        }
+
+        return false;
     }
 
     private void SetCorrectedAngle()
@@ -148,7 +167,7 @@ public class CharController : MonoBehaviour
 
     public bool negativesSlope; 
     
-    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true)
+    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true, bool useBottomEdgeRay = true, float rayDivsionLength = 0.1f)
     {
         Vector3 displacement = b-a; //distance between two corners
         
@@ -156,21 +175,22 @@ public class CharController : MonoBehaviour
         
         List<Ray2D> rays = new List<Ray2D>();
         if (useTopEdgeRay) rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
-        rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
+        if (useBottomEdgeRay) rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
 
-        float rayDivisions = 0.1f;
+        float rayDivisions = rayDivsionLength;
         for (float scalar = rayDivisions; ;scalar += rayDivisions) //we we travel along equation of line inserting ray ever 1/4 of line
         {
             Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
             Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
             rays.Add(r2d);
+            if (rayDivsionLength!=0.1f) break;
         }
 
         rayCnt = rays.Count;
         return rays; 
     }
-    
+
     private RaycastHit2D CheckAllRayCastsForaHit(ref List<Ray2D> rays, float rayCastLength, int ignoreLayer)
     {
         RaycastHit2D rch = new RaycastHit2D();
