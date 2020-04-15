@@ -13,8 +13,10 @@ public class CharController : MonoBehaviour
     public bool negativesSlope;
     internal Vector2 vel;
 
-    private const float minFallClamp = -0.5f;
-    private const float maxFallClamp = 0.5f;
+    private const float minY_Vel = -0.5f;
+    private const float maxY_Vel = 0.15f;    
+    private const float minX_Vel = -0.85f;
+    private const float maxX_Vel = 0.85f;
     private const float gravity_modifier = 0.0275f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
@@ -76,6 +78,9 @@ public class CharController : MonoBehaviour
         RaycastHit2D eastAntRch = CheckAllRayCastsForaHit(ref eastAntennae, rayCastLengthHorizontal/2, ignoreLayer);
         RaycastHit2D westAntRch = CheckAllRayCastsForaHit(ref westAntennae, rayCastLengthHorizontal/2, ignoreLayer);
 
+        vel.y = Mathf.Clamp(vel.y, minY_Vel, max: maxY_Vel);
+        vel.x = Mathf.Clamp(vel.x, minX_Vel, max: maxX_Vel);
+
         collidingNorth = (northRch && vel.y > 0.01f); // if moving up and north collision
         collidingEast = (eastRch && vel.x > 0.01f);
         collidingWest = (westRch && vel.x < 0.01f);
@@ -123,11 +128,30 @@ public class CharController : MonoBehaviour
             if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 4.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
             //if in free fall, then rotate char to vertical, to stop small change thrashing
             
-            vel.y = Mathf.Clamp(vel.y, minFallClamp, max: maxFallClamp);
             transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
         }
+        
+        // if (Input.GetKey(KeyCode.RightArrow) & state == CharController.CharacterState.GROUNDED)
+        // {
+        //     vel.x += xMovVel *  Time.deltaTime; //must have dt - as will vary
+        // }
+        // if (Input.GetKey(KeyCode.LeftArrow) & state == CharController.CharacterState.GROUNDED)
+        // {
+        //     vel.x -= xMovVel * Time.deltaTime;
+        // }
+        // if (Input.GetKey(KeyCode.Space) & state == CharController.CharacterState.GROUNDED)
+        // {
+        //     if (state == CharController.CharacterState.GROUNDED)
+        //     {
+        //         state = CharController.CharacterState.JUMPING;
+        //         vel.y += yMovVel * Time.deltaTime;
+        //     }
+        // }
     }
 
+    // private float xMovVel = 1.5f;
+    // private float yMovVel = 35f;
+    
     private bool IsMovementIntoHighAngleNoGoPlatform(RaycastHit2D westAntRch, RaycastHit2D eastAntRch)
     {
         bool isWestVerticalWallAttemptedMove = Vector3.Angle(westAntRch.normal, Vector3.up) > 65f && vel.x < -0.01f;
