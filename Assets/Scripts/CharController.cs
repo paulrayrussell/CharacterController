@@ -130,7 +130,7 @@ public class CharController : MonoBehaviour
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.deltaTime;
      
-            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 4.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
+            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 1.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
             //if in free fall, then rotate char to vertical, to stop small change thrashing
             
             transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
