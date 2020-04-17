@@ -56,7 +56,7 @@ public class CharController : MonoBehaviour
         preResize.offset = playerBox.offset;
         preResize.name = "Pre-resize";
         preResize.transform.SetParent(gameObject.transform);
-        playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.9f);
+        playerBox.size = new Vector2(playerBox.size.x*0.75f, playerBox.size.y*0.9f);
         ignoreLayer = GetIgnoreLayer();
     }
 
@@ -116,7 +116,7 @@ public class CharController : MonoBehaviour
 
            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return;
 
-           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlopeRotation, 10f * deltaConst * Time.deltaTime);
+           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlopeRotation, 5f * deltaConst * Time.deltaTime);
             //this prevents absurd rotations that push player into wall, through floors etc. 10f damp, to stop small change thrashing on v shaped plat edges
 
             if (correctedAngle > slopeSlipOffAngle) vel.x = negativesSlope ? 0.05f : -0.05f; //if too steep, the only way is down
