@@ -1,0 +1,244 @@
+
+RhonerSide.png
+size: 1902,602
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Spine-animation_00
+  rotate: false
+  xy: 0, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_01
+  rotate: false
+  xy: 0, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_02
+  rotate: false
+  xy: 112, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_03
+  rotate: false
+  xy: 112, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_04
+  rotate: false
+  xy: 224, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_05
+  rotate: false
+  xy: 224, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_06
+  rotate: false
+  xy: 336, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_07
+  rotate: false
+  xy: 336, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_08
+  rotate: false
+  xy: 448, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_09
+  rotate: false
+  xy: 448, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_10
+  rotate: false
+  xy: 560, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_11
+  rotate: false
+  xy: 560, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_12
+  rotate: false
+  xy: 672, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_13
+  rotate: false
+  xy: 672, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_14
+  rotate: false
+  xy: 784, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_15
+  rotate: false
+  xy: 784, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_16
+  rotate: false
+  xy: 896, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_17
+  rotate: false
+  xy: 896, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_18
+  rotate: false
+  xy: 1008, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_19
+  rotate: false
+  xy: 1008, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_20
+  rotate: false
+  xy: 1120, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_21
+  rotate: false
+  xy: 1120, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_22
+  rotate: false
+  xy: 1232, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_23
+  rotate: false
+  xy: 1232, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_24
+  rotate: false
+  xy: 1344, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_25
+  rotate: false
+  xy: 1344, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_26
+  rotate: false
+  xy: 1456, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_27
+  rotate: false
+  xy: 1456, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_28
+  rotate: false
+  xy: 1568, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_29
+  rotate: false
+  xy: 1568, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_30
+  rotate: false
+  xy: 1680, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_31
+  rotate: false
+  xy: 1680, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_32
+  rotate: false
+  xy: 1792, 302
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1
+Spine-animation_33
+  rotate: false
+  xy: 1792, 0
+  size: 110, 300
+  orig: 110, 300
+  offset: 0, 0
+  index: -1

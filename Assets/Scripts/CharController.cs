@@ -20,6 +20,8 @@ public class CharController : MonoBehaviour
     private const float gravity_modifier = 0.0275f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.15f;
+    // private const float rayCastLengthHorizontal = 0.09f; //for 1.38
+    // private const float rayCastLengthVertical = 0.3f;     //    2.77
     private const float deltaConst = 50;
     private const float maxRotation = 35f;
     private const float slopeSlipOffAngle = 65f;
@@ -28,9 +30,9 @@ public class CharController : MonoBehaviour
     internal float correctedAngle;
     internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
     internal Vector2 platformTop;
+    internal Quaternion currentGroundSlopeRotation;
     private int ignoreLayer;
 
-    private Quaternion currentGroundSlope;
     private float ref_damp_vel;
 
 
@@ -54,7 +56,7 @@ public class CharController : MonoBehaviour
         preResize.offset = playerBox.offset;
         preResize.name = "Pre-resize";
         preResize.transform.SetParent(gameObject.transform);
-        playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.8f);
+        playerBox.size = new Vector2(playerBox.size.x*0.9f, playerBox.size.y*0.9f);
         ignoreLayer = GetIgnoreLayer();
     }
 
@@ -91,8 +93,7 @@ public class CharController : MonoBehaviour
         if (collidingEast && !collidingWest) vel.x = -0.05f * deltaConst * Time.deltaTime;
         if (collidingWest && !collidingEast) vel.x = 0.05f * deltaConst * Time.deltaTime;
 
-        SetCorrectedAngle();
-        
+
         if (southRch && state!=CharacterState.JUMPING)
         {
            state = CharacterState.GROUNDED;
@@ -106,13 +107,17 @@ public class CharController : MonoBehaviour
            else liftingCharacter = false;
 
            vel.x = Mathf.SmoothDamp(vel.x, 0, ref ref_damp_vel,  0.075f); //this is your walk stop - do not remove
-           platformTop = SetGroundSlopeRotationAndAngle(southRch, vertices);
            
+           platformTop = new Vector3(southRch.normal.y, -southRch.normal.x);
+           angleBetweenPlayerAndPlatform = GetAngleBetweenPlayerAndPlatform(vertices);
+           correctedAngle = GetCorrectedAngle(angleBetweenPlayerAndPlatform);
+
+           currentGroundSlopeRotation = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
+
            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return;
 
-           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlope, 15f * deltaConst * Time.deltaTime);
-            //this prevents absurd rotations that push player into wall, through floors etc. 15f damp, to stop small change thrashing on v shaped plat edges
-            //not colliding E & W to stop on spot rotation when against 90 deg wall - danger is on slopes going to horizontal, and player falls on side
+           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlopeRotation, 10f * deltaConst * Time.deltaTime);
+            //this prevents absurd rotations that push player into wall, through floors etc. 10f damp, to stop small change thrashing on v shaped plat edges
 
             if (correctedAngle > slopeSlipOffAngle) vel.x = negativesSlope ? 0.05f : -0.05f; //if too steep, the only way is down
 
@@ -130,28 +135,8 @@ public class CharController : MonoBehaviour
             
             transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
         }
-        
-        // if (Input.GetKey(KeyCode.RightArrow) & state == CharController.CharacterState.GROUNDED)
-        // {
-        //     vel.x += xMovVel *  Time.deltaTime; //must have dt - as will vary
-        // }
-        // if (Input.GetKey(KeyCode.LeftArrow) & state == CharController.CharacterState.GROUNDED)
-        // {
-        //     vel.x -= xMovVel * Time.deltaTime;
-        // }
-        // if (Input.GetKey(KeyCode.Space) & state == CharController.CharacterState.GROUNDED)
-        // {
-        //     if (state == CharController.CharacterState.GROUNDED)
-        //     {
-        //         state = CharController.CharacterState.JUMPING;
-        //         vel.y += yMovVel * Time.deltaTime;
-        //     }
-        // }
     }
 
-    // private float xMovVel = 1.5f;
-    // private float yMovVel = 35f;
-    
     private bool IsMovementIntoHighAngleNoGoPlatform(RaycastHit2D westAntRch, RaycastHit2D eastAntRch)
     {
         bool isWestVerticalWallAttemptedMove = Vector3.Angle(westAntRch.normal, Vector3.up) > 65f && vel.x < -0.01f;
@@ -159,9 +144,9 @@ public class CharController : MonoBehaviour
         return (isWestVerticalWallAttemptedMove || isEastVerticalWallAttempted);
     }
 
-    private void SetCorrectedAngle()
+    private float GetCorrectedAngle(float angleBetweenPlayerAndPlatform)
     {
-        correctedAngle = angleBetweenPlayerAndPlatform;
+        float correctedAngle = angleBetweenPlayerAndPlatform;
         if (correctedAngle < 2f)
         {
             correctedAngle = 0f;
@@ -175,11 +160,13 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            negativesSlope = false;
+            negativesSlope = false; //todo take these outer scope
         }
+
+        return correctedAngle;
     }
 
-    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true, bool useBottomEdgeRay = true, float rayDivsionLength = 0.1f)
+    private List<Ray2D> CreateEdgeRays(Vector3 a, Vector3 b, bool reverseLine, bool useTopEdgeRay = true, bool useBottomEdgeRay = true, float rayDivisionLength = 0.1f)
     {
         Vector3 displacement = b-a; //distance between two corners
         
@@ -189,14 +176,14 @@ public class CharController : MonoBehaviour
         if (useTopEdgeRay) rays.Add(new Ray2D(a, new Vector3(perpendicular.x, perpendicular.y, 0))); //put a ray on point a 
         if (useBottomEdgeRay) rays.Add(new Ray2D(b, new Vector3(perpendicular.x, perpendicular.y, 0))); //and b
 
-        float rayDivisions = rayDivsionLength;
+        float rayDivisions = rayDivisionLength;
         for (float scalar = rayDivisions; ;scalar += rayDivisions) //we we travel along equation of line inserting ray ever 1/4 of line
         {
             Vector3 startOfRay = new Vector3(a.x + (scalar * displacement.x), a.y + (scalar * displacement.y), 0);
             if ((startOfRay - a).magnitude > displacement.magnitude) break; //length of line eq - start point > original line
             Ray2D r2d = new Ray2D(startOfRay, new Vector3(perpendicular.x, perpendicular.y, 0));
             rays.Add(r2d);
-            if (rayDivsionLength!=0.1f) break;
+            if (rayDivisionLength!=0.1f) break;
         }
 
         rayCnt = rays.Count;
@@ -226,7 +213,7 @@ public class CharController : MonoBehaviour
         return rch;
     }
 
-    private Vector2 SetGroundSlopeRotationAndAngle(RaycastHit2D rch, Vector3[] vertices)
+    private float GetAngleBetweenPlayerAndPlatform(Vector3[] vertices)
     {
         Vector3 playerSWCorner = vertices[0];
         Vector3 playerSECorner = vertices[2];
@@ -235,17 +222,17 @@ public class CharController : MonoBehaviour
         // Vector3[] platformCorners = GetBoxCorners((BoxCollider2D) rch.collider);
         // Vector3 platformTopCorner = platformCorners[1];
         // DebugUtil.DrawMarker(platformTopCorner, Color.cyan);
-        platformTop = new Vector3(rch.normal.y, -rch.normal.x);
+        
         // Debug.DrawRay(platformTopCorner, new Vector3(platformTop.x*2, platformTop.y*2), Color.magenta); //this is the platform top location
         Debug.DrawRay(new Vector3(playerSWCorner.x, playerSWCorner.y, 0), new Vector3(playerSouthLine.x, playerSouthLine.y, 0), Color.blue);
 
-        angleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
-        angleBetweenPlayerAndPlatform = angleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation -- this is changing constantly
-        currentGroundSlope = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
-        
-        return platformTop;
+        float newAngleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
+        newAngleBetweenPlayerAndPlatform = newAngleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation -- this is changing constantly
+        // angleBetweenPlayerAndPlatform = Mathf.SmoothDamp(angleBetweenPlayerAndPlatform, newAngleBetweenPlayerAndPlatform, ref vel2, 5f);
+        return newAngleBetweenPlayerAndPlatform;
     }
 
+    private float vel2;
 
     private int GetIgnoreLayer()
     {

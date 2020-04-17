@@ -1,0 +1,944 @@
+fileFormatVersion: 2
+guid: 3c0ec265672a639418c62eefc298f508
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6663636912264006412
+    second: RhonerSide_0
+  - first:
+      213: -676742146548894612
+    second: RhonerSide_1
+  - first:
+      213: 3051813797413050009
+    second: RhonerSide_2
+  - first:
+      213: 8638997343724720923
+    second: RhonerSide_3
+  - first:
+      213: 3427579279672502209
+    second: RhonerSide_4
+  - first:
+      213: 8598498579585840397
+    second: RhonerSide_5
+  - first:
+      213: 1999908024132981939
+    second: RhonerSide_6
+  - first:
+      213: 5841804727142442421
+    second: RhonerSide_7
+  - first:
+      213: 2233445555094632433
+    second: RhonerSide_8
+  - first:
+      213: -4325620704995696906
+    second: RhonerSide_9
+  - first:
+      213: 7297325094853297962
+    second: RhonerSide_10
+  - first:
+      213: 2001666164864480411
+    second: RhonerSide_11
+  - first:
+      213: -7284152540923797386
+    second: RhonerSide_12
+  - first:
+      213: -3923712021523891365
+    second: RhonerSide_13
+  - first:
+      213: 4865386473840496150
+    second: RhonerSide_14
+  - first:
+      213: 2980717824660468378
+    second: RhonerSide_15
+  - first:
+      213: 785758152490301123
+    second: RhonerSide_16
+  - first:
+      213: -3614137777139732453
+    second: RhonerSide_17
+  - first:
+      213: -7593201720364055200
+    second: RhonerSide_18
+  - first:
+      213: -7885432226819947949
+    second: RhonerSide_19
+  - first:
+      213: -692360466341920924
+    second: RhonerSide_20
+  - first:
+      213: 1256430466415161913
+    second: RhonerSide_21
+  - first:
+      213: 7663368460241999933
+    second: RhonerSide_22
+  - first:
+      213: -8534989413734058890
+    second: RhonerSide_23
+  - first:
+      213: -3109394098687661222
+    second: RhonerSide_24
+  - first:
+      213: 2955130521840324750
+    second: RhonerSide_25
+  - first:
+      213: -4615320053033047128
+    second: RhonerSide_26
+  - first:
+      213: -1298871539887364716
+    second: RhonerSide_27
+  - first:
+      213: -4145003507170106635
+    second: RhonerSide_28
+  - first:
+      213: 2606962161423681338
+    second: RhonerSide_29
+  - first:
+      213: -2630844979461037515
+    second: RhonerSide_30
+  - first:
+      213: -4225775285278320979
+    second: RhonerSide_31
+  - first:
+      213: 8312185745916475207
+    second: RhonerSide_32
+  - first:
+      213: -5403219768135944453
+    second: RhonerSide_33
+  - first:
+      213: 5969640395763847653
+    second: RhonerSide_16
+  - first:
+      213: 5826852633609115590
+    second: RhonerSide_17
+  - first:
+      213: -220635452258581766
+    second: RhonerSide_18
+  - first:
+      213: -3800679072546369649
+    second: RhonerSide_19
+  - first:
+      213: -2773732717974588989
+    second: RhonerSide_20
+  - first:
+      213: -481114233760614793
+    second: RhonerSide_21
+  - first:
+      213: -7614004667199264
+    second: RhonerSide_22
+  - first:
+      213: 6309099403744512715
+    second: RhonerSide_23
+  - first:
+      213: 6979187765166203477
+    second: RhonerSide_24
+  - first:
+      213: 6861155228948646866
+    second: RhonerSide_25
+  - first:
+      213: -1470526693634817012
+    second: RhonerSide_26
+  - first:
+      213: -8638846569267772980
+    second: RhonerSide_27
+  - first:
+      213: 5024133911208366334
+    second: RhonerSide_28
+  - first:
+      213: -1087655101368972658
+    second: RhonerSide_29
+  - first:
+      213: -1259027457634377474
+    second: RhonerSide_30
+  - first:
+      213: -8292508940765575002
+    second: RhonerSide_31
+  - first:
+      213: 7266575334298868248
+    second: RhonerSide_0
+  - first:
+      213: 8590668276487092674
+    second: RhonerSide_1
+  - first:
+      213: -6721571496017520695
+    second: RhonerSide_2
+  - first:
+      213: 6729443968365413124
+    second: RhonerSide_3
+  - first:
+      213: -3648964893982315418
+    second: RhonerSide_4
+  - first:
+      213: 1128006206864030863
+    second: RhonerSide_5
+  - first:
+      213: -4572137309937068067
+    second: RhonerSide_6
+  - first:
+      213: -4728278262123172443
+    second: RhonerSide_7
+  - first:
+      213: -2820756651737695085
+    second: RhonerSide_14
+  - first:
+      213: -7282750761260053098
+    second: RhonerSide_15
+  - first:
+      213: 3882753685865066495
+    second: RhonerSide_32
+  - first:
+      213: 5489890043776998046
+    second: RhonerSide_8
+  - first:
+      213: -2767210015606765731
+    second: RhonerSide_9
+  - first:
+      213: 683735318964630543
+    second: RhonerSide_10
+  - first:
+      213: -7616797657083553955
+    second: RhonerSide_11
+  - first:
+      213: -1831261431084841940
+    second: RhonerSide_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RhonerSide_13
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b732484bc2c89c0800000000000000
+      internalID: -3923712021523891365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_27
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4952628573b79fde0800000000000000
+      internalID: -1298871539887364716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81adf7e34cf08d460800000000000000
+      internalID: 7266575334298868248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9fa3b384f283770800000000000000
+      internalID: 8590668276487092674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c71c77365e28b2a0800000000000000
+      internalID: -6721571496017520695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403c05692a9c36d50800000000000000
+      internalID: 6729443968365413124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c205013c54c5dc0800000000000000
+      internalID: -3648964893982315418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_5
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1600
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cf0903bab77af00800000000000000
+      internalID: 1128006206864030863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_7
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad62fad8f7c16eb0800000000000000
+      internalID: -4728278262123172443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1935abf4c68d250800000000000000
+      internalID: 5969640395763847653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_17
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c712d829932dd050800000000000000
+      internalID: 5826852633609115590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af20543a93520fcf0800000000000000
+      internalID: -220635452258581766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_19
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fcc973586414bc0800000000000000
+      internalID: -3800679072546369649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_21
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7767058472db259f0800000000000000
+      internalID: -481114233760614793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_22
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e05e746a13f4eff0800000000000000
+      internalID: -7614004667199264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_23
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca02dc0b7c6e8750800000000000000
+      internalID: 6309099403744512715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b456e180c911cb10800000000000000
+      internalID: 1999908024132981939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a184b78e1003c40800000000000000
+      internalID: 5489890043776998046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_9
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d570bd0f625e899d0800000000000000
+      internalID: -2767210015606765731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_10
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04764766ad1d7900800000000000000
+      internalID: 683735318964630543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_11
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1200
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57d18be2e2bb4690800000000000000
+      internalID: -7616797657083553955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24805d4e6d0696e0800000000000000
+      internalID: -1831261431084841940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_14
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cba5f25c8aad8d0800000000000000
+      internalID: -2820756651737695085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_15
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 800
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d836fa4c87eea90800000000000000
+      internalID: -7282750761260053098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_20
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 400
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f7a2bf2dd3466f0800000000000000
+      internalID: -692360466341920924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552eb7b8b4e0bd060800000000000000
+      internalID: 6979187765166203477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_25
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db4c4a2458b73f50800000000000000
+      internalID: 6861155228948646866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_26
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04ca2963c3a79be0800000000000000
+      internalID: -1470526693634817012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_28
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef091995c2f49b540800000000000000
+      internalID: 5024133911208366334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerSide_29
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 152
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ac2cca27fd7e0f0800000000000000
+      internalID: -1087655101368972658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
