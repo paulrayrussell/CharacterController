@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
 
-    [SerializeField] private Animator animator;
-    [SerializeField] private SpriteRenderer spriteRender;
-    [SerializeField] private CharController charController;
+    [SerializeField] private Animator animator = null;
+    [SerializeField] private SpriteRenderer spriteRender = null;
+    [SerializeField] private CharController charController = null;
 
     private float flipPoint = 0;
     private float vel;
@@ -24,18 +24,27 @@ public class PlayerAnimationController : MonoBehaviour
     {
 
         transform.position = charController.transform.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.currentGroundSlopeRotation, 40f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.transform.rotation, 25f * Time.deltaTime);
         
-        if (charController.vel.x>0.001f)
+        if (charController.vel.x>0.01f)
         {
             if (flipPoint>0.9) spriteRender.flipX = true;
             flipPoint = Mathf.SmoothDamp(flipPoint, 1, ref vel, 0.1f );
+            animator.SetBool("Walking", true);
+            animator.SetBool("Idle", false);
 
         }
-        if (charController.vel.x<-0.001f)
+        else if (charController.vel.x<-0.01f)
         {
             if (flipPoint<-0.9) spriteRender.flipX = false;
             flipPoint = Mathf.SmoothDamp(flipPoint, -1, ref vel, 0.1f );
+            animator.SetBool("Walking", true);
+            animator.SetBool("Idle", false);
+        } 
+        else
+        {
+            animator.SetBool("Walking", false);
+            animator.SetBool("Idle", true);
         }
     }
 }

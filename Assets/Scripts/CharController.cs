@@ -23,7 +23,7 @@ public class CharController : MonoBehaviour
     // private const float rayCastLengthHorizontal = 0.09f; //for 1.38
     // private const float rayCastLengthVertical = 0.3f;     //    2.77
     private const float deltaConst = 50;
-    private const float maxRotation = 35f;
+    private const float maxRotation = 25f;
     private const float slopeSlipOffAngle = 65f;
 
     internal float angleBetweenPlayerAndPlatform;
