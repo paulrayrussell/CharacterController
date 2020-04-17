@@ -24,7 +24,7 @@ public class PlayerAnimationController : MonoBehaviour
     {
 
         transform.position = charController.transform.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.currentGroundSlopeRotation, 10f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.currentGroundSlopeRotation, 40f * Time.deltaTime);
         
         if (charController.vel.x>0.001f)
         {
