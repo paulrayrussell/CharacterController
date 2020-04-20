@@ -7,14 +7,10 @@ public class LiftOperator : MonoBehaviour
 {
     [SerializeField] private Transform max = null;
     [SerializeField] private Transform min = null;
-    [SerializeField] private float vel = 1;
     // Start is called before the first frame update
-    public enum State
-    {
-        STATIC, MAX_PT, MIN_PT
-    }
 
-    public State state = State.STATIC;
+    private bool isStatic = true;
+    private bool goingUp = false;
     private Vector3 target;
 
     void Start()
@@ -25,29 +21,41 @@ public class LiftOperator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y >= max.position.y)
+        if (!isStatic && goingUp && transform.position.y >= target.y)
         {
-            state = State.MAX_PT;
-            vel = -1;
+            isStatic = true;
         }
-        if (transform.position.y <= min.position.y)
+        if (!isStatic && !goingUp && transform.position.y <= target.y )
         {
-            state = State.MIN_PT;
-            vel = 1;
+            isStatic = true;
         }
         
-        if (state!= State.STATIC) transform.position = Vector3.MoveTowards(transform.position, target, vel * Time.deltaTime);
+        if (Input.GetMouseButtonDown(0))
+        {
+            int player = LayerMask.NameToLayer("Player");
+            int tilesLayer = LayerMask.NameToLayer("Tiles");
+            int backgroundLayer = LayerMask.NameToLayer("Background");
+            int playerLayerMask = 1 << player;
+            int tilesLayerMask = 1 << tilesLayer;
+            int backgroundLayerMask = 1 << backgroundLayer;
+
+            int ignoreLayer = playerLayerMask | tilesLayerMask | backgroundLayerMask;
+
+            // This would cast rays only against colliders in the two layers mentioned
+            // But instead we want to collide against everything except these two layers. The ~ operator does this, it inverts a bitmask.
+            ignoreLayer = ~ignoreLayer;
+                
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 5, ignoreLayer);
+            if (hit && isStatic)
+            {
+                if (goingUp) target = min.position;
+                if (!goingUp) target = max.position;
+                goingUp = !goingUp;
+                isStatic = false;
+            }
+        }
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Collision");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("TRIGGER");
-        if (state== State.STATIC) vel = 1;
+        if (!isStatic) transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, target.y, 0), 1 * Time.deltaTime);
     }
 }

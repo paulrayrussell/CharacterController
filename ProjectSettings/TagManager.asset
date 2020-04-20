@@ -47,6 +47,9 @@ TagManager:
   - name: Tiles
     uniqueID: 2277749009
     locked: 0
+  - name: Lifts
+    uniqueID: 4198600859
+    locked: 0
   - name: Player
     uniqueID: 1798245223
     locked: 0
