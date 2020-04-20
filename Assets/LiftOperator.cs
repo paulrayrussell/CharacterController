@@ -7,13 +7,14 @@ public class LiftOperator : MonoBehaviour
 {
     [SerializeField] private Transform max = null;
     [SerializeField] private Transform min = null;
+    [SerializeField] private float vel = 1;
     // Start is called before the first frame update
     public enum State
     {
-        TRAVELLING_TO_MIN, TRAVELLING_TO_MAX, STATIC_AT_MAX, STATIC_AT_MIN
+        STATIC, MAX_PT, MIN_PT
     }
 
-    public State state = State.STATIC_AT_MIN;
+    public State state = State.STATIC;
     private Vector3 target;
 
     void Start()
@@ -24,29 +25,29 @@ public class LiftOperator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y > max.position.y) state = State.STATIC_AT_MAX;
-        if (transform.position.y < min.position.y) state = State.STATIC_AT_MIN;
+        if (transform.position.y >= max.position.y)
+        {
+            state = State.MAX_PT;
+            vel = -1;
+        }
+        if (transform.position.y <= min.position.y)
+        {
+            state = State.MIN_PT;
+            vel = 1;
+        }
         
-        if (state== State.TRAVELLING_TO_MIN) transform.position = Vector3.MoveTowards(transform.position, min.position, Time.deltaTime);
-        if (state== State.TRAVELLING_TO_MAX) transform.position = Vector3.MoveTowards(transform.position, max.position, Time.deltaTime);
+        if (state!= State.STATIC) transform.position = Vector3.MoveTowards(transform.position, target, vel * Time.deltaTime);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        switch (state)
-        {
-            case State.STATIC_AT_MIN :
-            {
-                target = max.position;
-                state = State.TRAVELLING_TO_MIN;
-                break;
-            }
-            case State.STATIC_AT_MAX :
-            {
-                target = min.position;
-                state = State.TRAVELLING_TO_MIN;
-                break;
-            }
-        }
+        Debug.Log("Collision");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("TRIGGER");
+        if (state== State.STATIC) vel = 1;
     }
 }
