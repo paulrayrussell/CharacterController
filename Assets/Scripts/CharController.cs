@@ -238,10 +238,12 @@ public class CharController : MonoBehaviour
     {
         int uiLayer = LayerMask.NameToLayer("UI");
         int playerLayer = LayerMask.NameToLayer("Player");
+        int enemiesLayer = LayerMask.NameToLayer("Enemies");
         int playerLayerMask = 1 << playerLayer;
         int uiLayerMask = 1 << uiLayer;
+        int enemiesLayerMask = 1 << enemiesLayer;
 
-        int ignoreLayer = uiLayerMask | playerLayerMask;
+        int ignoreLayer = uiLayerMask | playerLayerMask | enemiesLayerMask;
 
         // This would cast rays only against colliders in the two layers mentioned
         // But instead we want to collide against everything except these two layers. The ~ operator does this, it inverts a bitmask.

@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: beeba32c9f59d9c4ab1adccf0d2c3c48
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3392210030592142045
+    second: BlondThugIdle_0
+  - first:
+      213: 8738470254190155233
+    second: BlondThugIdle_1
+  - first:
+      213: 5315465648966402031
+    second: BlondThugIdle_2
+  - first:
+      213: 4671489198324865877
+    second: BlondThugIdle_3
+  - first:
+      213: 7779966347275896629
+    second: BlondThugIdle_4
+  - first:
+      213: -727553460338740260
+    second: BlondThugIdle_5
+  - first:
+      213: 3729865752400930964
+    second: BlondThugIdle_6
+  - first:
+      213: 3712631658646007586
+    second: BlondThugIdle_7
+  - first:
+      213: -8950777510054656903
+    second: BlondThugIdle_8
+  - first:
+      213: -338826080954577230
+    second: BlondThugIdle_9
+  - first:
+      213: -36647820490492755
+    second: BlondThugIdle_10
+  - first:
+      213: -1168057028794148427
+    second: BlondThugIdle_11
+  - first:
+      213: 1210170698284791574
+    second: BlondThugIdle_12
+  - first:
+      213: 1731234272724660252
+    second: BlondThugIdle_13
+  - first:
+      213: 8773080452961667594
+    second: BlondThugIdle_14
+  - first:
+      213: -5334702866515957744
+    second: BlondThugIdle_15
+  - first:
+      213: -1434448895093941039
+    second: BlondThugIdle_16
+  - first:
+      213: -7094006999832135702
+    second: BlondThugIdle_17
+  - first:
+      213: 1299293009357013531
+    second: BlondThugIdle_18
+  - first:
+      213: -506198800290604509
+    second: BlondThugIdle_19
+  - first:
+      213: -1894877104189713527
+    second: BlondThugIdle_20
+  - first:
+      213: 1960010861820187051
+    second: BlondThugIdle_21
+  - first:
+      213: -4820775369888273520
+    second: BlondThugIdle_22
+  - first:
+      213: 5395518296552205815
+    second: BlondThugIdle_23
+  - first:
+      213: -3001152304424004018
+    second: BlondThugIdle_24
+  - first:
+      213: 8699281395235722820
+    second: BlondThugIdle_25
+  - first:
+      213: -1608236976412770029
+    second: BlondThugIdle_26
+  - first:
+      213: 3888798575967835127
+    second: BlondThugIdle_27
+  - first:
+      213: -3118579375249787579
+    second: BlondThugIdle_28
+  - first:
+      213: -4010183803397248968
+    second: BlondThugIdle_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlondThugIdle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda26f4dc0d831f20800000000000000
+      internalID: 3392210030592142045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e55255d568454970800000000000000
+      internalID: 8738470254190155233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feffe6e58d354c940800000000000000
+      internalID: 5315465648966402031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_3
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b5a3edca674d040800000000000000
+      internalID: 4671489198324865877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_4
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5378fdd3c2ef7fb60800000000000000
+      internalID: 7779966347275896629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_5
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd337698bf537e5f0800000000000000
+      internalID: -727553460338740260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_6
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 498a0cfd32523c330800000000000000
+      internalID: 3729865752400930964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_7
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fe67bb2dae58330800000000000000
+      internalID: 3712631658646007586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_8
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97403a1274378c380800000000000000
+      internalID: -8950777510054656903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_9
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 830
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be801c797f3c4bf0800000000000000
+      internalID: -338826080954577230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da43fdd500dcd7ff0800000000000000
+      internalID: -36647820490492755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b99359225a3acfe0800000000000000
+      internalID: -1168057028794148427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_12
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617f9dc96d36bc010800000000000000
+      internalID: 1210170698284791574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_13
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c103cb80664960810800000000000000
+      internalID: 1731234272724660252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_14
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a04b0b03e30c970800000000000000
+      internalID: 8773080452961667594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_15
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018ee03e10457f5b0800000000000000
+      internalID: -5334702866515957744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_16
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc59777450d71ce0800000000000000
+      internalID: -1434448895093941039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_17
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7fed428360d8d90800000000000000
+      internalID: -7094006999832135702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_18
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b128fd9ab14080210800000000000000
+      internalID: 1299293009357013531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_19
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 415
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a13f28fde99f8f0800000000000000
+      internalID: -506198800290604509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98350cf205b04b5e0800000000000000
+      internalID: -1894877104189713527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_21
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba113b68e7b533b10800000000000000
+      internalID: 1960010861820187051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_22
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b6bd7b75a291db0800000000000000
+      internalID: -4820775369888273520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_23
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd6d15dd4bb0ea40800000000000000
+      internalID: 5395518296552205815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_24
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4656f141e3c956d0800000000000000
+      internalID: -3001152304424004018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_25
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4469034965e0ab870800000000000000
+      internalID: 8699281395235722820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_26
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311c442adf46ea9e0800000000000000
+      internalID: -1608236976412770029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_27
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f39b9b73b9c7f530800000000000000
+      internalID: 3888798575967835127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_28
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5457066c49498b4d0800000000000000
+      internalID: -3118579375249787579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugIdle_29
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 0
+        width: 93
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8386b72e317f858c0800000000000000
+      internalID: -4010183803397248968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
