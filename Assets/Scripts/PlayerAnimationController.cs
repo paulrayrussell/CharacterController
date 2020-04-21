@@ -9,6 +9,7 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private Animator animator = null;
     [SerializeField] private SpriteRenderer spriteRender = null;
     [SerializeField] private CharController charController = null;
+    [SerializeField] private float groundedRtationSmoother = 20f;
 
     private float flipPoint = 0;
     private float vel;
@@ -24,13 +25,14 @@ public class PlayerAnimationController : MonoBehaviour
     {
 
         transform.position = transform.parent.position; //this should come from the top level component
-        if (charController.state == CharController.CharacterState.FALLING)
+        
+        // if (charController.state == CharController.CharacterState.FALLING)
+        // {
+        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.parent.transform.rotation, 500f * Time.deltaTime);
+        // }
+        // else 
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.parent.rotation, 500f * Time.deltaTime);
-        }
-        else 
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.parent.rotation, 20f * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.transform.rotation, 20f * Time.deltaTime);
         }
         
         if (charController.vel.x>0.01f)

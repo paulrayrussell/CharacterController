@@ -19,7 +19,7 @@ public class CharController : MonoBehaviour
     private const float maxX_Vel = 0.85f;
     private const float gravity_modifier = 0.0275f;
     private const float rayCastLengthHorizontal = 0.075f;
-    private const float rayCastLengthVertical = 0.15f;
+    private const float rayCastLengthVertical = 0.14f;
     // private const float rayCastLengthHorizontal = 0.09f; //for 1.38
     // private const float rayCastLengthVertical = 0.3f;     //    2.77
     private const float deltaConst = 50;
@@ -116,7 +116,7 @@ public class CharController : MonoBehaviour
            if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch) && (collidingEast || collidingWest)) return; //added E & W checks so that if hit only at base, without any other collision, player negotiates small bumps
            //this might cause issues with steep platforms - he may try to walk them - solution might be another "antennae collider" higher up.
 
-           if (correctedAngle < maxRotation) transform.parent.rotation = Quaternion.RotateTowards(transform.parent.rotation, currentGroundSlopeRotation, 5f * deltaConst * Time.deltaTime);
+           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlopeRotation, 5f * deltaConst * Time.deltaTime); //rotations held in playerController, not parent - else hits animator
             //this prevents absurd rotations that push player into wall, through floors etc. 10f damp, to stop small change thrashing on v shaped plat edges
 
             if (correctedAngle > slopeSlipOffAngle) vel.x = negativesSlope ? 0.05f : -0.05f; //if too steep, the only way is down
@@ -130,7 +130,7 @@ public class CharController : MonoBehaviour
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.deltaTime;
      
-            if (vel.y<-0.01f) transform.parent.rotation =  Quaternion.RotateTowards(transform.parent.rotation, Quaternion.Euler(0, 0, 0), 1.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
+            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 1.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
             //if in free fall, then rotate char to vertical, to stop small change thrashing
             
             transform.parent.position = new Vector3(transform.parent.position.x + vel.x* deltaConst * Time.deltaTime, transform.parent.position.y + vel.y* deltaConst * Time.deltaTime, 0); 

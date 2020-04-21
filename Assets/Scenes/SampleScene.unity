@@ -861,6 +861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111434846}
   - component: {fileID: 111434845}
+  - component: {fileID: 111434847}
   m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
@@ -908,6 +909,27 @@ Transform:
   m_Father: {fileID: 718896601}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &111434847
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111434844}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &141523537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3944,6 +3966,7 @@ MonoBehaviour:
   animator: {fileID: 887975312}
   spriteRender: {fileID: 887975313}
   charController: {fileID: 718896599}
+  groundedRtationSmoother: 10
 --- !u!95 &887975312
 Animator:
   serializedVersion: 3
@@ -7211,15 +7234,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859971935}
-  m_LocalRotation: {x: 0, y: 0, z: -0.14988044, w: 0.98870414}
-  m_LocalPosition: {x: 8.74, y: 7.1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.05, y: 7.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718896601}
   - {fileID: 887975310}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.24}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893924183
 GameObject:
   m_ObjectHideFlags: 0
