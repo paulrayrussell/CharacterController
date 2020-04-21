@@ -23,7 +23,7 @@ public class PlayerAnimationController : MonoBehaviour
     void Update()
     {
 
-        transform.position = charController.transform.position;
+        transform.position = charController.transform.position; //this should come from the top level component
         if (charController.state == CharController.CharacterState.FALLING)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, charController.transform.rotation, 500f * Time.deltaTime);

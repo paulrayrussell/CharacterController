@@ -12,15 +12,20 @@ public class LiftOperator : MonoBehaviour
     private bool isStatic = true;
     private bool goingUp = false;
     private Vector3 target;
-
+    private GameObject player;
     void Start()
     {
         target = min.transform.position;
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        Vector3 disp = player.transform.position - transform.position;
+        Debug.Log(disp.magnitude);
+        
         if (!isStatic && goingUp && transform.position.y >= target.y)
         {
             isStatic = true;
@@ -32,10 +37,10 @@ public class LiftOperator : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
-            int player = LayerMask.NameToLayer("Player");
+            int playerLayer = LayerMask.NameToLayer("Player");
             int tilesLayer = LayerMask.NameToLayer("Tiles");
             int backgroundLayer = LayerMask.NameToLayer("Background");
-            int playerLayerMask = 1 << player;
+            int playerLayerMask = 1 << playerLayer;
             int tilesLayerMask = 1 << tilesLayer;
             int backgroundLayerMask = 1 << backgroundLayer;
 
@@ -49,11 +54,14 @@ public class LiftOperator : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 5, ignoreLayer);
             if (hit && isStatic)
             {
+               
+                
                 if (goingUp) target = min.position;
                 if (!goingUp) target = max.position;
                 goingUp = !goingUp;
                 isStatic = false;
             }
+            
         }
         
         if (!isStatic) transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, target.y, 0), 1 * Time.deltaTime);
