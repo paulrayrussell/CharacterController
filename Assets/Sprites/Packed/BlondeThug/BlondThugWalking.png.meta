@@ -1,0 +1,836 @@
+fileFormatVersion: 2
+guid: 0a73788b9fc1dc84c99dea01d3c63715
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2027830795098111416
+    second: BlondThugWalking_0
+  - first:
+      213: 203237104159961404
+    second: BlondThugWalking_1
+  - first:
+      213: 1225340528874873092
+    second: BlondThugWalking_2
+  - first:
+      213: 3008756134531952670
+    second: BlondThugWalking_3
+  - first:
+      213: -4248067761679747348
+    second: BlondThugWalking_4
+  - first:
+      213: -4766581842943446650
+    second: BlondThugWalking_5
+  - first:
+      213: 1919207719472964273
+    second: BlondThugWalking_6
+  - first:
+      213: -2313354526576253864
+    second: BlondThugWalking_7
+  - first:
+      213: 8932701362997198520
+    second: BlondThugWalking_8
+  - first:
+      213: 8817444102391063266
+    second: BlondThugWalking_9
+  - first:
+      213: -7794525480091257898
+    second: BlondThugWalking_10
+  - first:
+      213: -5500196795137230989
+    second: BlondThugWalking_11
+  - first:
+      213: 7467670133244144356
+    second: BlondThugWalking_12
+  - first:
+      213: -2295455088572810927
+    second: BlondThugWalking_13
+  - first:
+      213: -5970049716858593718
+    second: BlondThugWalking_14
+  - first:
+      213: 3224256910401085747
+    second: BlondThugWalking_15
+  - first:
+      213: -3787080474519775897
+    second: BlondThugWalking_16
+  - first:
+      213: 9171437145468705903
+    second: BlondThugWalking_17
+  - first:
+      213: 3634878301202276578
+    second: BlondThugWalking_18
+  - first:
+      213: -5506616426109874106
+    second: BlondThugWalking_19
+  - first:
+      213: -3150672639041218562
+    second: BlondThugWalking_20
+  - first:
+      213: 8145586162225549141
+    second: BlondThugWalking_21
+  - first:
+      213: -7960511780231243370
+    second: BlondThugWalking_22
+  - first:
+      213: -905967413887590194
+    second: BlondThugWalking_23
+  - first:
+      213: 1098255634910265313
+    second: BlondThugWalking_24
+  - first:
+      213: 1978854916758821298
+    second: BlondThugWalking_25
+  - first:
+      213: -4277954264719803689
+    second: BlondThugWalking_26
+  - first:
+      213: 4138474766555867493
+    second: BlondThugWalking_27
+  - first:
+      213: 6804959531751146740
+    second: BlondThugWalking_28
+  - first:
+      213: -6303374233240416591
+    second: BlondThugWalking_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlondThugWalking_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdbb6e3d5d442c10800000000000000
+      internalID: 2027830795098111416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_1
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3132a6c11b02d200800000000000000
+      internalID: 203237104159961404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401e97808b8410110800000000000000
+      internalID: 1225340528874873092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_3
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10fd8663cf31c920800000000000000
+      internalID: 3008756134531952670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_4
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce63a43c0e4db05c0800000000000000
+      internalID: -4248067761679747348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_5
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681778a7113b9ddb0800000000000000
+      internalID: -4766581842943446650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_6
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2af51a04562aa10800000000000000
+      internalID: 1919207719472964273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_7
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1245
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85461e3905055efd0800000000000000
+      internalID: -2313354526576253864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be781aef8457fb70800000000000000
+      internalID: 8932701362997198520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_9
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2e1edb1badd5a70800000000000000
+      internalID: 8817444102391063266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_10
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3fd6e7f5844d390800000000000000
+      internalID: -7794525480091257898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_11
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3777a17f7206ba3b0800000000000000
+      internalID: -5500196795137230989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_12
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eaafc7bb6e72a760800000000000000
+      internalID: 7467670133244144356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_13
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15931cf32c7e420e0800000000000000
+      internalID: -2295455088572810927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_14
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ed837c96f162da0800000000000000
+      internalID: -5970049716858593718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_15
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 830
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3312e01c39cdebc20800000000000000
+      internalID: 3224256910401085747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7655e6c8f56917bc0800000000000000
+      internalID: -3787080474519775897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_17
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c1c7fcd7d774f70800000000000000
+      internalID: 9171437145468705903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_18
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0efe87e8ea17230800000000000000
+      internalID: 3634878301202276578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_19
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640d36729819493b0800000000000000
+      internalID: -5506616426109874106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_20
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7d7628def8644d0800000000000000
+      internalID: -3150672639041218562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_21
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f8ac6157fea0170800000000000000
+      internalID: 8145586162225549141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_22
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699110566b4968190800000000000000
+      internalID: -7960511780231243370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_23
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 415
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0a625ef6b5d63f0800000000000000
+      internalID: -905967413887590194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efb56f5ea9cd3f00800000000000000
+      internalID: 1098255634910265313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_25
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9d177ff0e467b10800000000000000
+      internalID: 1978854916758821298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_26
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da32060347a1a4c0800000000000000
+      internalID: -4277954264719803689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_27
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569ea74afd0de6930800000000000000
+      internalID: 4138474766555867493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_28
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f48fe0d3a2107e50800000000000000
+      internalID: 6804959531751146740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlondThugWalking_29
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 228
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1beca55188ae588a0800000000000000
+      internalID: -6303374233240416591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -18,7 +18,7 @@ TagManager:
   - Background
   - Lifts
   - CamStop
-  - 
+  - Enemies
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Lifts
     uniqueID: 4198600859
+    locked: 0
+  - name: Enemies
+    uniqueID: 1526613085
     locked: 0
   - name: Player
     uniqueID: 1798245223
