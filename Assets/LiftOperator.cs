@@ -22,10 +22,6 @@ public class LiftOperator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        Vector3 disp = player.transform.position - transform.position;
-        Debug.Log(disp.magnitude);
-        
         if (!isStatic && goingUp && transform.position.y >= target.y)
         {
             isStatic = true;
@@ -37,6 +33,8 @@ public class LiftOperator : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            Vector3 disp = player.transform.position - transform.position;
+            if (disp.magnitude > 2.1f) return;
             int playerLayer = LayerMask.NameToLayer("Player");
             int tilesLayer = LayerMask.NameToLayer("Tiles");
             int backgroundLayer = LayerMask.NameToLayer("Background");
@@ -54,8 +52,6 @@ public class LiftOperator : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 5, ignoreLayer);
             if (hit && isStatic)
             {
-               
-                
                 if (goingUp) target = min.position;
                 if (!goingUp) target = max.position;
                 goingUp = !goingUp;

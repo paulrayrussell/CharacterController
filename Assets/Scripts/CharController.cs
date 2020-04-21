@@ -89,10 +89,9 @@ public class CharController : MonoBehaviour
         collidingSouth = southRch;
         
         //standard wall knock-back
-        if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime; //check for south to avoid bouncing into walls
+        if (collidingNorth && !collidingSouth) vel.y = -vel.y / 6 * deltaConst * Time.deltaTime; //check for south to avoid bouncing into walls ...todo you will need to clamp this to avoid a mega bounce
         if (collidingEast && !collidingWest) vel.x = -0.05f * deltaConst * Time.deltaTime;
         if (collidingWest && !collidingEast) vel.x = 0.05f * deltaConst * Time.deltaTime;
-
 
         if (southRch && state!=CharacterState.JUMPING)
         {
@@ -102,7 +101,7 @@ public class CharController : MonoBehaviour
            if (southRch.distance < rayCastLengthVertical - 0.01f)
            {
                liftingCharacter = true;
-               transform.position = new Vector3(transform.position.x + southRch.normal.x * Time.deltaTime, transform.position.y + southRch.normal.y * Time.deltaTime, transform.position.z); //lift player if needed
+               transform.parent.position = new Vector3(transform.parent.position.x + southRch.normal.x * Time.deltaTime, transform.parent.position.y + southRch.normal.y * Time.deltaTime, transform.parent.position.z); //lift player if needed
            }
            else liftingCharacter = false;
 
@@ -114,14 +113,15 @@ public class CharController : MonoBehaviour
 
            currentGroundSlopeRotation = Quaternion.Euler(new Vector3(0, 0, angleBetweenPlayerAndPlatform));
 
-           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch)) return;
+           if (IsMovementIntoHighAngleNoGoPlatform(westAntRch, eastAntRch) && (collidingEast || collidingWest)) return; //added E & W checks so that if hit only at base, without any other collision, player negotiates small bumps
+           //this might cause issues with steep platforms - he may try to walk them - solution might be another "antennae collider" higher up.
 
-           if (correctedAngle < maxRotation) transform.rotation = Quaternion.RotateTowards(transform.rotation, currentGroundSlopeRotation, 5f * deltaConst * Time.deltaTime);
+           if (correctedAngle < maxRotation) transform.parent.rotation = Quaternion.RotateTowards(transform.parent.rotation, currentGroundSlopeRotation, 5f * deltaConst * Time.deltaTime);
             //this prevents absurd rotations that push player into wall, through floors etc. 10f damp, to stop small change thrashing on v shaped plat edges
 
             if (correctedAngle > slopeSlipOffAngle) vel.x = negativesSlope ? 0.05f : -0.05f; //if too steep, the only way is down
 
-            transform.position = new Vector3(transform.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
+            transform.parent.position = new Vector3(transform.parent.position.x + (platformTop.x * vel.x * deltaConst * Time.deltaTime), transform.parent.position.y + (platformTop.y * vel.x* deltaConst * Time.deltaTime), 0);
         }
         else
         {
@@ -130,10 +130,10 @@ public class CharController : MonoBehaviour
             state = CharacterState.FALLING;
             vel.y -= gravity_modifier * 9.81f * Time.deltaTime;
      
-            if (vel.y<-0.01f) transform.rotation =  Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), 1.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
+            if (vel.y<-0.01f) transform.parent.rotation =  Quaternion.RotateTowards(transform.parent.rotation, Quaternion.Euler(0, 0, 0), 1.5f* deltaConst * Time.deltaTime);  //0,0,0 as that's our 90 deg 
             //if in free fall, then rotate char to vertical, to stop small change thrashing
             
-            transform.position = new Vector3(transform.position.x + vel.x* deltaConst * Time.deltaTime, transform.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
+            transform.parent.position = new Vector3(transform.parent.position.x + vel.x* deltaConst * Time.deltaTime, transform.parent.position.y + vel.y* deltaConst * Time.deltaTime, 0); 
         }
     }
 
@@ -227,7 +227,7 @@ public class CharController : MonoBehaviour
         Debug.DrawRay(new Vector3(playerSWCorner.x, playerSWCorner.y, 0), new Vector3(playerSouthLine.x, playerSouthLine.y, 0), Color.blue);
 
         float newAngleBetweenPlayerAndPlatform = Vector3.SignedAngle(playerSouthLine, platformTop, Vector3.forward);
-        newAngleBetweenPlayerAndPlatform = newAngleBetweenPlayerAndPlatform + transform.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation -- this is changing constantly
+        newAngleBetweenPlayerAndPlatform = newAngleBetweenPlayerAndPlatform + transform.parent.rotation.eulerAngles.z; //don't consider existing 'player' rotation Z rotation -- this is changing constantly
         // angleBetweenPlayerAndPlatform = Mathf.SmoothDamp(angleBetweenPlayerAndPlatform, newAngleBetweenPlayerAndPlatform, ref vel2, 5f);
         return newAngleBetweenPlayerAndPlatform;
     }
