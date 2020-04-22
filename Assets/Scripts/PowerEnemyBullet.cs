@@ -18,6 +18,7 @@ public class PowerEnemyBullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Bullet hit " + other.collider);
+        Destroy(this);
     }
 
     private void Update()

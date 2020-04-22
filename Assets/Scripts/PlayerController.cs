@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         cCont = GetComponent<CharController>();
-        originalAnimControllerX = armsAnimationCont.transform.position.x;
     }
 
     // Update is called once per frame
@@ -28,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         // Debug.Log( 4.9 * Time.deltaTime * xMovVel);
         // Debug.Log("---" + moveConst * xMovVel);
+        // originalAnimControllerX = armsAnimationCont.transform.position.x;
 
 
         if (Input.GetKey(KeyCode.RightArrow) & cCont.state == CharController.CharacterState.GROUNDED)
@@ -63,12 +63,12 @@ public class PlayerController : MonoBehaviour
             sr.enabled = true;
             if (animationCont.spriteFacingRight)
             {
-                armsAnimationCont.transform.position = new Vector3( originalAnimControllerX + 0.5f,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
+                // armsAnimationCont.transform.position = new Vector3( originalAnimControllerX + 0.5f,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
                 sr.flipY = true;
             }
             else
             {
-                armsAnimationCont.transform.position = new Vector3( originalAnimControllerX,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
+                // armsAnimationCont.transform.position = new Vector3( originalAnimControllerX,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
                 sr.flipY = false;
             }
             
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         cCont.isShooting = true;
         yield return new WaitForSeconds(0.5f);
         GameObject b = Instantiate(bullet, firept.position, armsCont.transform.rotation);
-        b.GetComponent<PowerEnemyBullet>().Setup(shootDir, 0.0075f);
+        b.GetComponent<PowerEnemyBullet>().Setup(shootDir.normalized, 0.2f);
         yield return new WaitForSeconds(0.5f);
         cCont.isShooting = false;
         armsAnimationCont.GetComponent<SpriteRenderer>().enabled = false;
