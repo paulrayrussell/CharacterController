@@ -9,16 +9,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ArmsController armsCont = null;
     [SerializeField] private ArmsAnimationController armsAnimationCont = null;
     [SerializeField] private Transform firept = null;
+    private float originalAnimControllerX;
     
     private float xMovVel = 0.5f;
 
     private float yMovVel = 35f;
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject bullet = null;
 
     // Start is called before the first frame update
     void Start()
     {
         cCont = GetComponent<CharController>();
+        originalAnimControllerX = armsAnimationCont.transform.position.x;
     }
 
     // Update is called once per frame
@@ -56,7 +58,20 @@ public class PlayerController : MonoBehaviour
 
             if (shootDir.x > 0 && !animationCont.spriteFacingRight) return;
             if (shootDir.x < 0 && animationCont.spriteFacingRight) return;
-            armsAnimationCont.GetComponent<SpriteRenderer>().enabled = true;
+            SpriteRenderer sr;
+            sr = armsAnimationCont.GetComponent<SpriteRenderer>();
+            sr.enabled = true;
+            if (animationCont.spriteFacingRight)
+            {
+                armsAnimationCont.transform.position = new Vector3( originalAnimControllerX + 0.5f,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
+                sr.flipY = true;
+            }
+            else
+            {
+                armsAnimationCont.transform.position = new Vector3( originalAnimControllerX,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
+                sr.flipY = false;
+            }
+            
             armsCont.clickpt = mouseClickPos;
             StartCoroutine(FirePause(shootDir));
 
@@ -79,7 +94,7 @@ public class PlayerController : MonoBehaviour
         cCont.isShooting = true;
         yield return new WaitForSeconds(0.5f);
         GameObject b = Instantiate(bullet, firept.position, armsCont.transform.rotation);
-        b.GetComponent<PowerEnemyBullet>().Setup(shootDir, 0.005f);
+        b.GetComponent<PowerEnemyBullet>().Setup(shootDir, 0.0075f);
         yield return new WaitForSeconds(0.5f);
         cCont.isShooting = false;
         armsAnimationCont.GetComponent<SpriteRenderer>().enabled = false;

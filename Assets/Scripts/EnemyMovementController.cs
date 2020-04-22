@@ -8,7 +8,7 @@ public class EnemyMovementController : MonoBehaviour
     private GameObject player;
 
     private float xMovVel = 0.4f;
-    private float yMovVel = 35f;
+    // private float yMovVel = 35f;
 
     private float vel;
     // Start is called before the first frame update
