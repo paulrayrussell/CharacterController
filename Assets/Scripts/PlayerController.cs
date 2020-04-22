@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     private CharController cCont;
     [SerializeField] private PlayerAnimationController animationCont = null;
-    [SerializeField] private ArmsController armsCont = null;
-    [SerializeField] private ArmsAnimationController armsAnimationCont = null;
+    [SerializeField] private ArmsController insideArmsCont = null;
+    [SerializeField] private ArmsController outerArmsCont = null;
+    [SerializeField] private GameObject outerArmGO = null;
+    [SerializeField] private GameObject innerArmGO = null;
     [SerializeField] private Transform firept = null;
     private float originalAnimControllerX;
     
@@ -58,21 +60,28 @@ public class PlayerController : MonoBehaviour
 
             if (shootDir.x > 0 && !animationCont.spriteFacingRight) return;
             if (shootDir.x < 0 && animationCont.spriteFacingRight) return;
-            SpriteRenderer sr;
-            sr = armsAnimationCont.GetComponent<SpriteRenderer>();
-            sr.enabled = true;
+            SpriteRenderer outerArmSR;
+            outerArmSR = outerArmGO.GetComponent<SpriteRenderer>();
+            outerArmSR.enabled = true;     
+            SpriteRenderer innerArmSR;
+            innerArmSR = innerArmGO.GetComponent<SpriteRenderer>();
+            innerArmSR.enabled = true;
+            
             if (animationCont.spriteFacingRight)
             {
                 // armsAnimationCont.transform.position = new Vector3( originalAnimControllerX + 0.5f,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
-                sr.flipY = true;
+                outerArmSR.flipY = true;
+                innerArmSR.flipY = true;
             }
             else
             {
                 // armsAnimationCont.transform.position = new Vector3( originalAnimControllerX,  armsAnimationCont.transform.position.y, armsAnimationCont.transform.position.z);
-                sr.flipY = false;
+                innerArmSR.flipY = false;
             }
             
-            armsCont.clickpt = mouseClickPos;
+            insideArmsCont.clickpt = mouseClickPos;
+            outerArmsCont.clickpt = mouseClickPos;
+            
             StartCoroutine(FirePause(shootDir));
 
           
@@ -92,11 +101,12 @@ public class PlayerController : MonoBehaviour
     private IEnumerator FirePause(Vector3 shootDir)
     {
         cCont.isShooting = true;
-        yield return new WaitForSeconds(0.5f);
-        GameObject b = Instantiate(bullet, firept.position, armsCont.transform.rotation);
+        yield return new WaitForSeconds(0.1f);
+        GameObject b = Instantiate(bullet, firept.position, insideArmsCont.transform.rotation);
         b.GetComponent<PowerEnemyBullet>().Setup(shootDir.normalized, 0.2f);
         yield return new WaitForSeconds(0.5f);
         cCont.isShooting = false;
-        armsAnimationCont.GetComponent<SpriteRenderer>().enabled = false;
+        outerArmGO.GetComponent<SpriteRenderer>().enabled = false;
+        innerArmGO.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

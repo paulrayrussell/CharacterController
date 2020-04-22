@@ -6,9 +6,8 @@ public class ArmsController : MonoBehaviour
 {
     private Vector3 vDiff;
     private float atan2;
-
     public Vector3 clickpt;
-    // Update is called once per frame
+    
     void Update()
     {
         RotateToClickPt();

@@ -1,67 +1,67 @@
 fileFormatVersion: 2
-guid: 6edcbcb1205f8b24aa831d9f5fe8f156
+guid: dabb18635fbe02649833c7d218d5e3e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1541499839842174558
-    second: RhonerShoot_0
+      213: -6640347582051815023
+    second: RhonerInsideArm_0
   - first:
-      213: 2335135073327801219
-    second: RhonerShoot_1
+      213: -6092170543832274252
+    second: RhonerInsideArm_1
   - first:
-      213: -2015147247956233451
-    second: RhonerShoot_2
+      213: -951326882102878677
+    second: RhonerInsideArm_2
   - first:
-      213: 2724598682784800896
-    second: RhonerShoot_3
+      213: 5035804618438053802
+    second: RhonerInsideArm_3
   - first:
-      213: 3706223275545155243
-    second: RhonerShoot_4
+      213: -4430565966354951798
+    second: RhonerInsideArm_4
   - first:
-      213: 9167219394716494165
-    second: RhonerShoot_5
+      213: 1469926709811749190
+    second: RhonerInsideArm_5
   - first:
-      213: -300290943944424837
-    second: RhonerShoot_6
+      213: -9048752795810977104
+    second: RhonerInsideArm_6
   - first:
-      213: -4548513159795303708
-    second: RhonerShoot_7
+      213: -6629459315799144408
+    second: RhonerInsideArm_7
   - first:
-      213: 2313750289329488658
-    second: RhonerShoot_8
+      213: -2557705970856475197
+    second: RhonerInsideArm_8
   - first:
-      213: -6245452361926522353
-    second: RhonerShoot_9
+      213: -4373265695191220480
+    second: RhonerInsideArm_9
   - first:
-      213: -7896809469055084720
-    second: RhonerShoot_10
+      213: 7920333384048236120
+    second: RhonerInsideArm_10
   - first:
-      213: -1108138032711666964
-    second: RhonerShoot_11
+      213: -1507774324384914614
+    second: RhonerInsideArm_11
   - first:
-      213: -7006333504981856648
-    second: RhonerShoot_12
+      213: -8468415119878075655
+    second: RhonerInsideArm_12
   - first:
-      213: 1044127269629521175
-    second: RhonerShoot_13
+      213: -3415415168684404820
+    second: RhonerInsideArm_13
   - first:
-      213: 1432679717902973281
-    second: RhonerShoot_14
+      213: -3353989183663199907
+    second: RhonerInsideArm_14
   - first:
-      213: 5395713712367978317
-    second: RhonerShoot_15
+      213: 508164128882629397
+    second: RhonerInsideArm_15
   - first:
-      213: -2639767213309191027
-    second: RhonerShoot_16
+      213: 2045431103080938174
+    second: RhonerInsideArm_16
   - first:
-      213: -8632207255096809548
-    second: RhonerShoot_17
+      213: -6214813818400361011
+    second: RhonerInsideArm_17
   - first:
-      213: -5130072499129239688
-    second: RhonerShoot_18
+      213: -1652135556657255600
+    second: RhonerInsideArm_18
   - first:
-      213: -9020778980947023677
-    second: RhonerShoot_19
+      213: -4361693112284199915
+    second: RhonerInsideArm_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -159,421 +159,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RhonerShoot_0
+      name: RhonerInsideArm_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1843
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a9b2e8101e7b9ae0800000000000000
-      internalID: -1541499839842174558
+      spriteID: 1917da26e0fb8d3a0800000000000000
+      internalID: -6640347582051815023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_1
+      name: RhonerInsideArm_1
       rect:
         serializedVersion: 2
-        x: 200
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1746
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38362442af0186020800000000000000
-      internalID: 2335135073327801219
+      spriteID: 4ba67c70b23447ba0800000000000000
+      internalID: -6092170543832274252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_2
+      name: RhonerInsideArm_2
       rect:
         serializedVersion: 2
-        x: 400
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1649
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51376733142c804e0800000000000000
-      internalID: -2015147247956233451
+      spriteID: b2e5af6bd353cc2f0800000000000000
+      internalID: -951326882102878677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_3
+      name: RhonerInsideArm_3
       rect:
         serializedVersion: 2
-        x: 600
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1552
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 080a2e20118bfc520800000000000000
-      internalID: 2724598682784800896
+      spriteID: aaf8540ae95c2e540800000000000000
+      internalID: 5035804618438053802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_4
+      name: RhonerInsideArm_4
       rect:
         serializedVersion: 2
-        x: 800
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1455
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba65725ce662f6330800000000000000
-      internalID: 3706223275545155243
+      spriteID: a815a7d4ab77382c0800000000000000
+      internalID: -4430565966354951798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_5
+      name: RhonerInsideArm_5
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1358
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 559e5203871883f70800000000000000
-      internalID: 9167219394716494165
+      spriteID: 6412038fd8a366410800000000000000
+      internalID: 1469926709811749190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_6
+      name: RhonerInsideArm_6
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1261
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b720dec3af625dbf0800000000000000
-      internalID: -300290943944424837
+      spriteID: 0ba2d59464f5c6280800000000000000
+      internalID: -9048752795810977104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_7
+      name: RhonerInsideArm_7
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1164
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea1636516f60e0c0800000000000000
-      internalID: -4548513159795303708
+      spriteID: 82843ec60ed6ff3a0800000000000000
+      internalID: -6629459315799144408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_8
+      name: RhonerInsideArm_8
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1067
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 213017e11a71c1020800000000000000
-      internalID: 2313750289329488658
+      spriteID: 3c5443788f3318cd0800000000000000
+      internalID: -2557705970856475197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_9
+      name: RhonerInsideArm_9
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 400
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 970
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0aceb9aa22b359a0800000000000000
-      internalID: -6245452361926522353
+      spriteID: 00fb9b1550a0f43c0800000000000000
+      internalID: -4373265695191220480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShoot_10
+      name: RhonerInsideArm_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 873
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856dcd2cf3daaed60800000000000000
+      internalID: 7920333384048236120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4325919d3f431be0800000000000000
+      internalID: -1507774324384914614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 679
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9face19e0552a7a80800000000000000
+      internalID: -8468415119878075655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 582
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafc51eeff10a90d0800000000000000
+      internalID: -3415415168684404820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 485
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59a04f8b9c3471d0800000000000000
+      internalID: -3353989183663199907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b15a5359c5d0700800000000000000
+      internalID: 508164128882629397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebabca740c4d26c10800000000000000
+      internalID: 2045431103080938174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5be0972cb80c9a0800000000000000
+      internalID: -6214813818400361011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05be6a0f67f6219e0800000000000000
+      internalID: -1652135556657255600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerInsideArm_19
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 165
+        height: 97
+      alignment: 9
+      pivot: {x: 0.844, y: 0.846}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 057d70280a5e86290800000000000000
-      internalID: -7896809469055084720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_11
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce2fe16945a1f90f0800000000000000
-      internalID: -1108138032711666964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_12
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87e83a16cc084ce90800000000000000
-      internalID: -7006333504981856648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_13
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71de09e383c7d7e00800000000000000
-      internalID: 1044127269629521175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_14
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 169738edc96e1e310800000000000000
-      internalID: 1432679717902973281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_15
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d47c56f980d61ea40800000000000000
-      internalID: 5395713712367978317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_16
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8c9bf0a4b9ad5bd0800000000000000
-      internalID: -2639767213309191027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_17
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b7a764ac3d343880800000000000000
-      internalID: -8632207255096809548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_18
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 877b6690e325ec8b0800000000000000
-      internalID: -5130072499129239688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShoot_19
-      rect:
-        serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 200
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c8a75b9f41cfc280800000000000000
-      internalID: -9020778980947023677
+      spriteID: 514480f39372873c0800000000000000
+      internalID: -4361693112284199915
       vertices: []
       indices: 
       edges: []
