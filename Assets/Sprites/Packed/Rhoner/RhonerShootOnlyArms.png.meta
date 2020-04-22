@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: cdc702997073fce4faab1b7d4dd513de
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7825615123318980751
+    second: RhonerShootOnlyArms_0
+  - first:
+      213: -7830069188724788178
+    second: RhonerShootOnlyArms_1
+  - first:
+      213: -2315436248803418451
+    second: RhonerShootOnlyArms_2
+  - first:
+      213: 5944422056667173896
+    second: RhonerShootOnlyArms_3
+  - first:
+      213: 637024583365472216
+    second: RhonerShootOnlyArms_4
+  - first:
+      213: -3931275186440526540
+    second: RhonerShootOnlyArms_5
+  - first:
+      213: 4100870932751660313
+    second: RhonerShootOnlyArms_6
+  - first:
+      213: -7096193974513190797
+    second: RhonerShootOnlyArms_7
+  - first:
+      213: -1517588413773126320
+    second: RhonerShootOnlyArms_8
+  - first:
+      213: 7123706719779898087
+    second: RhonerShootOnlyArms_9
+  - first:
+      213: -14107498843536422
+    second: RhonerShootOnlyArms_10
+  - first:
+      213: -9122961091069090510
+    second: RhonerShootOnlyArms_11
+  - first:
+      213: -8545468734292597099
+    second: RhonerShootOnlyArms_12
+  - first:
+      213: -3899763208682614409
+    second: RhonerShootOnlyArms_13
+  - first:
+      213: 8659753265869893961
+    second: RhonerShootOnlyArms_14
+  - first:
+      213: 7368634922419515489
+    second: RhonerShootOnlyArms_15
+  - first:
+      213: 1413399251950038340
+    second: RhonerShootOnlyArms_16
+  - first:
+      213: 2937579199868451083
+    second: RhonerShootOnlyArms_17
+  - first:
+      213: -5909764747902627540
+    second: RhonerShootOnlyArms_18
+  - first:
+      213: 1303783228761125106
+    second: RhonerShootOnlyArms_19
+  - first:
+      213: 4622157623394725988
+    second: RhonerShootOnlyArms_0
+  - first:
+      213: -1727781650431965763
+    second: RhonerShootOnlyArms_1
+  - first:
+      213: 1725162923082001911
+    second: RhonerShootOnlyArms_2
+  - first:
+      213: -6748374321616640951
+    second: RhonerShootOnlyArms_3
+  - first:
+      213: -9217024871643017299
+    second: RhonerShootOnlyArms_4
+  - first:
+      213: 424204197805285710
+    second: RhonerShootOnlyArms_5
+  - first:
+      213: 223844887926952437
+    second: RhonerShootOnlyArms_6
+  - first:
+      213: -3091923073468351673
+    second: RhonerShootOnlyArms_7
+  - first:
+      213: 547169533670020386
+    second: RhonerShootOnlyArms_8
+  - first:
+      213: 9068727135524655217
+    second: RhonerShootOnlyArms_9
+  - first:
+      213: 5263488494115720118
+    second: RhonerShootOnlyArms_10
+  - first:
+      213: 8153488013782456900
+    second: RhonerShootOnlyArms_11
+  - first:
+      213: 4129936702116985680
+    second: RhonerShootOnlyArms_12
+  - first:
+      213: 2330785636303758091
+    second: RhonerShootOnlyArms_13
+  - first:
+      213: -3577795207999046618
+    second: RhonerShootOnlyArms_14
+  - first:
+      213: 4656713921115641939
+    second: RhonerShootOnlyArms_15
+  - first:
+      213: -1999550657686030897
+    second: RhonerShootOnlyArms_16
+  - first:
+      213: 2315067902713843224
+    second: RhonerShootOnlyArms_17
+  - first:
+      213: -944033050635524274
+    second: RhonerShootOnlyArms_18
+  - first:
+      213: 3072089381303864462
+    second: RhonerShootOnlyArms_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1672
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4607e468ed3352040800000000000000
+      internalID: 4622157623394725988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1584
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5809c3ebfa508e0800000000000000
+      internalID: -1727781650431965763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1496
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd2af9c98201f710800000000000000
+      internalID: 1725162923082001911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9442ca41f45f852a0800000000000000
+      internalID: -6748374321616640951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1320
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf07cf86bc861080800000000000000
+      internalID: -9217024871643017299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1232
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e96a687313e500800000000000000
+      internalID: 424204197805285710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1144
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f15ca55db14b1300800000000000000
+      internalID: 223844887926952437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1056
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74bb51da8584715d0800000000000000
+      internalID: -3091923073468351673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 968
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2255156bacfe79700800000000000000
+      internalID: 547169533670020386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 880
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17094e518479add70800000000000000
+      internalID: 9068727135524655217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 792
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb8f13f5eaab0940800000000000000
+      internalID: 5263488494115720118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a98e54622072170800000000000000
+      internalID: 8153488013782456900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05bf78a9c8b705930800000000000000
+      internalID: 4129936702116985680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 528
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03e77bef2d985020800000000000000
+      internalID: 2330785636303758091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c3f1cd63e195ec0800000000000000
+      internalID: -3577795207999046618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358d6b093a8ff9040800000000000000
+      internalID: 4656713921115641939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5b93a554b2044e0800000000000000
+      internalID: -1999550657686030897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81eca24edf5c02020800000000000000
+      internalID: 2315067902713843224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4724a031fe16e2f0800000000000000
+      internalID: -944033050635524274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootOnlyArms_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 165
+        height: 88
+      alignment: 9
+      pivot: {x: 0.86, y: 0.857}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ccdd2040142aa20800000000000000
+      internalID: 3072089381303864462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

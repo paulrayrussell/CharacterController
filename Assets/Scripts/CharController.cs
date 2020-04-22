@@ -14,13 +14,16 @@ public class CharController : MonoBehaviour
     internal Vector2 vel;
 
     private const float minY_Vel = -0.5f;
-    private const float maxY_Vel = 0.15f;    
+    private const float maxY_Vel = 0.15f;
     private const float minX_Vel = -0.85f;
     private const float maxX_Vel = 0.85f;
     private const float gravity_modifier = 0.0275f;
     private const float rayCastLengthHorizontal = 0.075f;
     private const float rayCastLengthVertical = 0.14f;
+
+
     // private const float rayCastLengthHorizontal = 0.09f; //for 1.38
+
     // private const float rayCastLengthVertical = 0.3f;     //    2.77
     private const float deltaConst = 50;
     private const float maxRotation = 25f;
@@ -28,7 +31,7 @@ public class CharController : MonoBehaviour
 
     internal float angleBetweenPlayerAndPlatform;
     internal float correctedAngle;
-    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest;
+    internal bool collidingNorth, collidingEast, collidingSouth, collidingWest, isShooting;
     internal Vector2 platformTop;
     internal Quaternion currentGroundSlopeRotation;
     private int ignoreLayer;
