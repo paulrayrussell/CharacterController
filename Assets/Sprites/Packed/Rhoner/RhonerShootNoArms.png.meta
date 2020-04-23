@@ -71,6 +71,63 @@ TextureImporter:
   - first:
       213: 5077882350762040064
     second: RhonerShootNoArms_22
+  - first:
+      213: -2895979886809025799
+    second: RhonerShootNoArms_0
+  - first:
+      213: -6898388734328894355
+    second: RhonerShootNoArms_1
+  - first:
+      213: -5435448759775535053
+    second: RhonerShootNoArms_2
+  - first:
+      213: -3511276894380208017
+    second: RhonerShootNoArms_3
+  - first:
+      213: -1039407634691749973
+    second: RhonerShootNoArms_4
+  - first:
+      213: 7693090223589084619
+    second: RhonerShootNoArms_5
+  - first:
+      213: -4071478225433943506
+    second: RhonerShootNoArms_6
+  - first:
+      213: 1521005747250556683
+    second: RhonerShootNoArms_7
+  - first:
+      213: 3818571438796287769
+    second: RhonerShootNoArms_8
+  - first:
+      213: -7844878414395193843
+    second: RhonerShootNoArms_9
+  - first:
+      213: -4249582427902814664
+    second: RhonerShootNoArms_10
+  - first:
+      213: 6964645258484751727
+    second: RhonerShootNoArms_11
+  - first:
+      213: -1557653196845580212
+    second: RhonerShootNoArms_12
+  - first:
+      213: -8750573300463659973
+    second: RhonerShootNoArms_13
+  - first:
+      213: 7733658120962388181
+    second: RhonerShootNoArms_14
+  - first:
+      213: -5114668412683472941
+    second: RhonerShootNoArms_15
+  - first:
+      213: 5392734849052686011
+    second: RhonerShootNoArms_16
+  - first:
+      213: 4690674035239082074
+    second: RhonerShootNoArms_17
+  - first:
+      213: -2331822845194593983
+    second: RhonerShootNoArms_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -168,411 +225,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RhonerShootNoArms_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e75810770ed940090800000000000000
-      internalID: -8069151044946262658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_1
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9107b30b5b0eb9610800000000000000
-      internalID: 1629142761174954009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_2
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0014d651716968710800000000000000
-      internalID: 1695207335639466240
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_3
-      rect:
-        serializedVersion: 2
-        x: 261
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7db54e7c7cf3e1cf0800000000000000
-      internalID: -279715999565718569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_4
-      rect:
-        serializedVersion: 2
-        x: 348
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09ff6aebba9e79dd0800000000000000
-      internalID: -2479256145996873840
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_5
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 447062ee200f29790800000000000000
-      internalID: -7524688132006607036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_6
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 799ae0fafbd271330800000000000000
-      internalID: 3681461521697646999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_7
-      rect:
-        serializedVersion: 2
-        x: 609
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cecf99354103e920800000000000000
-      internalID: 3018257572099509956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_8
-      rect:
-        serializedVersion: 2
-        x: 696
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94f4a3cdac22104a0800000000000000
-      internalID: -6628978921839112375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_9
-      rect:
-        serializedVersion: 2
-        x: 783
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d24fa8e16a58cef70800000000000000
-      internalID: 9217889485844050989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_10
-      rect:
-        serializedVersion: 2
-        x: 870
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed20ff780df3c0000800000000000000
-      internalID: 3447864587911902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_11
-      rect:
-        serializedVersion: 2
-        x: 957
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e03e4e0975b4fb0a0800000000000000
-      internalID: -6863684467624189170
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_12
-      rect:
-        serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 572fdb48f500bb890800000000000000
-      internalID: -7441353549050678667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_13
-      rect:
-        serializedVersion: 2
-        x: 1131
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a40a99cb006cccd80800000000000000
-      internalID: -8228984712646254518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_14
-      rect:
-        serializedVersion: 2
-        x: 1218
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b254ab8311096a640800000000000000
-      internalID: 5090914832429499691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_15
-      rect:
-        serializedVersion: 2
-        x: 1305
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bd3db411f38161c0800000000000000
-      internalID: -4512180280190222921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_16
-      rect:
-        serializedVersion: 2
-        x: 1392
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d5a7b0fd93925510800000000000000
-      internalID: 1536452729444476370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_17
-      rect:
-        serializedVersion: 2
-        x: 1479
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c873c260e57b28470800000000000000
-      internalID: 8395474269830395788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RhonerShootNoArms_18
-      rect:
-        serializedVersion: 2
-        x: 1566
-        y: 0
-        width: 87
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aaeef3e8b2699f690800000000000000
-      internalID: -7567852585005093206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: RhonerShootNoArms_19
       rect:
         serializedVersion: 2
-        x: 1653
+        x: 1615
         y: 0
-        width: 87
+        width: 85
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -588,12 +246,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShootNoArms_20
+      name: RhonerShootNoArms_0
       rect:
         serializedVersion: 2
-        x: 1740
+        x: 0
         y: 0
-        width: 87
+        width: 85
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -602,19 +260,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 734dc65357cb7d310800000000000000
-      internalID: 1429818618306942007
+      spriteID: 9f27212f2a96fc7d0800000000000000
+      internalID: -2895979886809025799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShootNoArms_21
+      name: RhonerShootNoArms_1
       rect:
         serializedVersion: 2
-        x: 1827
+        x: 85
         y: 0
-        width: 87
+        width: 85
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -623,19 +281,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9589a795a618032e0800000000000000
-      internalID: -2148074728488003495
+      spriteID: d6c05cfcefff340a0800000000000000
+      internalID: -6898388734328894355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RhonerShootNoArms_22
+      name: RhonerShootNoArms_2
       rect:
         serializedVersion: 2
-        x: 1914
+        x: 170
         y: 0
-        width: 87
+        width: 85
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -644,8 +302,344 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00b95602813487640800000000000000
-      internalID: 5077882350762040064
+      spriteID: 330edb6b6286194b0800000000000000
+      internalID: -5435448759775535053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f605e62a440754fc0800000000000000
+      internalID: -3511276894380208017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba78e5563484391f0800000000000000
+      internalID: -1039407634691749973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_5
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcdce027cc853ca60800000000000000
+      internalID: 7693090223589084619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_6
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22a54620243f77c0800000000000000
+      internalID: -4071478225433943506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f62322ba2bb1510800000000000000
+      internalID: 1521005747250556683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_8
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fa7eeed7a4ef430800000000000000
+      internalID: 3818571438796287769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_9
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0648d365a4612390800000000000000
+      internalID: -7844878414395193843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_10
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8365c1d0c437605c0800000000000000
+      internalID: -4249582427902814664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_11
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d979a56f367a060800000000000000
+      internalID: 6964645258484751727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_12
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4084c69baa126ae0800000000000000
+      internalID: -1557653196845580212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_13
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3498dc12f7bf8680800000000000000
+      internalID: -8750573300463659973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_14
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0374a1619735b60800000000000000
+      internalID: 7733658120962388181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_15
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df27166d2c0509b0800000000000000
+      internalID: -5114668412683472941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_16
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6b7a5f5c7d6da40800000000000000
+      internalID: 5392734849052686011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_17
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58d29bce2f981140800000000000000
+      internalID: 4690674035239082074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_18
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 0
+        width: 85
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14919011a73b3afd0800000000000000
+      internalID: -2331822845194593983
       vertices: []
       indices: 
       edges: []
