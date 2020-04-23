@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmsController : MonoBehaviour
+public class ArmsRotationController : MonoBehaviour
 {
     private Vector3 vDiff;
     private float atan2;

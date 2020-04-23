@@ -13,7 +13,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private float flipPoint = 0;
     private float vel;
-    internal bool spriteFacingRight;
+    internal bool spriteFacingRight = false;
 
     // Start is called before the first frame update
     void Start()
