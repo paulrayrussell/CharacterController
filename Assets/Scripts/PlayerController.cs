@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ObjectPooler bulletPooler = null;
     [SerializeField] private Transform leftFirept = null;
     [SerializeField] private float armOffset = 0.1f;
+    [SerializeField] private float shootSpeed = 0.5f;
+    [SerializeField] private AudioSource shotSound = null;
 
     private CharController charController;
     private float xMovVel = 0.5f;
@@ -53,9 +55,19 @@ public class PlayerController : MonoBehaviour
             if (charController.state != CharController.CharacterState.GROUNDED) return;
 
             Vector3 mouseClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 shootDir = mouseClickPos - leftFirept.position;
-
-            StartCoroutine(FirePause(shootDir, mouseClickPos));
+            if ((new Vector3(mouseClickPos.x, mouseClickPos.y, transform.position.z) - transform.position).magnitude < 3f)
+            {
+                Debug.Log("Too close");
+                return;
+            }
+            
+            Vector3 shootDir = (mouseClickPos - leftFirept.position);
+            float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
+            Debug.Log(angle);
+            if (shootDir.x > 0 && !bodyAnimationCont.spriteFacingRight) return;
+            if (shootDir.x < 0 && bodyAnimationCont.spriteFacingRight) return;
+            
+            StartCoroutine(FirePause(shootDir.normalized, mouseClickPos));
             
             int enLayer = LayerMask.NameToLayer("Enemies");
             int enBitMask = 1 << enLayer;
@@ -73,8 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         charController.isShooting = true;
 
-        if (shootDir.x > 0 && !bodyAnimationCont.spriteFacingRight) yield break;
-        if (shootDir.x < 0 && bodyAnimationCont.spriteFacingRight) yield break;
+
 
 
         armsAnimatorGO.transform.localScale = bodyAnimationCont.spriteFacingRight ? //flip the scale to mirror arms
@@ -91,13 +102,14 @@ public class PlayerController : MonoBehaviour
         srOuter.enabled = true;
         yield return new WaitForSeconds(0.1f);
         
+        shotSound.PlayOneShot(shotSound.clip);
         ObjectPooler.BulletStruct bs = bulletPooler.GetPooledObject();
         bs.bulletPrefab.transform.rotation = armsRotationCont.transform.rotation;
         bs.bulletPrefab.transform.position = leftFirept.position;
         bs.bulletPrefab.SetActive(true);
-        bs.bulletScript.Setup(shootDir.normalized, 0.2f);
-        
-        yield return new WaitForSeconds(0.5f);
+        bs.bulletScript.Setup(shootDir, shootSpeed);
+
+        yield return new WaitForSeconds(0.3f);
 
         //hide arms
         srInner.enabled = false;
