@@ -1,0 +1,1223 @@
+fileFormatVersion: 2
+guid: fe34bd4d13990ea4aa6bda4f1dc98423
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -204992960840249390
+    second: GoreSplat_0
+  - first:
+      213: 7232773221023031399
+    second: GoreSplat_1
+  - first:
+      213: 816127440642876765
+    second: GoreSplat_2
+  - first:
+      213: -6715342198007060643
+    second: GoreSplat_3
+  - first:
+      213: -6510718370526537396
+    second: GoreSplat_4
+  - first:
+      213: 890864395864190143
+    second: GoreSplat_5
+  - first:
+      213: 8744517268507417403
+    second: GoreSplat_6
+  - first:
+      213: 3486474059305584794
+    second: GoreSplat_7
+  - first:
+      213: -3208576190858794297
+    second: GoreSplat_8
+  - first:
+      213: -8944953789942782847
+    second: GoreSplat_9
+  - first:
+      213: -8261193331305312861
+    second: GoreSplat_10
+  - first:
+      213: 8092523066420381224
+    second: GoreSplat_11
+  - first:
+      213: -2228728284298357659
+    second: GoreSplat_12
+  - first:
+      213: -111621210208556510
+    second: GoreSplat_13
+  - first:
+      213: 6399888800976386279
+    second: GoreSplat_14
+  - first:
+      213: 64422173714012302
+    second: GoreSplat_15
+  - first:
+      213: 1331949060094691254
+    second: GoreSplat_16
+  - first:
+      213: 4643538597033007375
+    second: GoreSplat_17
+  - first:
+      213: 3247709248782564604
+    second: GoreSplat_18
+  - first:
+      213: 1327002654189280264
+    second: GoreSplat_19
+  - first:
+      213: -8236922938298248618
+    second: GoreSplat_20
+  - first:
+      213: 4757476107949970874
+    second: GoreSplat_21
+  - first:
+      213: 1241637857534573506
+    second: GoreSplat_22
+  - first:
+      213: -7385734638560871403
+    second: GoreSplat_23
+  - first:
+      213: -396322989171925944
+    second: GoreSplat_24
+  - first:
+      213: 8287930486837984759
+    second: GoreSplat_25
+  - first:
+      213: -4600042226390487317
+    second: GoreSplat_26
+  - first:
+      213: 8875724580281524414
+    second: GoreSplat_27
+  - first:
+      213: 5544783643695208606
+    second: GoreSplat_28
+  - first:
+      213: 2121988127267253443
+    second: GoreSplat_29
+  - first:
+      213: 1382797423328100889
+    second: GoreSplat_30
+  - first:
+      213: -8112926013846644564
+    second: GoreSplat_31
+  - first:
+      213: 3735975008844853382
+    second: GoreSplat_32
+  - first:
+      213: -2404259776742538416
+    second: GoreSplat_33
+  - first:
+      213: 1092014809798967885
+    second: GoreSplat_34
+  - first:
+      213: 5321561059956384380
+    second: GoreSplat_35
+  - first:
+      213: -2346594860974668545
+    second: GoreSplat_36
+  - first:
+      213: 3782558742927094422
+    second: GoreSplat_37
+  - first:
+      213: 5827564747855206073
+    second: GoreSplat_38
+  - first:
+      213: -7962198122601995383
+    second: GoreSplat_39
+  - first:
+      213: -6131775891873465329
+    second: GoreSplat_40
+  - first:
+      213: -8382283959925402055
+    second: GoreSplat_0
+  - first:
+      213: -3352097019691900416
+    second: GoreSplat_1
+  - first:
+      213: 4695199967952491677
+    second: GoreSplat_2
+  - first:
+      213: -4010732143087846166
+    second: GoreSplat_3
+  - first:
+      213: -8405201295192526944
+    second: GoreSplat_4
+  - first:
+      213: -54186046296507372
+    second: GoreSplat_5
+  - first:
+      213: -6260355018190449410
+    second: GoreSplat_6
+  - first:
+      213: 6405886353827645422
+    second: GoreSplat_7
+  - first:
+      213: 156984427837375434
+    second: GoreSplat_8
+  - first:
+      213: 7452686126982598110
+    second: GoreSplat_9
+  - first:
+      213: 2076489048277172026
+    second: GoreSplat_10
+  - first:
+      213: 5339871475498329208
+    second: GoreSplat_11
+  - first:
+      213: -5760942739872382002
+    second: GoreSplat_12
+  - first:
+      213: -7039295771653913462
+    second: GoreSplat_13
+  - first:
+      213: -5575490343610775237
+    second: GoreSplat_14
+  - first:
+      213: 1490627679446017473
+    second: GoreSplat_15
+  - first:
+      213: 3932530851135294127
+    second: GoreSplat_16
+  - first:
+      213: -8771484944104463261
+    second: GoreSplat_17
+  - first:
+      213: 6341646242278654859
+    second: GoreSplat_18
+  - first:
+      213: -8833996800348894942
+    second: GoreSplat_19
+  - first:
+      213: -4559892891820226602
+    second: GoreSplat_20
+  - first:
+      213: 7671784306031136150
+    second: GoreSplat_21
+  - first:
+      213: -678953304996883149
+    second: GoreSplat_22
+  - first:
+      213: -3645561640756971837
+    second: GoreSplat_23
+  - first:
+      213: 292912016626130167
+    second: GoreSplat_24
+  - first:
+      213: -8087374436003841953
+    second: GoreSplat_25
+  - first:
+      213: -393137322940665267
+    second: GoreSplat_26
+  - first:
+      213: -8864131327266212684
+    second: GoreSplat_27
+  - first:
+      213: -323585206644028
+    second: GoreSplat_28
+  - first:
+      213: 8050366322251659967
+    second: GoreSplat_29
+  - first:
+      213: -8960025521154723038
+    second: GoreSplat_30
+  - first:
+      213: -6534347281959581640
+    second: GoreSplat_31
+  - first:
+      213: 2214729149616882881
+    second: GoreSplat_32
+  - first:
+      213: 5377155338799170513
+    second: GoreSplat_33
+  - first:
+      213: 6280670293564859960
+    second: GoreSplat_34
+  - first:
+      213: 3787379006979680675
+    second: GoreSplat_35
+  - first:
+      213: -3238809291136216907
+    second: GoreSplat_36
+  - first:
+      213: 2899558269476294660
+    second: GoreSplat_37
+  - first:
+      213: -8182712554033547629
+    second: GoreSplat_38
+  - first:
+      213: 7509261118619323588
+    second: GoreSplat_39
+  - first:
+      213: -5425506032506340263
+    second: GoreSplat_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GoreSplat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936113256252cab80800000000000000
+      internalID: -8382283959925402055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1755
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0026e905585fa71d0800000000000000
+      internalID: -3352097019691900416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1710
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94db3f9e73b82140800000000000000
+      internalID: 4695199967952491677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1665
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecf10a9d540758c0800000000000000
+      internalID: -4010732143087846166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1620
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0af656664f9ba5b80800000000000000
+      internalID: -8405201295192526944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1575
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41cb6b6f31e7f3ff0800000000000000
+      internalID: -54186046296507372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1530
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef49cec9740ce19a0800000000000000
+      internalID: -6260355018190449410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1485
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee74b6fe2b746e850800000000000000
+      internalID: 6405886353827645422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3c3806188bd2200800000000000000
+      internalID: 156984427837375434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1395
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd8745eb824d6760800000000000000
+      internalID: 7452686126982598110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fbc86a9cb21dc10800000000000000
+      internalID: 2076489048277172026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1305
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874a15ba0d80b1a40800000000000000
+      internalID: 5339871475498329208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec38a82d9150d00b0800000000000000
+      internalID: -5760942739872382002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1215
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84c8ad9ac56f4e90800000000000000
+      internalID: -7039295771653913462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39857c9211ef92b0800000000000000
+      internalID: -5575490343610775237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1125
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5aebd0af5cfa410800000000000000
+      internalID: 1490627679446017473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1080
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa0f2249f7239630800000000000000
+      internalID: 3932530851135294127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1035
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36467f9aaec654680800000000000000
+      internalID: -8771484944104463261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 990
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83c53a68ad020850800000000000000
+      internalID: 6341646242278654859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 945
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2294440f6b6576580800000000000000
+      internalID: -8833996800348894942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d70a31039108b0c0800000000000000
+      internalID: -4559892891820226602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 855
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d0762fd27a77a60800000000000000
+      internalID: 7671784306031136150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 810
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335559cf09fd396f0800000000000000
+      internalID: -678953304996883149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 765
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6f3e3b00d586dc0800000000000000
+      internalID: -3645561640756971837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc917d5de1a01400800000000000000
+      internalID: 292912016626130167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 675
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f587a689ccfd3cf80800000000000000
+      internalID: -8087374436003841953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d427c2e00bb4b8af0800000000000000
+      internalID: -393137322940665267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 585
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4b2e3a5874cf480800000000000000
+      internalID: -8864131327266212684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c214b273b9defff0800000000000000
+      internalID: -323585206644028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbaf3957485a8bf60800000000000000
+      internalID: 8050366322251659967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2237321c24897a380800000000000000
+      internalID: -8960025521154723038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 405
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83882cb74c55155a0800000000000000
+      internalID: -6534347281959581640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c40e9c6d6c4cbe10800000000000000
+      internalID: 2214729149616882881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 315
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3483f8a4e7f9a40800000000000000
+      internalID: 5377155338799170513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 270
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83628470b5c692750800000000000000
+      internalID: 6280670293564859960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9abc4f3297f8430800000000000000
+      internalID: 3787379006979680675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b057921c107d03d0800000000000000
+      internalID: -3238809291136216907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 135
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4005ea132ec4d3820800000000000000
+      internalID: 2899558269476294660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39673b5394a217e80800000000000000
+      internalID: -8182712554033547629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc05fc9331463860800000000000000
+      internalID: 7509261118619323588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GoreSplat_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c78bd420bb4b4b0800000000000000
+      internalID: -5425506032506340263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

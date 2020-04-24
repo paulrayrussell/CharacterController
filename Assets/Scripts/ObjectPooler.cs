@@ -3,24 +3,13 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab = null;
+    [SerializeField] private GameObject prefab = null;
     [SerializeField] private int initialNoRequired = 5;
-    private List<BulletStruct> pooledObjects = null;
-
-    public struct BulletStruct
-    {
-        public readonly GameObject bulletPrefab;
-        public readonly PowerEnemyBullet bulletScript;
-
-        public BulletStruct(GameObject o, PowerEnemyBullet bs)
-        {
-            bulletPrefab = o;
-            bulletScript = bs;
-        }
-    }
+    private List<GameObject> pooledObjects = null;
+    
     void Start()
     {  
-        pooledObjects = new List<BulletStruct>();
+        pooledObjects = new List<GameObject>();
         for (int i = 0; i < initialNoRequired; i++)
         {
             CreateNew();
@@ -28,10 +17,10 @@ public class ObjectPooler : MonoBehaviour
         
     }
     
-    public BulletStruct GetPooledObject() {
+    public GameObject GetPooledObject() {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].bulletPrefab.activeInHierarchy) {
+            if (!pooledObjects[i].gameObject.activeInHierarchy) {
                 return pooledObjects[i];
             }
         }
@@ -39,13 +28,12 @@ public class ObjectPooler : MonoBehaviour
         return CreateNew();
     }
 
-    private BulletStruct CreateNew()
+    private GameObject CreateNew()
     {
-         GameObject obj = Instantiate(bulletPrefab);
+         GameObject obj = Instantiate(prefab);
          obj.transform.parent = gameObject.transform;
          obj.SetActive(false);
-         BulletStruct bs = new BulletStruct(obj, obj.GetComponent<PowerEnemyBullet>());
-         pooledObjects.Add(bs);
-         return bs;
+         pooledObjects.Add(obj);
+         return obj;
     }
 }

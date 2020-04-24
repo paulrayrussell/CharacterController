@@ -12,7 +12,8 @@ public class EnemyController : MonoBehaviour
     public EventHandler stateChange;
     private float xMovVel = 0.2f;
     // private float yMovVel = 35f;
-    [SerializeField] private AudioSource grunt;
+    [SerializeField] private AudioSource grunt = null;
+    [SerializeField] private ObjectPooler pooler = null;
 
     private float vel;
     // Start is called before the first frame update
@@ -26,10 +27,20 @@ public class EnemyController : MonoBehaviour
 
     private void Collision(object sender, EventArgs e)
     {
-        isDead = true;
         cControl.vel.x = 0;
+        isDead = true;
+        StartCoroutine(ShowGore(e));
         stateChange?.Invoke(this, new EventArgs());
         grunt.PlayOneShot(grunt.clip);
+    }
+
+    private IEnumerator ShowGore(EventArgs e)
+    {
+        GameObject goreGO = pooler.GetPooledObject();
+        goreGO.transform.position = ((CollisionDetected.LocEventArg) e).location;
+        goreGO.SetActive(true);
+        yield return new WaitForSeconds(0.32f);
+        goreGO.SetActive(false);
     }
 
     // Update is called once per frame

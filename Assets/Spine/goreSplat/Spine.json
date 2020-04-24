@@ -1,0 +1,26 @@
+{"skeleton":{"images":""},
+"bones":[{"name":"root"}],
+"slots":[
+	{"name":"exp3","bone":"root","attachment":"exp3"},
+	{"name":"blob5","bone":"root","attachment":"blob5"},
+	{"name":"exp2","bone":"root","attachment":"exp2"},
+	{"name":"blob4","bone":"root","attachment":"blob4"},
+	{"name":"blob3","bone":"root","attachment":"blob3"},
+	{"name":"blob2","bone":"root","attachment":"blob2"},
+	{"name":"blob1","bone":"root","attachment":"blob1"},
+	{"name":"exp1","bone":"root","attachment":"exp1"}
+],
+"skins":{
+	"default":{
+		"exp3":{"exp3":{"x":465.5,"y":520.5,"width":917,"height":747}},
+		"blob5":{"blob5":{"x":898,"y":746.5,"width":194,"height":133}},
+		"exp2":{"exp2":{"x":521.5,"y":545.5,"width":909,"height":569}},
+		"blob4":{"blob4":{"x":635,"y":963.5,"width":64,"height":65}},
+		"blob3":{"blob3":{"x":71,"y":300,"width":74,"height":70}},
+		"blob2":{"blob2":{"x":876.5,"y":927.5,"width":187,"height":137}},
+		"blob1":{"blob1":{"x":110,"y":854.5,"width":34,"height":37}},
+		"exp1":{"exp1":{"x":565,"y":511.5,"width":820,"height":901}}
+	}
+},
+"animations":{"animation":{}}
+}

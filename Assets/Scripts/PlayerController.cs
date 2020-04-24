@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerAnimationController bodyAnimationCont = null;
     [SerializeField] private ArmsRotationController armsRotationCont = null;
     [SerializeField] private GameObject armsAnimatorGO = null;
-    [SerializeField] private ObjectPooler bulletPooler = null;
+    [SerializeField] private BulletObjectPooler bulletPooler = null;
     [SerializeField] private Transform leftFirept = null;
     [SerializeField] private float armOffset = 0.1f;
     [SerializeField] private float shootSpeed = 0.5f;
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         
         shotSound.PlayOneShot(shotSound.clip);
-        ObjectPooler.BulletStruct bs = bulletPooler.GetPooledObject();
+        BulletObjectPooler.BulletStruct bs = bulletPooler.GetPooledObject();
         bs.bulletPrefab.transform.rotation = armsRotationCont.transform.rotation;
         bs.bulletPrefab.transform.position = leftFirept.position;
         bs.bulletPrefab.SetActive(true);
