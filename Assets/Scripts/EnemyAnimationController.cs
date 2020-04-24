@@ -10,6 +10,7 @@ public class EnemyAnimationController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRender = null;
     [SerializeField] private CharController charController = null;
     [SerializeField] private float groundedRotationSmoother = 20f;
+    [SerializeField] private EnemyController enemyController;
 
     private float flipPoint = 0;
     private float vel;
@@ -18,12 +19,26 @@ public class EnemyAnimationController : MonoBehaviour
     void Start()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+        enemyController.stateChange += StateChange;
+    }
+
+    private void StateChange(object sender, EventArgs e)
+    {
+        if (enemyController.isDead) animator.SetBool("Dead", true);
+        StartCoroutine(LowerEnemyToFloor()); //necessary animation hack
+    }
+
+    private IEnumerator LowerEnemyToFloor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        transform.position = new Vector3(transform.position.x, transform.position.y - 0.23f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if (enemyController.isDead) return;
         transform.position = transform.parent.position; //this should come from the top level component
         
         if (charController.state == CharController.CharacterState.FALLING)

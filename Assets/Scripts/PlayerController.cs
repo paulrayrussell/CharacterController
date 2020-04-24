@@ -1,4 +1,5 @@
-﻿﻿using System.Collections;
+﻿﻿using System;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float shootSpeed = 0.5f;
     [SerializeField] private AudioSource shotSound = null;
 
+    // private CollisionDetected collisionDetected;
     private CharController charController;
     private float xMovVel = 0.5f;
     private float yMovVel = 35f;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
         SpriteRenderer[] sra = armsAnimatorGO.GetComponentsInChildren<SpriteRenderer>();
         srOuter = sra[0];
         srInner = sra[1];
+        // collisionDetected = GetComponentInChildren<CollisionDetected>();
+        // collisionDetected.collisionEnter += StateChange;
     }
 
     void Update()
@@ -58,12 +62,12 @@ public class PlayerController : MonoBehaviour
             if ((new Vector3(mouseClickPos.x, mouseClickPos.y, transform.position.z) - transform.position).magnitude < 3f)
             {
                 Debug.Log("Too close");
-                return;
+                // return;
             }
             
             Vector3 shootDir = (mouseClickPos - leftFirept.position);
             float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
+            // Debug.Log(angle);
             if (shootDir.x > 0 && !bodyAnimationCont.spriteFacingRight) return;
             if (shootDir.x < 0 && bodyAnimationCont.spriteFacingRight) return;
             

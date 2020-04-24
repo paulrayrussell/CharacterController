@@ -1,21 +1,35 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     private CharController cControl;
     private GameObject player;
-
-    private float xMovVel = 0.4f;
+    private CollisionDetected cd;
+    public bool isDead;
+    public EventHandler stateChange;
+    private float xMovVel = 0.2f;
     // private float yMovVel = 35f;
+    [SerializeField] private AudioSource grunt;
 
     private float vel;
     // Start is called before the first frame update
     void Start()
     {
+        cd = GetComponentInChildren<CollisionDetected>();
         cControl = GetComponent<CharController>();
         player = GameObject.FindWithTag("Player");
+        cd.collisionEnter += Collision;
+    }
+
+    private void Collision(object sender, EventArgs e)
+    {
+        isDead = true;
+        cControl.vel.x = 0;
+        stateChange?.Invoke(this, new EventArgs());
+        grunt.PlayOneShot(grunt.clip);
     }
 
     // Update is called once per frame
@@ -23,6 +37,8 @@ public class EnemyMovementController : MonoBehaviour
     {
         // Debug.Log( 4.9 * Time.deltaTime * xMovVel);
         // Debug.Log("---" + moveConst * xMovVel);
+        if (isDead) return;
+        
         float disp = (player.transform.position - transform.position).magnitude;
         if (disp<2)
         {
@@ -33,6 +49,7 @@ public class EnemyMovementController : MonoBehaviour
         }
         
         cControl.vel.x += vel * Time.deltaTime; //must have dt - as will vary
-            
     }
+
+
 }

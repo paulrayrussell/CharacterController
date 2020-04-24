@@ -1,0 +1,659 @@
+fileFormatVersion: 2
+guid: 82fdae2d82851ae4481b81b16be71c92
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3463045763895393141
+    second: ThugDeath_0
+  - first:
+      213: -4278406665727195944
+    second: ThugDeath_1
+  - first:
+      213: 7395468030180584202
+    second: ThugDeath_2
+  - first:
+      213: -1078023866256391597
+    second: ThugDeath_3
+  - first:
+      213: -6642626133943371915
+    second: ThugDeath_4
+  - first:
+      213: -2108610224431184566
+    second: ThugDeath_5
+  - first:
+      213: -4193969661973834970
+    second: ThugDeath_6
+  - first:
+      213: -4703951313415673620
+    second: ThugDeath_7
+  - first:
+      213: -3936183777573129271
+    second: ThugDeath_8
+  - first:
+      213: 1217159841642272547
+    second: ThugDeath_9
+  - first:
+      213: -834773658240740773
+    second: ThugDeath_10
+  - first:
+      213: 6937990375911590973
+    second: ThugDeath_11
+  - first:
+      213: -6656214990610422031
+    second: ThugDeath_12
+  - first:
+      213: -2827924570368388598
+    second: ThugDeath_13
+  - first:
+      213: 4715650340046294800
+    second: ThugDeath_14
+  - first:
+      213: 7704609365951927462
+    second: ThugDeath_15
+  - first:
+      213: 6855768954043154377
+    second: ThugDeath_16
+  - first:
+      213: -8770264373386052438
+    second: ThugDeath_17
+  - first:
+      213: 8277963592029040072
+    second: ThugDeath_18
+  - first:
+      213: 7116876460601973017
+    second: ThugDeath_19
+  - first:
+      213: 3256862181273005187
+    second: ThugDeath_0
+  - first:
+      213: -8962009586142275262
+    second: ThugDeath_1
+  - first:
+      213: -4329910824054523493
+    second: ThugDeath_2
+  - first:
+      213: -4393378669417038379
+    second: ThugDeath_3
+  - first:
+      213: 1781568580744179282
+    second: ThugDeath_5
+  - first:
+      213: 5460841915305192163
+    second: ThugDeath_6
+  - first:
+      213: -164914105625027858
+    second: ThugDeath_7
+  - first:
+      213: 5835845964170128486
+    second: ThugDeath_8
+  - first:
+      213: 842162578920903191
+    second: ThugDeath_10
+  - first:
+      213: -5770362158256287183
+    second: ThugDeath_11
+  - first:
+      213: 5324705310255047042
+    second: ThugDeath_12
+  - first:
+      213: -5778495231042337262
+    second: ThugDeath_13
+  - first:
+      213: -63407636078553201
+    second: ThugDeath_15
+  - first:
+      213: -1648804007426649066
+    second: ThugDeath_16
+  - first:
+      213: -1841708478619635085
+    second: ThugDeath_17
+  - first:
+      213: -7080348811592736650
+    second: ThugDeath_18
+  - first:
+      213: -5746872813416573186
+    second: ThugDeath_20
+  - first:
+      213: -1683929261715574752
+    second: ThugDeath_4
+  - first:
+      213: -1440678335145086705
+    second: ThugDeath_9
+  - first:
+      213: 3643367042007703857
+    second: ThugDeath_14
+  - first:
+      213: 8463235079549929065
+    second: ThugDeath_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ThugDeath_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1245
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c6e25f5e2b23d20800000000000000
+      internalID: 3256862181273005187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_1
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1245
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2491850a3cb80a380800000000000000
+      internalID: -8962009586142275262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_2
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1245
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b997c1fdb0119e3c0800000000000000
+      internalID: -4329910824054523493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_3
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1245
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd7e9590659703c0800000000000000
+      internalID: -4393378669417038379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 830
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ee04e5f2769b810800000000000000
+      internalID: 1781568580744179282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_6
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 830
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea64580acec8cb40800000000000000
+      internalID: 5460841915305192163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_7
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 830
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eead4c3ae7b16bdf0800000000000000
+      internalID: -164914105625027858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_8
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 830
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ce14a1cf61df050800000000000000
+      internalID: 5835845964170128486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 415
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71215bf4766ffab00800000000000000
+      internalID: 842162578920903191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_11
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 415
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13217c3903e8befa0800000000000000
+      internalID: -5770362158256287183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_12
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 415
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2816367a44725e940800000000000000
+      internalID: 5324705310255047042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_13
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 415
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216ce610439aecfa0800000000000000
+      internalID: -5778495231042337262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f879d77471bbe1ff0800000000000000
+      internalID: -63407636078553201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_16
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6141811bd754e19e0800000000000000
+      internalID: -1648804007426649066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_17
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 0
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3723d0085efe076e0800000000000000
+      internalID: -1841708478619635085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_18
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 0
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670e727e44c8dbd90800000000000000
+      internalID: -7080348811592736650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_4
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 1245
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020be80224b71a8e0800000000000000
+      internalID: -1683929261715574752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_9
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 830
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01731eefaea10ce0800000000000000
+      internalID: -1440678335145086705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_14
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 415
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1312c357507df8230800000000000000
+      internalID: 3643367042007703857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThugDeath_19
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 0
+        width: 398
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966c237f673737570800000000000000
+      internalID: 8463235079549929065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

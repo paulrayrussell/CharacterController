@@ -53,9 +53,13 @@ public class CharController : MonoBehaviour
 
     void Start()
     {
-        playerBox = GetComponentInChildren<BoxCollider2D>();
+        playerBox = GetComponentInChildren<BoxCollider2D>(); //needs to be child to avoid recursion on instantiation
         preResize = Instantiate(playerBox, playerBox.transform.position, playerBox.transform.rotation);
+        GameObject prGO = preResize.gameObject;
+        CollisionDetected cd = prGO.GetComponent<CollisionDetected>(); //don't do collision on the copy.
+        if (cd!=null) cd.enabled = false;
         preResize.size = playerBox.size;
+        preResize.enabled = false;
         preResize.offset = playerBox.offset;
         preResize.name = "Pre-resize";
         preResize.transform.SetParent(gameObject.transform);
@@ -307,5 +311,10 @@ public class CharController : MonoBehaviour
         {
             Debug.DrawRay(rays[i].origin, rays[i].direction * rayCastLength, Color.red);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        
     }
 }
