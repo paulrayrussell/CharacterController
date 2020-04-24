@@ -128,6 +128,9 @@ TextureImporter:
   - first:
       213: -2331822845194593983
     second: RhonerShootNoArms_18
+  - first:
+      213: -8704231392997697680
+    second: RhonerShootNoArms_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -225,33 +228,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RhonerShootNoArms_19
-      rect:
-        serializedVersion: 2
-        x: 1615
-        y: 0
-        width: 85
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15a8f1aedf5ede420800000000000000
-      internalID: 2661035833563253329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: RhonerShootNoArms_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -270,9 +252,9 @@ TextureImporter:
       name: RhonerShootNoArms_1
       rect:
         serializedVersion: 2
-        x: 85
+        x: 86
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -291,9 +273,9 @@ TextureImporter:
       name: RhonerShootNoArms_2
       rect:
         serializedVersion: 2
-        x: 170
+        x: 172
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -312,9 +294,9 @@ TextureImporter:
       name: RhonerShootNoArms_3
       rect:
         serializedVersion: 2
-        x: 255
+        x: 258
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -333,9 +315,9 @@ TextureImporter:
       name: RhonerShootNoArms_4
       rect:
         serializedVersion: 2
-        x: 340
+        x: 344
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -354,9 +336,9 @@ TextureImporter:
       name: RhonerShootNoArms_5
       rect:
         serializedVersion: 2
-        x: 425
+        x: 430
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -375,9 +357,9 @@ TextureImporter:
       name: RhonerShootNoArms_6
       rect:
         serializedVersion: 2
-        x: 510
+        x: 516
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -396,9 +378,9 @@ TextureImporter:
       name: RhonerShootNoArms_7
       rect:
         serializedVersion: 2
-        x: 595
+        x: 602
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -417,9 +399,9 @@ TextureImporter:
       name: RhonerShootNoArms_8
       rect:
         serializedVersion: 2
-        x: 680
+        x: 688
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -438,9 +420,9 @@ TextureImporter:
       name: RhonerShootNoArms_9
       rect:
         serializedVersion: 2
-        x: 765
+        x: 774
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -459,9 +441,9 @@ TextureImporter:
       name: RhonerShootNoArms_10
       rect:
         serializedVersion: 2
-        x: 850
+        x: 860
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -480,9 +462,9 @@ TextureImporter:
       name: RhonerShootNoArms_11
       rect:
         serializedVersion: 2
-        x: 935
+        x: 946
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -501,9 +483,9 @@ TextureImporter:
       name: RhonerShootNoArms_12
       rect:
         serializedVersion: 2
-        x: 1020
+        x: 1032
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -522,9 +504,9 @@ TextureImporter:
       name: RhonerShootNoArms_13
       rect:
         serializedVersion: 2
-        x: 1105
+        x: 1118
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -543,9 +525,9 @@ TextureImporter:
       name: RhonerShootNoArms_14
       rect:
         serializedVersion: 2
-        x: 1190
+        x: 1204
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -564,9 +546,9 @@ TextureImporter:
       name: RhonerShootNoArms_15
       rect:
         serializedVersion: 2
-        x: 1275
+        x: 1290
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -585,9 +567,9 @@ TextureImporter:
       name: RhonerShootNoArms_16
       rect:
         serializedVersion: 2
-        x: 1360
+        x: 1376
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -606,9 +588,9 @@ TextureImporter:
       name: RhonerShootNoArms_17
       rect:
         serializedVersion: 2
-        x: 1445
+        x: 1462
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -627,9 +609,9 @@ TextureImporter:
       name: RhonerShootNoArms_18
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 1548
         y: 0
-        width: 85
+        width: 86
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -640,6 +622,27 @@ TextureImporter:
       bones: []
       spriteID: 14919011a73b3afd0800000000000000
       internalID: -2331822845194593983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhonerShootNoArms_19
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 0
+        width: 86
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07791914aab543780800000000000000
+      internalID: -8704231392997697680
       vertices: []
       indices: 
       edges: []

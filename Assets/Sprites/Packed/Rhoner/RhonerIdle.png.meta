@@ -92,6 +92,96 @@ TextureImporter:
   - first:
       213: -2202284626285633851
     second: RhonerIdle_29
+  - first:
+      213: -2716392999128975485
+    second: RhonerIdle_0
+  - first:
+      213: -6630289133200432146
+    second: RhonerIdle_1
+  - first:
+      213: 6707384983423704197
+    second: RhonerIdle_2
+  - first:
+      213: 842625567812235978
+    second: RhonerIdle_3
+  - first:
+      213: 9067297296608740501
+    second: RhonerIdle_4
+  - first:
+      213: 375927169210727816
+    second: RhonerIdle_5
+  - first:
+      213: 7488756479622138150
+    second: RhonerIdle_6
+  - first:
+      213: -2310457856561208373
+    second: RhonerIdle_7
+  - first:
+      213: 6957339044675101211
+    second: RhonerIdle_8
+  - first:
+      213: -8264391714381724468
+    second: RhonerIdle_9
+  - first:
+      213: -3234441202840570974
+    second: RhonerIdle_10
+  - first:
+      213: -1385763338168303586
+    second: RhonerIdle_11
+  - first:
+      213: 1910640363523434615
+    second: RhonerIdle_12
+  - first:
+      213: -4419653442287361449
+    second: RhonerIdle_13
+  - first:
+      213: -4905975339399393639
+    second: RhonerIdle_14
+  - first:
+      213: -542555018665223092
+    second: RhonerIdle_15
+  - first:
+      213: 2454706707547870744
+    second: RhonerIdle_16
+  - first:
+      213: 8369904600461578615
+    second: RhonerIdle_17
+  - first:
+      213: -6911668943197769195
+    second: RhonerIdle_18
+  - first:
+      213: -6177604960315173344
+    second: RhonerIdle_19
+  - first:
+      213: 4435102237981685498
+    second: RhonerIdle_20
+  - first:
+      213: -3325064421033809678
+    second: RhonerIdle_21
+  - first:
+      213: 4728376356080042278
+    second: RhonerIdle_22
+  - first:
+      213: 2034670718154806405
+    second: RhonerIdle_23
+  - first:
+      213: 1486530329654094226
+    second: RhonerIdle_24
+  - first:
+      213: 2649040393503403911
+    second: RhonerIdle_25
+  - first:
+      213: -8451883538042271504
+    second: RhonerIdle_26
+  - first:
+      213: 330415720609294938
+    second: RhonerIdle_27
+  - first:
+      213: -5515139194814308066
+    second: RhonerIdle_28
+  - first:
+      213: 8984759987969425959
+    second: RhonerIdle_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -194,7 +284,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,8 +293,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 569999ebd4e1220c0800000000000000
-      internalID: -4602082549960173211
+      spriteID: 3873f8895fe6d4ad0800000000000000
+      internalID: -2716392999128975485
       vertices: []
       indices: 
       edges: []
@@ -213,9 +303,9 @@ TextureImporter:
       name: RhonerIdle_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 98
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,8 +314,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 514628804cb19c710800000000000000
-      internalID: 1713931661961487381
+      spriteID: ee3a471892b7cf3a0800000000000000
+      internalID: -6630289133200432146
       vertices: []
       indices: 
       edges: []
@@ -234,9 +324,9 @@ TextureImporter:
       name: RhonerIdle_2
       rect:
         serializedVersion: 2
-        x: 194
+        x: 196
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,8 +335,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad98b1f7e825f70c0800000000000000
-      internalID: -4575847924413789734
+      spriteID: 58c52ccea1b651d50800000000000000
+      internalID: 6707384983423704197
       vertices: []
       indices: 
       edges: []
@@ -255,9 +345,9 @@ TextureImporter:
       name: RhonerIdle_3
       rect:
         serializedVersion: 2
-        x: 291
+        x: 294
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,8 +356,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93c3f1d0ef30a0eb0800000000000000
-      internalID: -4752982067059409863
+      spriteID: ac23c105d7b91bb00800000000000000
+      internalID: 842625567812235978
       vertices: []
       indices: 
       edges: []
@@ -276,9 +366,9 @@ TextureImporter:
       name: RhonerIdle_4
       rect:
         serializedVersion: 2
-        x: 388
+        x: 392
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,8 +377,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a9b0eaae1fc96420800000000000000
-      internalID: 2623855988542847393
+      spriteID: 5944935c9d285dd70800000000000000
+      internalID: 9067297296608740501
       vertices: []
       indices: 
       edges: []
@@ -297,9 +387,9 @@ TextureImporter:
       name: RhonerIdle_5
       rect:
         serializedVersion: 2
-        x: 485
+        x: 490
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -308,8 +398,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9558cb4e7151317e0800000000000000
-      internalID: -1796068634024704679
+      spriteID: 88d3936c4cf873500800000000000000
+      internalID: 375927169210727816
       vertices: []
       indices: 
       edges: []
@@ -318,9 +408,9 @@ TextureImporter:
       name: RhonerIdle_6
       rect:
         serializedVersion: 2
-        x: 582
+        x: 588
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -329,8 +419,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eceae6bbec791950800000000000000
-      internalID: 6420300095621360868
+      spriteID: 629484157586de760800000000000000
+      internalID: 7488756479622138150
       vertices: []
       indices: 
       edges: []
@@ -339,9 +429,9 @@ TextureImporter:
       name: RhonerIdle_7
       rect:
         serializedVersion: 2
-        x: 679
+        x: 686
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -350,8 +440,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c634468c63458cc0800000000000000
-      internalID: -3709484584681589051
+      spriteID: bc3a82f12da9fefd0800000000000000
+      internalID: -2310457856561208373
       vertices: []
       indices: 
       edges: []
@@ -360,9 +450,9 @@ TextureImporter:
       name: RhonerIdle_8
       rect:
         serializedVersion: 2
-        x: 776
+        x: 784
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -371,8 +461,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ec1258c9bbc3d680800000000000000
-      internalID: -8731411253751046943
+      spriteID: b12a0d3effe6d8060800000000000000
+      internalID: 6957339044675101211
       vertices: []
       indices: 
       edges: []
@@ -381,9 +471,9 @@ TextureImporter:
       name: RhonerIdle_9
       rect:
         serializedVersion: 2
-        x: 873
+        x: 882
         y: 800
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -392,8 +482,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5c9b99f9628a7460800000000000000
-      internalID: 7240242742622395487
+      spriteID: cc4889bb58bfe4d80800000000000000
+      internalID: -8264391714381724468
       vertices: []
       indices: 
       edges: []
@@ -404,7 +494,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -413,8 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 315bf95f453e22f60800000000000000
-      internalID: 8008213041455805715
+      spriteID: 2a3fcc1ecd4fc13d0800000000000000
+      internalID: -3234441202840570974
       vertices: []
       indices: 
       edges: []
@@ -423,9 +513,9 @@ TextureImporter:
       name: RhonerIdle_11
       rect:
         serializedVersion: 2
-        x: 97
+        x: 98
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -434,8 +524,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e8256931f62e8920800000000000000
-      internalID: 2994373619739863270
+      spriteID: e1008b50697c4cce0800000000000000
+      internalID: -1385763338168303586
       vertices: []
       indices: 
       edges: []
@@ -444,9 +534,9 @@ TextureImporter:
       name: RhonerIdle_12
       rect:
         serializedVersion: 2
-        x: 194
+        x: 196
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -455,8 +545,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55baecae24f56f230800000000000000
-      internalID: 3672227287179111253
+      spriteID: 7786651a945f38a10800000000000000
+      internalID: 1910640363523434615
       vertices: []
       indices: 
       edges: []
@@ -465,9 +555,9 @@ TextureImporter:
       name: RhonerIdle_13
       rect:
         serializedVersion: 2
-        x: 291
+        x: 294
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -476,8 +566,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3acd285182dd1ea0800000000000000
-      internalID: -5900328483813471685
+      spriteID: 752212e4c9c3aa2c0800000000000000
+      internalID: -4419653442287361449
       vertices: []
       indices: 
       edges: []
@@ -486,9 +576,9 @@ TextureImporter:
       name: RhonerIdle_14
       rect:
         serializedVersion: 2
-        x: 388
+        x: 392
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -497,8 +587,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cef5f22dfcafb8e0800000000000000
-      internalID: -1675430333145284922
+      spriteID: 99ec54afb697aebb0800000000000000
+      internalID: -4905975339399393639
       vertices: []
       indices: 
       edges: []
@@ -507,9 +597,9 @@ TextureImporter:
       name: RhonerIdle_15
       rect:
         serializedVersion: 2
-        x: 485
+        x: 490
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -518,8 +608,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c5213cd651227e0800000000000000
-      internalID: -1791846140571657099
+      spriteID: c4c9a59c5157878f0800000000000000
+      internalID: -542555018665223092
       vertices: []
       indices: 
       edges: []
@@ -528,9 +618,9 @@ TextureImporter:
       name: RhonerIdle_16
       rect:
         serializedVersion: 2
-        x: 582
+        x: 588
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -539,8 +629,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98c1189c00e1374a0800000000000000
-      internalID: -6596896040438129527
+      spriteID: 816d823bebed01220800000000000000
+      internalID: 2454706707547870744
       vertices: []
       indices: 
       edges: []
@@ -549,9 +639,9 @@ TextureImporter:
       name: RhonerIdle_17
       rect:
         serializedVersion: 2
-        x: 679
+        x: 686
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -560,8 +650,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7efddb7b9e4367130800000000000000
-      internalID: 3564094333525024743
+      spriteID: 7719b6273efd72470800000000000000
+      internalID: 8369904600461578615
       vertices: []
       indices: 
       edges: []
@@ -570,9 +660,9 @@ TextureImporter:
       name: RhonerIdle_18
       rect:
         serializedVersion: 2
-        x: 776
+        x: 784
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -581,8 +671,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608e91ae84506d630800000000000000
-      internalID: 3951351533787539462
+      spriteID: 512f89b37b1d410a0800000000000000
+      internalID: -6911668943197769195
       vertices: []
       indices: 
       edges: []
@@ -591,9 +681,9 @@ TextureImporter:
       name: RhonerIdle_19
       rect:
         serializedVersion: 2
-        x: 873
+        x: 882
         y: 400
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -602,8 +692,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e0c434c9343a5da0800000000000000
-      internalID: -5955390134534487840
+      spriteID: 02619b9d40db44aa0800000000000000
+      internalID: -6177604960315173344
       vertices: []
       indices: 
       edges: []
@@ -614,7 +704,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -623,8 +713,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f13f2bfaf7a90ba70800000000000000
-      internalID: 8840735941727548191
+      spriteID: af6307dbcf5ac8d30800000000000000
+      internalID: 4435102237981685498
       vertices: []
       indices: 
       edges: []
@@ -633,9 +723,9 @@ TextureImporter:
       name: RhonerIdle_21
       rect:
         serializedVersion: 2
-        x: 97
+        x: 98
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -644,8 +734,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d390357a800492730800000000000000
-      internalID: 3974778552042326333
+      spriteID: 2f86df8a68ffad1d0800000000000000
+      internalID: -3325064421033809678
       vertices: []
       indices: 
       edges: []
@@ -654,9 +744,9 @@ TextureImporter:
       name: RhonerIdle_22
       rect:
         serializedVersion: 2
-        x: 194
+        x: 196
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -665,8 +755,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93ae411dda2e45040800000000000000
-      internalID: 4635579152636111417
+      spriteID: 621c18c6e319e9140800000000000000
+      internalID: 4728376356080042278
       vertices: []
       indices: 
       edges: []
@@ -675,9 +765,9 @@ TextureImporter:
       name: RhonerIdle_23
       rect:
         serializedVersion: 2
-        x: 291
+        x: 294
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -686,8 +776,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aa57f1acc37e46f0800000000000000
-      internalID: -698493569467983196
+      spriteID: 584918eec3a9c3c10800000000000000
+      internalID: 2034670718154806405
       vertices: []
       indices: 
       edges: []
@@ -696,9 +786,9 @@ TextureImporter:
       name: RhonerIdle_24
       rect:
         serializedVersion: 2
-        x: 388
+        x: 392
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -707,8 +797,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17e75d5ad231eb370800000000000000
-      internalID: 8340124646713425521
+      spriteID: 29960e6757731a410800000000000000
+      internalID: 1486530329654094226
       vertices: []
       indices: 
       edges: []
@@ -717,9 +807,9 @@ TextureImporter:
       name: RhonerIdle_25
       rect:
         serializedVersion: 2
-        x: 485
+        x: 490
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -728,8 +818,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ddf356e5e84daf20800000000000000
-      internalID: 3435482243002531283
+      spriteID: 78f6e62e33843c420800000000000000
+      internalID: 2649040393503403911
       vertices: []
       indices: 
       edges: []
@@ -738,9 +828,9 @@ TextureImporter:
       name: RhonerIdle_26
       rect:
         serializedVersion: 2
-        x: 582
+        x: 588
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -749,8 +839,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10018ff4ffad29370800000000000000
-      internalID: 8327959451054641153
+      spriteID: 0f8c400c3b0e4ba80800000000000000
+      internalID: -8451883538042271504
       vertices: []
       indices: 
       edges: []
@@ -759,9 +849,9 @@ TextureImporter:
       name: RhonerIdle_27
       rect:
         serializedVersion: 2
-        x: 679
+        x: 686
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -770,8 +860,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e756141367b09490800000000000000
-      internalID: -7741486123283228697
+      spriteID: a5a2f17e85fd59400800000000000000
+      internalID: 330415720609294938
       vertices: []
       indices: 
       edges: []
@@ -780,9 +870,9 @@ TextureImporter:
       name: RhonerIdle_28
       rect:
         serializedVersion: 2
-        x: 776
+        x: 784
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -791,8 +881,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fecccdf08595cd50800000000000000
-      internalID: 6756971197185707762
+      spriteID: e11624e6f1a4673b0800000000000000
+      internalID: -5515139194814308066
       vertices: []
       indices: 
       edges: []
@@ -801,9 +891,9 @@ TextureImporter:
       name: RhonerIdle_29
       rect:
         serializedVersion: 2
-        x: 873
+        x: 882
         y: 0
-        width: 97
+        width: 98
         height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -812,8 +902,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ced0f3fcc9ef61e0800000000000000
-      internalID: -2202284626285633851
+      spriteID: 7228f031b9740bc70800000000000000
+      internalID: 8984759987969425959
       vertices: []
       indices: 
       edges: []
